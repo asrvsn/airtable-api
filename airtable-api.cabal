@@ -6,7 +6,7 @@ homepage:            https://github.com/ooblahman/airtable-api
 license:             BSD3
 license-file:        LICENSE
 author:              Anand Srinivasan
-maintainer:          anand@alphasheets.com
+maintainer:          Anand Srinivasan
 copyright:           AlphaSheets, Inc
 category:            Web
 build-type:          Simple
