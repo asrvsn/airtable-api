@@ -1,0 +1,1891 @@
+
+==================== FINAL INTERFACE ====================
+2017-02-07 11:13:48.74041 UTC
+
+interface airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk:Airtable.Table [family instance module] 8001
+  interface hash: f01deded26995f54f7932041b188719a
+  ABI hash: cce9069bdfa800bc7f0126f2fcbbf3f4
+  export-list hash: 9303015ff5c7aa1452e119af9dd5e0fd
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 8cbd864d83ca6889fa61f32a4665c494
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Airtable.Table.deleteWhere
+  Airtable.Table.exists
+  Airtable.Table.rec2str
+  Airtable.Table.select
+  Airtable.Table.selectAll
+  Airtable.Table.selectAllKeys
+  Airtable.Table.selectKeyWhere
+  Airtable.Table.selectMaybe
+  Airtable.Table.selectWhere
+  Airtable.Table.toList
+  Airtable.Table.IsRecord{Airtable.Table.toRec}
+  Airtable.Table.RecordID{Airtable.Table.RecordID}
+  Airtable.Table.Table{Airtable.Table.Table tableOffset tableRecords}
+  Airtable.Table.TableName
+module dependencies:
+package dependencies: aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw
+                      array-0.5.1.1@array-0.5.1.1
+                      attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR
+                      base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0
+                      dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv
+                      ghc-boot-th-8.0.1@ghc-boot-th-8.0.1 ghc-prim-0.5.0.0
+                      hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G
+                      integer-gmp-1.0.0.1
+                      primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
+                      scientific-0.3.4.9@scientific-0.3.4.9-6oTYuCcx6H5BsTGU7D2Gk3
+                      tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx
+                      template-haskell-2.11.0.0
+                      text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+                      unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-2FShXByu6KdBz0M9aQqvS3
+                      vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6
+orphans: aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson.Types.Generic
+         aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson.Types.Instances
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.ByteString.Char8
+         attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Text.Internal
+         base-4.9.0.0:GHC.Base base-4.9.0.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Generic
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Fusion.Bundle
+         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
+family instance modules: attoparsec-0.13.1.0@attoparsec-0.13.1.0-5Olk1S76r1CDYzFS6V3sZR:Data.Attoparsec.Internal.Types
+                         base-4.9.0.0:Control.Applicative base-4.9.0.0:Data.Complex
+                         base-4.9.0.0:Data.Either base-4.9.0.0:Data.Functor.Const
+                         base-4.9.0.0:Data.Functor.Identity base-4.9.0.0:Data.List.NonEmpty
+                         base-4.9.0.0:Data.Monoid base-4.9.0.0:Data.Semigroup
+                         base-4.9.0.0:Data.Type.Equality base-4.9.0.0:Data.Version
+                         base-4.9.0.0:Data.Void base-4.9.0.0:GHC.Exts
+                         base-4.9.0.0:GHC.Generics base-4.9.0.0:GHC.IO.Exception
+                         base-4.9.0.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv:Data.DList
+                         ghc-boot-th-8.0.1@ghc-boot-th-8.0.1:GHC.LanguageExtensions.Type
+                         primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa:Control.Monad.Primitive
+                         tagged-0.8.5@tagged-0.8.5-CtgV6EcN0do8F92i1S6iYx:Data.Tagged
+                         template-haskell-2.11.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Lazy
+                         unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-2FShXByu6KdBz0M9aQqvS3:Data.HashMap.Base
+                         unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-2FShXByu6KdBz0M9aQqvS3:Data.HashSet
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Primitive
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Storable
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed
+                         vector-0.11.0.0@vector-0.11.0.0-BEDZb5o2QOhGbIm6ky7rl6:Data.Vector.Unboxed.Base
+import  -/  aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson 5e99caf39f144f87072bfe3d2ced29aa
+import  -/  aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson.Types 699c7e3feafd5c1fbb295b4aceaaffbe
+import  -/  aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson.Types.Class 3733438aecd901b8869d435dbffc9a87
+import  -/  aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson.Types.Instances 53427c3f7b82be1085168632570edd44
+import  -/  aeson-0.11.3.0@aeson-0.11.3.0-HABukI0brwVDL6VV4zjsTw:Data.Aeson.Types.Internal 1606fdcad334f5ba2b6a5b293ec7c9bc
+import  -/  base-4.9.0.0:Control.Applicative 7728b33d6969dce59e89474349eb1397
+import  -/  base-4.9.0.0:Data.Foldable 8aeb682f6c74f97fcf0ace0d608a43ea
+import  -/  base-4.9.0.0:Data.Monoid 1efae021212a10c79fd75960dc0a1d99
+import  -/  base-4.9.0.0:Data.Tuple acb0ed10307ed88df6c81b8589f4de16
+import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
+import  -/  base-4.9.0.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.0.0:GHC.Generics 8e2a7658e8b966c1d29d0d5fd4129f38
+import  -/  base-4.9.0.0:GHC.List 13d2451194c1c6e53b4f4f07947736dd
+import  -/  base-4.9.0.0:GHC.Show 952347a6ab730bcb25c0854d8bc6ca51
+import  -/  base-4.9.0.0:GHC.Stack 484558ec30050b556ef46627d184b02f
+import  -/  base-4.9.0.0:GHC.Stack.Types 51968494fa04901a60fe271cf46e18df
+import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
+import  -/  hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable 71c3081f6f34402a5321988bec1814e7
+import  -/  hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G:Data.Hashable.Class 3d7203031dce57ddf5aeed91c7401264
+import  -/  text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text 6515f3179e27a91345842b6e634f584c
+import  -/  text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Internal 530216acfbfab25df053b0caac6d6a57
+import  -/  text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s:Data.Text.Show c6fc4b1a4431943028eb6eb78b495e09
+import  -/  unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-2FShXByu6KdBz0M9aQqvS3:Data.HashMap.Base 8fc933a8927c71e779343a5c971c0bfd
+import  -/  unordered-containers-0.2.7.2@unordered-containers-0.2.7.2-2FShXByu6KdBz0M9aQqvS3:Data.HashMap.Strict 81c2062027bda9072188af4ee30b0d0c
+faefd6de81c9ce364f64a3b4a38242c4
+  $fEqRecordID :: GHC.Classes.Eq Airtable.Table.RecordID
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Airtable.Table.RecordID
+                  Airtable.Table.$fEqRecordID_$c==
+                  Airtable.Table.$fEqRecordID_$c/= -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fEqRecordID_$c/= ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fEqText_$c/=
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fEqRecordID_$c== ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),1*U(U,U,U)><S(LLS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fEqText_$c==
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fFromJSONRecordID ::
+    Data.Aeson.Types.Class.FromJSON Airtable.Table.RecordID
+  DFunId
+  {- Arity: 1, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Airtable.Table.$fFromJSONRecordID_$cparseJSON
+                  `cast`
+                (Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                          <Airtable.Table.RecordID>_N)) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fFromJSONRecordID_$cparseJSON ::
+    Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser Airtable.Table.RecordID
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.Aeson.Types.Instances.$fFromJSONText0_$cparseJSON
+                  `cast`
+                (<Data.Aeson.Types.Internal.Value>_R
+                 ->_R (Data.Aeson.Types.Internal.Parser
+                         (Sym (Airtable.Table.N:RecordID[0])))_R) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fFromJSONTable ::
+    Data.Aeson.Types.Class.FromJSON a =>
+    Data.Aeson.Types.Class.FromJSON (Airtable.Table.Table a)
+  DFunId
+  {- Arity: 2, Strictness: <L,C(U)><S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (1, False, True)
+                Airtable.Table.$fFromJSONTable_$cparseJSON
+                  `cast`
+                (forall (a :: <*>_N).
+                 <Data.Aeson.Types.Class.FromJSON a>_R
+                 ->_R Sym (Data.Aeson.Types.Class.N:FromJSON[0]
+                               <Airtable.Table.Table a>_N)) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fFromJSONTable_$cparseJSON ::
+    Data.Aeson.Types.Class.FromJSON a =>
+    Data.Aeson.Types.Internal.Value
+    -> Data.Aeson.Types.Internal.Parser (Airtable.Table.Table a)
+  {- Arity: 2, Strictness: <L,C(U)><S,1*U> -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fGenericRecordID :: GHC.Generics.Generic Airtable.Table.RecordID
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Airtable.Table.RecordID
+                  Airtable.Table.$fGenericRecordID_$cfrom
+                  Airtable.Table.$fGenericRecordID_$cto -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fGenericRecordID1 ::
+    GHC.Generics.Rep Airtable.Table.RecordID x
+    -> GHC.Generics.Rep Airtable.Table.RecordID x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U)>m,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ x (ds :: GHC.Generics.Rep Airtable.Table.RecordID x) -> ds) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fGenericRecordID2 ::
+    Airtable.Table.RecordID -> Airtable.Table.RecordID
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U)>m,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ x (ds :: Airtable.Table.RecordID) -> ds) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fGenericRecordID_$cfrom ::
+    Airtable.Table.RecordID
+    -> GHC.Generics.Rep Airtable.Table.RecordID x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Airtable.Table.$fGenericRecordID2
+                  `cast`
+                (forall (x :: <GHC.Types.*>_N).
+                 <Airtable.Table.RecordID>_R
+                 ->_R Trans
+                          (Airtable.Table.N:RecordID[0])
+                          (Trans
+                               (Sym (GHC.Generics.N:K1[0]
+                                         <GHC.Generics.R>_P <Data.Text.Internal.Text>_R <x>_P))
+                               (Trans
+                                    (Sym (GHC.Generics.N:M1[0]
+                                              <GHC.Generics.S>_P
+                                              <'GHC.Generics.MetaSel
+                                                 'GHC.Base.Nothing
+                                                 'GHC.Generics.NoSourceUnpackedness
+                                                 'GHC.Generics.NoSourceStrictness
+                                                 'GHC.Generics.DecidedLazy>_P
+                                              <GHC.Generics.K1
+                                                 GHC.Generics.R Data.Text.Internal.Text>_R))
+                                    (Trans
+                                         (Sym (GHC.Generics.N:M1[0]
+                                                   <GHC.Generics.C>_P
+                                                   <'GHC.Generics.MetaCons
+                                                      "RecordID"
+                                                      'GHC.Generics.PrefixI
+                                                      'GHC.Types.False>_P
+                                                   <GHC.Generics.M1
+                                                      GHC.Generics.S
+                                                      ('GHC.Generics.MetaSel
+                                                         'GHC.Base.Nothing
+                                                         'GHC.Generics.NoSourceUnpackedness
+                                                         'GHC.Generics.NoSourceStrictness
+                                                         'GHC.Generics.DecidedLazy)
+                                                      (GHC.Generics.K1
+                                                         GHC.Generics.R
+                                                         Data.Text.Internal.Text)>_R))
+                                         (Trans
+                                              (Sym (GHC.Generics.N:M1[0]
+                                                        <GHC.Generics.D>_P
+                                                        <'GHC.Generics.MetaData
+                                                           "RecordID"
+                                                           "Airtable.Table"
+                                                           "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+                                                           'GHC.Types.True>_P
+                                                        <GHC.Generics.M1
+                                                           GHC.Generics.C
+                                                           ('GHC.Generics.MetaCons
+                                                              "RecordID"
+                                                              'GHC.Generics.PrefixI
+                                                              'GHC.Types.False)
+                                                           (GHC.Generics.M1
+                                                              GHC.Generics.S
+                                                              ('GHC.Generics.MetaSel
+                                                                 'GHC.Base.Nothing
+                                                                 'GHC.Generics.NoSourceUnpackedness
+                                                                 'GHC.Generics.NoSourceStrictness
+                                                                 'GHC.Generics.DecidedLazy)
+                                                              (GHC.Generics.K1
+                                                                 GHC.Generics.R
+                                                                 Data.Text.Internal.Text))>_R))
+                                              (Sub (Sym (Airtable.Table.Rep_RecordID[0]))))) <x>_N))) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fGenericRecordID_$cto ::
+    GHC.Generics.Rep Airtable.Table.RecordID x
+    -> Airtable.Table.RecordID
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Airtable.Table.$fGenericRecordID1
+                  `cast`
+                (forall (x :: <GHC.Types.*>_N).
+                 <GHC.Generics.Rep Airtable.Table.RecordID x>_R
+                 ->_R Trans
+                          (Trans
+                               (Sub (Airtable.Table.Rep_RecordID[0]))
+                               (Trans
+                                    (GHC.Generics.N:M1[0]
+                                         <GHC.Generics.D>_P
+                                         <'GHC.Generics.MetaData
+                                            "RecordID"
+                                            "Airtable.Table"
+                                            "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+                                            'GHC.Types.True>_P
+                                         <GHC.Generics.M1
+                                            GHC.Generics.C
+                                            ('GHC.Generics.MetaCons
+                                               "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+                                            (GHC.Generics.M1
+                                               GHC.Generics.S
+                                               ('GHC.Generics.MetaSel
+                                                  'GHC.Base.Nothing
+                                                  'GHC.Generics.NoSourceUnpackedness
+                                                  'GHC.Generics.NoSourceStrictness
+                                                  'GHC.Generics.DecidedLazy)
+                                               (GHC.Generics.K1
+                                                  GHC.Generics.R Data.Text.Internal.Text))>_R)
+                                    (Trans
+                                         (GHC.Generics.N:M1[0]
+                                              <GHC.Generics.C>_P
+                                              <'GHC.Generics.MetaCons
+                                                 "RecordID"
+                                                 'GHC.Generics.PrefixI
+                                                 'GHC.Types.False>_P
+                                              <GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    'GHC.Base.Nothing
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.NoSourceStrictness
+                                                    'GHC.Generics.DecidedLazy)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R Data.Text.Internal.Text)>_R)
+                                         (GHC.Generics.N:M1[0]
+                                              <GHC.Generics.S>_P
+                                              <'GHC.Generics.MetaSel
+                                                 'GHC.Base.Nothing
+                                                 'GHC.Generics.NoSourceUnpackedness
+                                                 'GHC.Generics.NoSourceStrictness
+                                                 'GHC.Generics.DecidedLazy>_P
+                                              <GHC.Generics.K1
+                                                 GHC.Generics.R Data.Text.Internal.Text>_R))) <x>_N)
+                          (Trans
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P <Data.Text.Internal.Text>_R <x>_P)
+                               (Sym (Airtable.Table.N:RecordID[0])))) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fHashableRecordID ::
+    Data.Hashable.Class.Hashable Airtable.Table.RecordID
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Airtable.Table.RecordID
+                  Airtable.Table.$fHashableRecordID_$s$dmhashWithSalt
+                  Airtable.Table.$fHashableRecordID_$chash -}
+91c2777b43e6c2650100b6c53c3bf008
+  $fHashableRecordID1 :: Data.Text.Internal.Text -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (Data.Hashable.Class.$fHashableText_$chashWithSalt1
+                   Data.Hashable.Class.defaultSalt) -}
+266bed4bc74caab9d662539319c7c5a6
+  $fHashableRecordID2 ::
+    Data.Hashable.Class.GHashable
+      (GHC.Generics.D1
+         ('GHC.Generics.MetaData
+            "RecordID"
+            "Airtable.Table"
+            "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+            'GHC.Types.True)
+         (GHC.Generics.C1
+            ('GHC.Generics.MetaCons
+               "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+            (GHC.Generics.S1
+               ('GHC.Generics.MetaSel
+                  'GHC.Base.Nothing
+                  'GHC.Generics.NoSourceUnpackedness
+                  'GHC.Generics.NoSourceStrictness
+                  'GHC.Generics.DecidedLazy)
+               (GHC.Generics.Rec0 Data.Text.Internal.Text))))
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(S),1*U(U)><S(SSS),1*U(U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Airtable.Table.$fHashableRecordID3
+                  `cast`
+                (Sym (Data.Hashable.Class.N:GHashable[0]
+                          <GHC.Generics.M1
+                             GHC.Generics.D
+                             ('GHC.Generics.MetaData
+                                "RecordID"
+                                "Airtable.Table"
+                                "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+                                'GHC.Types.True)
+                             (GHC.Generics.M1
+                                GHC.Generics.C
+                                ('GHC.Generics.MetaCons
+                                   "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+                                (GHC.Generics.S1
+                                   ('GHC.Generics.MetaSel
+                                      'GHC.Base.Nothing
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.NoSourceStrictness
+                                      'GHC.Generics.DecidedLazy)
+                                   (GHC.Generics.Rec0 Data.Text.Internal.Text)))>_N)) -}
+77bbb016c34dd8600e3df30b44992130
+  $fHashableRecordID3 ::
+    GHC.Types.Int
+    -> GHC.Generics.M1
+         GHC.Generics.D
+         ('GHC.Generics.MetaData
+            "RecordID"
+            "Airtable.Table"
+            "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+            'GHC.Types.True)
+         (GHC.Generics.M1
+            GHC.Generics.C
+            ('GHC.Generics.MetaCons
+               "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+            (GHC.Generics.S1
+               ('GHC.Generics.MetaSel
+                  'GHC.Base.Nothing
+                  'GHC.Generics.NoSourceUnpackedness
+                  'GHC.Generics.NoSourceStrictness
+                  'GHC.Generics.DecidedLazy)
+               (GHC.Generics.Rec0 Data.Text.Internal.Text)))
+         a1
+    -> GHC.Types.Int
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(S),1*U(U)><S(SSS),1*U(U,U,U)>m,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a1
+                   (salt :: GHC.Types.Int)
+                   (x :: GHC.Generics.M1
+                           GHC.Generics.D
+                           ('GHC.Generics.MetaData
+                              "RecordID"
+                              "Airtable.Table"
+                              "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+                              'GHC.Types.True)
+                           (GHC.Generics.M1
+                              GHC.Generics.C
+                              ('GHC.Generics.MetaCons
+                                 "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+                              (GHC.Generics.S1
+                                 ('GHC.Generics.MetaSel
+                                    'GHC.Base.Nothing
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.NoSourceStrictness
+                                    'GHC.Generics.DecidedLazy)
+                                 (GHC.Generics.Rec0 Data.Text.Internal.Text)))
+                           a1) ->
+                 Data.Hashable.Class.$fHashableText_$chashWithSalt1
+                   salt
+                   x `cast`
+                   (Trans
+                        (Trans
+                             (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.D>_P
+                                  <'GHC.Generics.MetaData
+                                     "RecordID"
+                                     "Airtable.Table"
+                                     "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+                                     'GHC.Types.True>_P
+                                  <GHC.Generics.M1
+                                     GHC.Generics.C
+                                     ('GHC.Generics.MetaCons
+                                        "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+                                     (GHC.Generics.S1
+                                        ('GHC.Generics.MetaSel
+                                           'GHC.Base.Nothing
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.NoSourceStrictness
+                                           'GHC.Generics.DecidedLazy)
+                                        (GHC.Generics.Rec0 Data.Text.Internal.Text))>_R)
+                             (Trans
+                                  (GHC.Generics.N:M1[0]
+                                       <GHC.Generics.C>_P
+                                       <'GHC.Generics.MetaCons
+                                          "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False>_P
+                                       <GHC.Generics.M1
+                                          GHC.Generics.S
+                                          ('GHC.Generics.MetaSel
+                                             'GHC.Base.Nothing
+                                             'GHC.Generics.NoSourceUnpackedness
+                                             'GHC.Generics.NoSourceStrictness
+                                             'GHC.Generics.DecidedLazy)
+                                          (GHC.Generics.Rec0 Data.Text.Internal.Text)>_R)
+                                  (GHC.Generics.N:M1[0]
+                                       <GHC.Generics.S>_P
+                                       <'GHC.Generics.MetaSel
+                                          'GHC.Base.Nothing
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.NoSourceStrictness
+                                          'GHC.Generics.DecidedLazy>_P
+                                       <GHC.Generics.K1
+                                          GHC.Generics.R Data.Text.Internal.Text>_R)) <a1>_N)
+                        (GHC.Generics.N:K1[0]
+                             <GHC.Generics.R>_P <Data.Text.Internal.Text>_R <a1>_P))) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fHashableRecordID_$chash ::
+    Airtable.Table.RecordID -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                Airtable.Table.$fHashableRecordID1
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0]) ->_R <GHC.Types.Int>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fHashableRecordID_$s$dmhashWithSalt ::
+    GHC.Types.Int -> Airtable.Table.RecordID -> GHC.Types.Int
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(S),1*U(U)><S(SSS),1*U(U,U,U)>m,
+     Unfolding: InlineRule (-3, True, False)
+                (\ (salt :: GHC.Types.Int) (x :: Airtable.Table.RecordID) ->
+                 Airtable.Table.$fHashableRecordID2
+                   `cast`
+                 (Data.Hashable.Class.N:GHashable[0]
+                      (Sym (Airtable.Table.Rep_RecordID[0])))
+                   @ GHC.Prim.Any
+                   salt
+                   (Airtable.Table.$fGenericRecordID_$cfrom @ GHC.Prim.Any x)) -}
+d72c554bcc1a8f8e9120c86ce8256273
+  $fIsRecordRecordID ::
+    Airtable.Table.IsRecord Airtable.Table.RecordID
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                (GHC.Base.id @ Airtable.Table.RecordID)
+                  `cast`
+                (Sym (Airtable.Table.N:IsRecord[0] <Airtable.Table.RecordID>_N)) -}
+d72c554bcc1a8f8e9120c86ce8256273
+  $fIsRecord[] :: Airtable.Table.IsRecord GHC.Base.String
+  DFunId
+  {- Arity: 1, Strictness: <S,1*U>, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Airtable.Table.$fIsRecord[]_$ctoRec
+                  `cast`
+                (Sym (Airtable.Table.N:IsRecord[0] <GHC.Base.String>_N)) -}
+92cfc8aaf82f1abc2400843fec94142d
+  $fIsRecord[]_$ctoRec :: GHC.Base.String -> Airtable.Table.RecordID
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.pack
+                  `cast`
+                (<GHC.Base.String>_R ->_R Sym (Airtable.Table.N:RecordID[0])) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fMonoidTable :: GHC.Base.Monoid (Airtable.Table.Table a)
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a.
+                  @ (Airtable.Table.Table a)
+                  (Airtable.Table.$fMonoidTable_$cmempty @ a)
+                  (Airtable.Table.$fMonoidTable_$cmappend @ a)
+                  (Airtable.Table.$fMonoidTable_$cmconcat @ a) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fMonoidTable1 ::
+    [Airtable.Table.Table a]
+    -> (# Data.HashMap.Base.HashMap Airtable.Table.RecordID a,
+          GHC.Base.Maybe Data.Text.Internal.Text #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+a9349c78bfac33acc9be1615f5cc528c
+  $fMonoidTable2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+00b7bb59218b9352f05bf55d84bd048d
+  $fMonoidTable3 ::
+    GHC.Types.Int
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+  {- Arity: 3, Strictness: <S,1*U(U)><S,U><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ v
+                   (w :: GHC.Types.Int)
+                   (w1 :: Data.HashMap.Base.HashMap Airtable.Table.RecordID v)
+                   (w2 :: Data.HashMap.Base.HashMap Airtable.Table.RecordID v) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Airtable.Table.$wpoly_go1 @ v ww1 w1 w2 }) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fMonoidTable_$cmappend ::
+    Airtable.Table.Table a
+    -> Airtable.Table.Table a -> Airtable.Table.Table a
+  {- Arity: 2, Strictness: <S,1*U(U,U)><S,1*U(1*U,A)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (ds :: Airtable.Table.Table a)
+                   (ds1 :: Airtable.Table.Table a) ->
+                 case ds of wild { Airtable.Table.Table t1 o ->
+                 case ds1 of wild1 { Airtable.Table.Table t2 ds2 ->
+                 Airtable.Table.Table
+                   @ a
+                   (Airtable.Table.$fMonoidTable3
+                      @ a
+                      Airtable.Table.$fMonoidTable2
+                      t1
+                      t2)
+                   o } }) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fMonoidTable_$cmconcat ::
+    [Airtable.Table.Table a] -> Airtable.Table.Table a
+  {- Arity: 1, Strictness: <S,1*U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (w :: [Airtable.Table.Table a]) ->
+                 case Airtable.Table.$fMonoidTable1 @ a w of ww { (#,#) ww1 ww2 ->
+                 Airtable.Table.Table @ a ww1 ww2 }) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fMonoidTable_$cmempty :: Airtable.Table.Table a
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (\ @ a ->
+                 Airtable.Table.Table
+                   @ a
+                   (Data.HashMap.Base.Empty @ Airtable.Table.RecordID @ a)
+                   (GHC.Base.Nothing @ Data.Text.Internal.Text)) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID :: GHC.Classes.Ord Airtable.Table.RecordID
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Airtable.Table.RecordID
+                  Airtable.Table.$fEqRecordID
+                  Airtable.Table.$fOrdRecordID_$ccompare
+                  Airtable.Table.$fOrdRecordID_$c<
+                  Airtable.Table.$fOrdRecordID_$c<=
+                  Airtable.Table.$fOrdRecordID_$c>
+                  Airtable.Table.$fOrdRecordID_$c>=
+                  Airtable.Table.$fOrdRecordID_$cmax
+                  Airtable.Table.$fOrdRecordID_$cmin -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$c< ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),1*U(U,U,U)><S(LLS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$c<
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$c<= ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),1*U(U,U,U)><S(LLS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$c<=
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$c> ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),1*U(U,U,U)><S(LLS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$c>
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$c>= ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),1*U(U,U,U)><S(LLS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$c>=
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$ccompare ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> GHC.Types.Ordering
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),1*U(U,U,U)><S(LLS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$ccompare
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R <GHC.Types.Ordering>_R) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$cmax ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> Airtable.Table.RecordID
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),U(U,U,U)><S(LLS),U(U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$cmax
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fOrdRecordID_$cmin ::
+    Airtable.Table.RecordID
+    -> Airtable.Table.RecordID -> Airtable.Table.RecordID
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLS),U(U,U,U)><S(LLS),U(U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.$fOrdText_$cmin
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])
+                 ->_R Sym (Airtable.Table.N:RecordID[0])) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fShowRecordID :: GHC.Show.Show Airtable.Table.RecordID
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Airtable.Table.RecordID
+                  Airtable.Table.$fShowRecordID_$cshowsPrec
+                  Airtable.Table.$fShowRecordID_$cshow
+                  Airtable.Table.$fShowRecordID_$cshowList -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fShowRecordID1 :: Airtable.Table.RecordID -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ (w :: Airtable.Table.RecordID)
+                   (w1 :: GHC.Base.String) ->
+                 Airtable.Table.$w$cshowsPrec 0# w w1) -}
+9c1901dd4e8d6bc2c079ecb20b32af3c
+  $fShowRecordID2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "RecordID "#) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fShowRecordID_$cshow :: Airtable.Table.RecordID -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U,U,U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Airtable.Table.RecordID) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      Airtable.Table.$fShowRecordID2)
+                   (case Data.Text.Show.$w$cshowsPrec
+                           x `cast` (Airtable.Table.N:RecordID[0])
+                           (GHC.Types.[] @ GHC.Types.Char) of ww { (#,#) ww1 ww2 ->
+                    GHC.Types.: @ GHC.Types.Char ww1 ww2 })) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fShowRecordID_$cshowList ::
+    [Airtable.Table.RecordID] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Airtable.Table.RecordID
+                   Airtable.Table.$fShowRecordID1) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $fShowRecordID_$cshowsPrec ::
+    GHC.Types.Int -> Airtable.Table.RecordID -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S(S),1*U(U)><L,1*U(U,U,U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Airtable.Table.RecordID)
+                   (w2 :: GHC.Base.String) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Airtable.Table.$w$cshowsPrec ww1 w1 w2 }) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fShowTable ::
+    GHC.Show.Show a => GHC.Show.Show (Airtable.Table.Table a)
+  DFunId
+  {- Arity: 1, Strictness: <L,U(C(C1(U)),A,A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a ($dShow :: GHC.Show.Show a).
+                  @ (Airtable.Table.Table a)
+                  (Airtable.Table.$fShowTable_$cshowsPrec @ a $dShow)
+                  (Airtable.Table.$fShowTable_$cshow @ a $dShow)
+                  (Airtable.Table.$fShowTable_$cshowList @ a $dShow) -}
+50bd35ddc8f6ef71c79558bfe12be4d3
+  $fShowTable1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
+ae610016bdfd008aaa7f0549ea106018
+  $fShowTable2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "tableOffset = "#) -}
+eb5bcc809dcd675f605784c11dffe245
+  $fShowTable3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ", "#) -}
+a19b93cda88b869539fca033fa67328d
+  $fShowTable4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "tableRecords = "#) -}
+03945115bef8ea99a4e8a829c8e7027d
+  $fShowTable5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Table {"#) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fShowTable_$cshow ::
+    GHC.Show.Show a => Airtable.Table.Table a -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,U(C(C1(U)),A,A)><S,1*U(1*U,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a ($dShow :: GHC.Show.Show a) (x :: Airtable.Table.Table a) ->
+                 Airtable.Table.$fShowTable_$cshowsPrec
+                   @ a
+                   $dShow
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fShowTable_$cshowList ::
+    GHC.Show.Show a => [Airtable.Table.Table a] -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,U(C(C1(U)),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   ($dShow :: GHC.Show.Show a)
+                   (eta :: [Airtable.Table.Table a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (Airtable.Table.Table a)
+                   (Airtable.Table.$fShowTable_$cshowsPrec
+                      @ a
+                      $dShow
+                      Airtable.Table.$fMonoidTable2)
+                   eta
+                   eta1) -}
+76f9b6d26f1928c359404e6802df73e2
+  $fShowTable_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Airtable.Table.Table a -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <L,U(C(C1(U)),A,A)><S(S),1*U(U)><S,1*U(1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Types.Int)
+                   (w2 :: Airtable.Table.Table a) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 case w2 of ww2 { Airtable.Table.Table ww3 ww4 ->
+                 Airtable.Table.$w$cshowsPrec1 @ a w ww1 ww3 ww4 } }) -}
+3d52928df40e4f29dd490fd18e2214a8
+  $s$wupdateOrConcatWithKey ::
+    (Airtable.Table.RecordID -> v -> v -> v)
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+  {- Arity: 3, Strictness: <L,C(C1(C1(U)))><S,U><S,U>, Inline: [0],
+     Unfolding: (\ @ v
+                   (w1 :: Airtable.Table.RecordID -> v -> v -> v)
+                   (ww :: GHC.Prim.Array#
+                            (Data.HashMap.Base.Leaf Airtable.Table.RecordID v))
+                   (ww1 :: GHC.Prim.Array#
+                             (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)) ->
+                 let {
+                   ds :: GHC.Prim.Int#
+                   = GHC.Prim.sizeofArray#
+                       @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                       ww1
+                 } in
+                 case GHC.Prim.newArray#
+                        @ (GHC.Base.Maybe GHC.Types.Int)
+                        @ GHC.Prim.RealWorld
+                        ds
+                        (Data.HashMap.Array.undefinedElem @ (GHC.Base.Maybe GHC.Types.Int))
+                        GHC.Prim.realWorld# of ds1 { (#,#) ipv ipv1 ->
+                 letrec {
+                   $wgo2 :: forall s.
+                            Data.HashMap.Array.Array
+                              (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                            -> Data.HashMap.Array.MArray s (GHC.Base.Maybe GHC.Types.Int)
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.State# s
+                            -> (# GHC.Prim.State# s,
+                                  Data.HashMap.Array.MArray s (GHC.Base.Maybe GHC.Types.Int) #)
+                     {- Arity: 5, Strictness: <L,U(U)><L,U(U)><S,U><S,U><S,U>,
+                        Inline: [0] -}
+                   = \ @ s
+                       (w :: Data.HashMap.Array.Array
+                               (Data.HashMap.Base.Leaf Airtable.Table.RecordID v))
+                       (w2 :: Data.HashMap.Array.MArray s (GHC.Base.Maybe GHC.Types.Int))
+                       (ww2 :: GHC.Prim.Int#)
+                       (ww3 :: GHC.Prim.Int#)
+                       (w3 :: GHC.Prim.State# s)[OneShot] ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.>=# ww2 ww3) of wild2 {
+                       GHC.Types.False
+                       -> case w2 of wild3 { Data.HashMap.Array.MArray ds2 ->
+                          case GHC.Prim.writeArray#
+                                 @ s
+                                 @ (GHC.Base.Maybe GHC.Types.Int)
+                                 ds2
+                                 ww2
+                                 (case w of wild4 { Data.HashMap.Array.Array ds3 ->
+                                  case GHC.Prim.indexArray#
+                                         @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                         ds3
+                                         ww2 of ds4 { Unit# ipv2 ->
+                                  case ipv2 of wild5 { Data.HashMap.Base.L k1 ds5 ->
+                                  case k1
+                                         `cast`
+                                       (Airtable.Table.N:RecordID[0]) of ww4 { Data.Text.Internal.Text ww5 ww6 ww7 ->
+                                  Airtable.Table.$wpoly_go2
+                                    @ v
+                                    ww5
+                                    ww6
+                                    ww7
+                                    ww
+                                    0#
+                                    (GHC.Prim.sizeofArray#
+                                       @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                       ww) } } } })
+                                 w3 of s' { DEFAULT ->
+                          $wgo2 @ s w wild3 (GHC.Prim.+# ww2 1#) ww3 s' } }
+                       GHC.Types.True -> (# w3, w2 #) }
+                 } in
+                 case $wgo2
+                        @ GHC.Prim.RealWorld
+                        (Data.HashMap.Array.Array
+                           @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                           ww1)
+                        (Data.HashMap.Array.$WMArray
+                           @ GHC.Prim.RealWorld
+                           @ (GHC.Base.Maybe GHC.Types.Int)
+                           ipv1)
+                        0#
+                        ds
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case ipv3 of wild { Data.HashMap.Array.MArray ds3 ->
+                 case GHC.Prim.unsafeFreezeArray#
+                        @ GHC.Prim.RealWorld
+                        @ (GHC.Base.Maybe GHC.Types.Int)
+                        ds3
+                        ipv2 of ds4 { (#,#) ipv4 ipv5 ->
+                 case Airtable.Table.$wgo1
+                        (Data.HashMap.Array.Array @ (GHC.Base.Maybe GHC.Types.Int) ipv5)
+                        (GHC.Prim.sizeofArray# @ (GHC.Base.Maybe GHC.Types.Int) ipv5)
+                        0#
+                        0# of ww2 { DEFAULT ->
+                 let {
+                   n1 :: GHC.Prim.Int#
+                   = GHC.Prim.sizeofArray#
+                       @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                       ww
+                 } in
+                 case GHC.Prim.newArray#
+                        @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                        @ GHC.Prim.RealWorld
+                        (GHC.Prim.+# n1 ww2)
+                        (Data.HashMap.Array.undefinedElem
+                           @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v))
+                        GHC.Prim.realWorld# of ds7 { (#,#) ipv7 ipv8 ->
+                 case GHC.Prim.copyArray#
+                        @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                        @ GHC.Prim.RealWorld
+                        ww
+                        0#
+                        ipv8
+                        0#
+                        n1
+                        ipv7 of s2 { DEFAULT ->
+                 letrec {
+                   $wgo3 :: GHC.Prim.Int#
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.State# GHC.Prim.RealWorld
+                            -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                     {- Arity: 3, Strictness: <L,U><S,U><S,U>, Inline: [0] -}
+                   = \ (ww3 :: GHC.Prim.Int#)
+                       (ww4 :: GHC.Prim.Int#)
+                       (w :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.>=# ww4 ds) of wild1 {
+                       GHC.Types.False
+                       -> case GHC.Prim.indexArray#
+                                 @ (GHC.Base.Maybe GHC.Types.Int)
+                                 ipv5
+                                 ww4 of ds8 { Unit# ipv9 ->
+                          case ipv9 of wild3 {
+                            GHC.Base.Nothing
+                            -> case GHC.Prim.indexArray#
+                                      @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                      ww1
+                                      ww4 of ds9 { Unit# ipv10 ->
+                               case GHC.Prim.writeArray#
+                                      @ GHC.Prim.RealWorld
+                                      @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                      ipv8
+                                      ww3
+                                      ipv10
+                                      w of s' { DEFAULT ->
+                               $wgo3 (GHC.Prim.+# ww3 1#) (GHC.Prim.+# ww4 1#) s' } }
+                            GHC.Base.Just i3
+                            -> case i3 of wild4 { GHC.Types.I# i# ->
+                               case GHC.Prim.indexArray#
+                                      @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                      ww
+                                      i# of ds9 { Unit# ipv10 ->
+                               case ipv10 of wild5 { Data.HashMap.Base.L k1 v1 ->
+                               case GHC.Prim.indexArray#
+                                      @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                      ww1
+                                      ww4 of ds10 { Unit# ipv6 ->
+                               case ipv6 of wild6 { Data.HashMap.Base.L ds5 v2 ->
+                               case GHC.Prim.writeArray#
+                                      @ GHC.Prim.RealWorld
+                                      @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                      ipv8
+                                      i#
+                                      (Data.HashMap.Base.L
+                                         @ Airtable.Table.RecordID
+                                         @ v
+                                         k1
+                                         (w1 k1 v1 v2))
+                                      w of s' { DEFAULT ->
+                               $wgo3 ww3 (GHC.Prim.+# ww4 1#) s' } } } } } } } }
+                       GHC.Types.True -> (# w, GHC.Tuple.() #) }
+                 } in
+                 case $wgo3 n1 0# s2 of ds8 { (#,#) ipv9 ipv10 ->
+                 case GHC.Prim.unsafeFreezeArray#
+                        @ GHC.Prim.RealWorld
+                        @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                        ipv8
+                        ipv9 of ds9 { (#,#) ipv11 ipv12 ->
+                 ipv12 } } } } } } } } }) -}
+90d4d72842c6fd3247930cf86903c696
+  $s.:3 ::
+    GHC.Types.Int
+    -> Data.Aeson.Types.Internal.Value
+    -> forall (f :: * -> *) r.
+       Data.Aeson.Types.Internal.JSONPath
+       -> Data.Aeson.Types.Internal.Failure f r
+       -> Data.Aeson.Types.Internal.Success
+            Data.Aeson.Types.Internal.Value f r
+       -> f r
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <L,A><L,U><L,A><L,A><C(S),1*C1(U)>,
+     Unfolding: InlineRule (5, True, True)
+                (\ (idx :: GHC.Types.Int)
+                   (value :: Data.Aeson.Types.Internal.Value)
+                   @ (f :: * -> *)
+                   @ r
+                   (eta :: Data.Aeson.Types.Internal.JSONPath)
+                   (eta1 :: Data.Aeson.Types.Internal.Failure f r)
+                   (eta2 :: Data.Aeson.Types.Internal.Success
+                              Data.Aeson.Types.Internal.Value f r) ->
+                 eta2 value) -}
+e98d4dd469bbe9a4ebfb2a3caa07bd3b
+  $s.:5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "[a]"#) -}
+525ea5a188a2f08aace5afb7819a723e
+  $s.:_f2 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Enum.eftInt 0# 9223372036854775807#) -}
+b37efeb516af3e954a5d669dc589bc22
+  $tc'C:IsRecord :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2934099737508704089##
+                   10262976669553349550##
+                   Airtable.Table.$trModule
+                   Airtable.Table.$tc'C:IsRecord1) -}
+e5415eed7d1c53bb1c3fe772cc03d3e6
+  $tc'C:IsRecord1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'C:IsRecord"#) -}
+7e18e0e42f23fc6739af2720dba8163b
+  $tc'RecordID :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   14031282553067968345##
+                   2597727066419910118##
+                   Airtable.Table.$trModule
+                   Airtable.Table.$tc'RecordID1) -}
+e1ee7e1b4f46c0b2236a69e9f0a46526
+  $tc'RecordID1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'RecordID"#) -}
+434ef4d6169d3e02f765aefa7a400c33
+  $tc'Table :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   6493655367390771032##
+                   5045275526562295347##
+                   Airtable.Table.$trModule
+                   Airtable.Table.$tc'Table1) -}
+60177d1979a17bae1f6d7257aa41d0fa
+  $tc'Table1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Table"#) -}
+24549a2fa0992ac49475ce749d9db786
+  $tcIsRecord :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11577491487911241482##
+                   4176799887184923348##
+                   Airtable.Table.$trModule
+                   Airtable.Table.$tcIsRecord1) -}
+2cff86f3b236d920428b8aefc362b7c3
+  $tcIsRecord1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "IsRecord"#) -}
+fabf9e3865c3ee2b36ef8f73e146fc51
+  $tcRecordID :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1602970483765415271##
+                   17256870813989703584##
+                   Airtable.Table.$trModule
+                   Airtable.Table.$tcRecordID1) -}
+984f683f73b4599426b6837b580b105c
+  $tcRecordID1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "RecordID"#) -}
+8908b28b4550fd92a72ed27791aa99f0
+  $tcTable :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10655626090812682098##
+                   1880192006489138983##
+                   Airtable.Table.$trModule
+                   Airtable.Table.$tcTable1) -}
+c00b40f3298f5241b16369e9f28d89b7
+  $tcTable1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Table"#) -}
+93c2964197940d9a85336abec229b9c5
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Airtable.Table.$trModule2
+                   Airtable.Table.$trModule1) -}
+3e5e469decda43fff3ab192d98574c31
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Airtable.Table"#) -}
+800db4696a0b6f37072c650a641764a7
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"#) -}
+faefd6de81c9ce364f64a3b4a38242c4
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> Airtable.Table.RecordID -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <S,U><L,1*U(U,U,U)><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (w :: Airtable.Table.RecordID)
+                   (w1 :: GHC.Base.String) ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        Airtable.Table.$fShowRecordID2
+                        (case Data.Text.Show.$w$cshowsPrec
+                                w `cast` (Airtable.Table.N:RecordID[0])
+                                w1 of ww1 { (#,#) ww2 ww3 ->
+                         GHC.Types.: @ GHC.Types.Char ww2 ww3 })
+                   GHC.Types.True
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Airtable.Table.$fShowRecordID2
+                           (case Data.Text.Show.$w$cshowsPrec
+                                   w `cast` (Airtable.Table.N:RecordID[0])
+                                   (GHC.Types.:
+                                      @ GHC.Types.Char
+                                      GHC.Show.shows6
+                                      w1) of ww1 { (#,#) ww2 ww3 ->
+                            GHC.Types.: @ GHC.Types.Char ww2 ww3 })) }) -}
+2253d708348bcb12687aa89e4245e4ee
+  $w$cshowsPrec1 ::
+    GHC.Show.Show a =>
+    GHC.Prim.Int#
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> GHC.Base.Maybe Data.Text.Internal.Text
+    -> GHC.Show.ShowS
+  {- Arity: 4, Strictness: <L,U(C(C1(U)),A,A)><S,U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: GHC.Show.Show a)
+                   (ww :: GHC.Prim.Int#)
+                   (ww1 :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a)
+                   (ww2 :: GHC.Base.Maybe Data.Text.Internal.Text) ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = Data.HashMap.Base.$w$cshowsPrec
+                       @ Airtable.Table.RecordID
+                       @ a
+                       Airtable.Table.$fShowRecordID
+                       w
+                       0#
+                       ww1
+                 } in
+                 let {
+                   f1 :: GHC.Base.String -> GHC.Base.String
+                   = GHC.Show.$fShowMaybe_$cshowsPrec
+                       @ Data.Text.Internal.Text
+                       Data.Text.Show.$fShowText
+                       Airtable.Table.$fMonoidTable2
+                       ww2
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ (x :: GHC.Base.String) ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       Airtable.Table.$fShowTable5
+                       (GHC.Base.++
+                          @ GHC.Types.Char
+                          Airtable.Table.$fShowTable4
+                          (f (GHC.Base.++
+                                @ GHC.Types.Char
+                                Airtable.Table.$fShowTable3
+                                (GHC.Base.++
+                                   @ GHC.Types.Char
+                                   Airtable.Table.$fShowTable2
+                                   (f1
+                                      (GHC.Base.++
+                                         @ GHC.Types.Char
+                                         Airtable.Table.$fShowTable1
+                                         x))))))
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11#) of wild {
+                   GHC.Types.False -> p
+                   GHC.Types.True
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.shows6 x)) }) -}
+c2ee63e2a7af525415b9faec0f99690c
+  $w$s$wupdateOrSnocWithKey ::
+    (Airtable.Table.RecordID -> v -> v -> v)
+    -> GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> v
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+  {- Arity: 6, Strictness: <L,C(C1(C1(U)))><L,U><L,U><L,U><L,U><S,U>,
+     Inline: [0],
+     Unfolding: (\ @ v
+                   (w :: Airtable.Table.RecordID -> v -> v -> v)
+                   (ww :: GHC.Prim.ByteArray#)
+                   (ww1 :: GHC.Prim.Int#)
+                   (ww2 :: GHC.Prim.Int#)
+                   (w1 :: v)
+                   (w2 :: GHC.Prim.Array#
+                            (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)) ->
+                 letrec {
+                   $wgo2 :: GHC.Prim.ByteArray#
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.Int#
+                            -> v
+                            -> GHC.Prim.Array#
+                                 (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.Array#
+                                 (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                     {- Arity: 7, Strictness: <L,U><L,U><L,U><L,U><S,U><S,U><S,U>,
+                        Inline: [0] -}
+                   = \ (ww3 :: GHC.Prim.ByteArray#)
+                       (ww4 :: GHC.Prim.Int#)
+                       (ww5 :: GHC.Prim.Int#)
+                       (w3 :: v)
+                       (ww6 :: GHC.Prim.Array#
+                                 (Data.HashMap.Base.Leaf Airtable.Table.RecordID v))
+                       (ww7 :: GHC.Prim.Int#)
+                       (ww8 :: GHC.Prim.Int#) ->
+                     let {
+                       nt :: Data.Text.Internal.Text = Data.Text.Internal.Text ww3 ww4 ww5
+                     } in
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.>=# ww7 ww8) of wild {
+                       GHC.Types.False
+                       -> case GHC.Prim.indexArray#
+                                 @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                 ww6
+                                 ww7 of ds { Unit# ipv3 ->
+                          case ipv3 of wild1 { Data.HashMap.Base.L kx y ->
+                          case kx
+                                 `cast`
+                               (Airtable.Table.N:RecordID[0]) of wild2 { Data.Text.Internal.Text dt3 dt4 dt5 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==# ww5 dt5) of wild3 {
+                            GHC.Types.False
+                            -> $wgo2 ww3 ww4 ww5 w3 ww6 (GHC.Prim.+# ww7 1#) ww8
+                            GHC.Types.True
+                            -> case {__pkg_ccall text-1.2.2.1@text-1.2.2.1-5QpmrLQApEZ4Ly9nMHWY0s _hs_text_memcmp GHC.Prim.ByteArray#
+                                                                                                                  -> GHC.Prim.Word#
+                                                                                                                  -> GHC.Prim.ByteArray#
+                                                                                                                  -> GHC.Prim.Word#
+                                                                                                                  -> GHC.Prim.Word#
+                                                                                                                  -> GHC.Prim.State#
+                                                                                                                       GHC.Prim.RealWorld
+                                                                                                                  -> (# GHC.Prim.State#
+                                                                                                                          GHC.Prim.RealWorld,
+                                                                                                                        GHC.Prim.Int# #)}
+                                      ww3
+                                      (GHC.Prim.int2Word# ww4)
+                                      dt3
+                                      (GHC.Prim.int2Word# dt4)
+                                      (GHC.Prim.int2Word# ww5)
+                                      GHC.Prim.realWorld# of wild4 { (#,#) ds11 ds12 ->
+                               case GHC.Prim.narrow32Int# ds12 of wild5 {
+                                 DEFAULT -> $wgo2 ww3 ww4 ww5 w3 ww6 (GHC.Prim.+# ww7 1#) ww8
+                                 0#
+                                 -> case GHC.Prim.thawArray#
+                                           @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                           @ GHC.Prim.RealWorld
+                                           ww6
+                                           0#
+                                           (GHC.Prim.sizeofArray#
+                                              @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                              ww6)
+                                           GHC.Prim.realWorld# of ds1 { (#,#) ipv4 ipv5 ->
+                                    case GHC.Prim.writeArray#
+                                           @ GHC.Prim.RealWorld
+                                           @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                           ipv5
+                                           ww7
+                                           (Data.HashMap.Base.L
+                                              @ Airtable.Table.RecordID
+                                              @ v
+                                              nt `cast` (Sym (Airtable.Table.N:RecordID[0]))
+                                              (w nt `cast` (Sym (Airtable.Table.N:RecordID[0]))
+                                                 w3
+                                                 y))
+                                           ipv4 of s' { DEFAULT ->
+                                    case GHC.Prim.unsafeFreezeArray#
+                                           @ GHC.Prim.RealWorld
+                                           @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                           ipv5
+                                           s' of ds2 { (#,#) ipv6 ipv7 ->
+                                    ipv7 } } } } } } } } }
+                       GHC.Types.True
+                       -> case GHC.Prim.newArray#
+                                 @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                 @ GHC.Prim.RealWorld
+                                 (GHC.Prim.+# ww8 1#)
+                                 (Data.HashMap.Array.undefinedElem
+                                    @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v))
+                                 GHC.Prim.realWorld# of ds { (#,#) ipv3 ipv4 ->
+                          case GHC.Prim.copyArray#
+                                 @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                 @ GHC.Prim.RealWorld
+                                 ww6
+                                 0#
+                                 ipv4
+                                 0#
+                                 ww8
+                                 ipv3 of s2 { DEFAULT ->
+                          case GHC.Prim.writeArray#
+                                 @ GHC.Prim.RealWorld
+                                 @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                 ipv4
+                                 ww8
+                                 (Data.HashMap.Base.L
+                                    @ Airtable.Table.RecordID
+                                    @ v
+                                    nt `cast` (Sym (Airtable.Table.N:RecordID[0]))
+                                    w3)
+                                 s2 of s' { DEFAULT ->
+                          case GHC.Prim.unsafeFreezeArray#
+                                 @ GHC.Prim.RealWorld
+                                 @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                                 ipv4
+                                 s' of ds1 { (#,#) ipv5 ipv6 ->
+                          ipv6 } } } } }
+                 } in
+                 $wgo2
+                   ww
+                   ww1
+                   ww2
+                   w1
+                   w2
+                   0#
+                   (GHC.Prim.sizeofArray#
+                      @ (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+                      w2)) -}
+a037ed8caf8d3527d3d4fd69a230ac50
+  $wdeleteWhere ::
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> GHC.Base.Maybe Data.Text.Internal.Text
+    -> (Airtable.Table.RecordID -> a -> GHC.Types.Bool)
+    -> (# Data.HashMap.Base.HashMap Airtable.Table.RecordID a,
+          GHC.Base.Maybe Data.Text.Internal.Text #)
+  {- Arity: 3, Strictness: <L,1*U><L,U><L,C(C1(U))>, Inline: [0] -}
+1f40322e1bcf18f8fb225e2ab3a3450c
+  $wexists ::
+    Airtable.Table.IsRecord r =>
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> r -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U(U,U,U))><S,1*U><L,U>, Inline: [0],
+     Unfolding: (\ @ r
+                   @ a
+                   (w :: Airtable.Table.IsRecord r)
+                   (ww :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a)
+                   (w1 :: r) ->
+                 case (w `cast` (Airtable.Table.N:IsRecord[0] <r>_N) w1)
+                        `cast`
+                      (Airtable.Table.N:RecordID[0]) of ww1 { Data.Text.Internal.Text ww2 ww3 ww4 ->
+                 case {__pkg_ccall hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G hashable_fnv_hash_offset GHC.Prim.ByteArray#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.State#
+                                                                                                                          GHC.Prim.RealWorld
+                                                                                                                     -> (# GHC.Prim.State#
+                                                                                                                             GHC.Prim.RealWorld,
+                                                                                                                           GHC.Prim.Int# #)}
+                        ww2
+                        (GHC.Prim.uncheckedIShiftL# ww3 1#)
+                        (GHC.Prim.uncheckedIShiftL# ww4 1#)
+                        -2578643520546668380#
+                        GHC.Prim.realWorld# of wild { (#,#) ds ds1 ->
+                 case Airtable.Table.$wpoly_go5
+                        @ a
+                        (GHC.Prim.int2Word# ds1)
+                        ww2
+                        ww3
+                        ww4
+                        0#
+                        ww of wild1 {
+                   GHC.Base.Nothing -> GHC.Types.False
+                   GHC.Base.Just ds2 -> GHC.Types.True } } }) -}
+a511ac3610fdf78ec3c4c66ec1bfd569
+  $wgo1 ::
+    Data.HashMap.Array.Array (GHC.Base.Maybe GHC.Types.Int)
+    -> GHC.Prim.Int# -> GHC.Prim.Int# -> GHC.Prim.Int# -> GHC.Prim.Int#
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,U(U)><S,U><S,U><L,U>,
+     Inline: [0] -}
+c634328039607621223ac328f9cfc3e4
+  $wpoly_go1 ::
+    GHC.Prim.Int#
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+  {- Arity: 3, Strictness: <L,U><S,U><S,1*U>, Inline: [0] -}
+dc8b9aa9163a0b4e24fd58c1e3ddde5f
+  $wpoly_go2 ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Base.Maybe GHC.Types.Int
+  {- Arity: 6, HasNoCafRefs,
+     Strictness: <L,U><L,U><L,U><S,U><S,U><S,U>, Inline: [0] -}
+989dccca38ae7f8faf5297ea8a737aa5
+  $wpoly_go3 ::
+    GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Array#
+         (Data.HashMap.Base.Leaf Airtable.Table.RecordID v)
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Base.Maybe v
+  {- Arity: 6, HasNoCafRefs,
+     Strictness: <L,U><L,U><L,U><S,U><S,U><S,U>, Inline: [0] -}
+e8574222f4a98707e63d0a510ad30c10
+  $wpoly_go4 ::
+    GHC.Prim.Word#
+    -> GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> v
+    -> GHC.Prim.Int#
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+  {- Arity: 7, Strictness: <S,U><L,U><L,U><L,U><L,U><L,U><S,1*U>,
+     Inline: [0] -}
+340aec08651ac22234e4b93ed3c31e9a
+  $wpoly_go5 ::
+    GHC.Prim.Word#
+    -> GHC.Prim.ByteArray#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID v
+    -> GHC.Base.Maybe v
+  {- Arity: 6, HasNoCafRefs,
+     Strictness: <L,U><L,U><L,U><L,U><L,U><S,1*U>, Inline: [0] -}
+2e64ec08b7b25d6397c7809a2591421f
+  $wselect ::
+    (GHC.Stack.Types.HasCallStack, Airtable.Table.IsRecord r) =>
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a -> r -> a
+  {- Arity: 4, Strictness: <L,1*U><C(S),1*C1(U(U,U,U))><S,1*U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ r
+                   @ a
+                   (w :: GHC.Stack.Types.HasCallStack)
+                   (w1 :: Airtable.Table.IsRecord r)
+                   (ww :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a)
+                   (w2 :: r) ->
+                 case (w1 `cast` (Airtable.Table.N:IsRecord[0] <r>_N) w2)
+                        `cast`
+                      (Airtable.Table.N:RecordID[0]) of ww1 { Data.Text.Internal.Text ww2 ww3 ww4 ->
+                 case {__pkg_ccall hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G hashable_fnv_hash_offset GHC.Prim.ByteArray#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.State#
+                                                                                                                          GHC.Prim.RealWorld
+                                                                                                                     -> (# GHC.Prim.State#
+                                                                                                                             GHC.Prim.RealWorld,
+                                                                                                                           GHC.Prim.Int# #)}
+                        ww2
+                        (GHC.Prim.uncheckedIShiftL# ww3 1#)
+                        (GHC.Prim.uncheckedIShiftL# ww4 1#)
+                        -2578643520546668380#
+                        GHC.Prim.realWorld# of wild { (#,#) ds ds1 ->
+                 case Airtable.Table.$wpoly_go5
+                        @ a
+                        (GHC.Prim.int2Word# ds1)
+                        ww2
+                        ww3
+                        ww4
+                        0#
+                        ww of wild1 {
+                   GHC.Base.Nothing -> Airtable.Table.select1 @ a w ww3 ww2 ww4
+                   GHC.Base.Just v -> v } } }) -}
+bf7729127172c7310b06ab253515cdff
+  $wselectKeyWhere ::
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> (Airtable.Table.RecordID -> a -> GHC.Types.Bool)
+    -> [Airtable.Table.RecordID]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,C(C1(U))>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (ww :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a)
+                   (w :: Airtable.Table.RecordID -> a -> GHC.Types.Bool) ->
+                 letrec {
+                   go1 :: [(Airtable.Table.RecordID, a)] -> [Airtable.Table.RecordID]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [(Airtable.Table.RecordID, a)]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ Airtable.Table.RecordID
+                       : y ys
+                       -> case w (case y of wild1 { (,) x ds1 -> x })
+                                 (case y of wild1 { (,) ds1 y1 -> y1 }) of wild1 {
+                            GHC.Types.False -> go1 ys
+                            GHC.Types.True
+                            -> GHC.Types.:
+                                 @ Airtable.Table.RecordID
+                                 (Data.Tuple.fst @ Airtable.Table.RecordID @ a y)
+                                 (go1 ys) } }
+                 } in
+                 go1 (Airtable.Table.$wtoList @ a ww)) -}
+2c38b751c4c73449620d8a033e8fd584
+  $wselectMaybe ::
+    Airtable.Table.IsRecord r =>
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> r -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U(U,U,U))><S,1*U><L,U>, Inline: [0],
+     Unfolding: (\ @ r
+                   @ a
+                   (w :: Airtable.Table.IsRecord r)
+                   (ww :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a)
+                   (w1 :: r) ->
+                 case (w `cast` (Airtable.Table.N:IsRecord[0] <r>_N) w1)
+                        `cast`
+                      (Airtable.Table.N:RecordID[0]) of ww1 { Data.Text.Internal.Text ww2 ww3 ww4 ->
+                 case {__pkg_ccall hashable-1.2.4.0@hashable-1.2.4.0-EMu4H7FB10MAl6hwKw992G hashable_fnv_hash_offset GHC.Prim.ByteArray#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.Int#
+                                                                                                                     -> GHC.Prim.State#
+                                                                                                                          GHC.Prim.RealWorld
+                                                                                                                     -> (# GHC.Prim.State#
+                                                                                                                             GHC.Prim.RealWorld,
+                                                                                                                           GHC.Prim.Int# #)}
+                        ww2
+                        (GHC.Prim.uncheckedIShiftL# ww3 1#)
+                        (GHC.Prim.uncheckedIShiftL# ww4 1#)
+                        -2578643520546668380#
+                        GHC.Prim.realWorld# of wild { (#,#) ds ds1 ->
+                 Airtable.Table.$wpoly_go5
+                   @ a
+                   (GHC.Prim.int2Word# ds1)
+                   ww2
+                   ww3
+                   ww4
+                   0#
+                   ww } }) -}
+a8941fa26b07552bad68e457c2efa6e4
+  $wselectWhere ::
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> (Airtable.Table.RecordID -> a -> GHC.Types.Bool) -> [a]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,C(C1(U))>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (ww :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a)
+                   (w :: Airtable.Table.RecordID -> a -> GHC.Types.Bool) ->
+                 letrec {
+                   go1 :: [(Airtable.Table.RecordID, a)] -> [a]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [(Airtable.Table.RecordID, a)]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ a
+                       : y ys
+                       -> case w (case y of wild1 { (,) x ds1 -> x })
+                                 (case y of wild1 { (,) ds1 y1 -> y1 }) of wild1 {
+                            GHC.Types.False -> go1 ys
+                            GHC.Types.True
+                            -> GHC.Types.:
+                                 @ a
+                                 (Data.Tuple.snd @ Airtable.Table.RecordID @ a y)
+                                 (go1 ys) } }
+                 } in
+                 go1 (Airtable.Table.$wtoList @ a ww)) -}
+19a803d367de56f45d752911c9806a16
+  $wtoList ::
+    Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> [(Airtable.Table.RecordID, a)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ @ a
+                   (ww :: Data.HashMap.Base.HashMap Airtable.Table.RecordID a) ->
+                 Airtable.Table.toList1
+                   @ a
+                   (GHC.Types.[] @ (Airtable.Table.RecordID, a))
+                   ww) -}
+d72c554bcc1a8f8e9120c86ce8256273
+  class IsRecord a where
+    toRec :: a -> Airtable.Table.RecordID
+    {-# MINIMAL toRec #-}
+faefd6de81c9ce364f64a3b4a38242c4
+  newtype RecordID = RecordID Data.Text.Internal.Text
+faefd6de81c9ce364f64a3b4a38242c4
+  axiom Rep_RecordID::
+      GHC.Generics.Rep Airtable.Table.RecordID
+        = GHC.Generics.D1
+            ('GHC.Generics.MetaData
+               "RecordID"
+               "Airtable.Table"
+               "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
+               'GHC.Types.True)
+            (GHC.Generics.C1
+               ('GHC.Generics.MetaCons
+                  "RecordID" 'GHC.Generics.PrefixI 'GHC.Types.False)
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     'GHC.Base.Nothing
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0 Data.Text.Internal.Text)))
+76f9b6d26f1928c359404e6802df73e2
+  data Table a
+    = Table {tableRecords :: Data.HashMap.Base.HashMap
+                               Airtable.Table.RecordID a,
+             tableOffset :: GHC.Base.Maybe Data.Text.Internal.Text}
+564d542192a6d7d85be15357ea895032
+  type TableName = GHC.Base.String
+b4d83e19b6b2593d81d6b81e242e4e5a
+  deleteWhere ::
+    Airtable.Table.Table a
+    -> (Airtable.Table.RecordID -> a -> GHC.Types.Bool)
+    -> Airtable.Table.Table a
+  {- Arity: 2, Strictness: <S,1*U(1*U,U)><L,C(C1(U))>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: Airtable.Table.Table a)
+                   (w1 :: Airtable.Table.RecordID -> a -> GHC.Types.Bool) ->
+                 case w of ww { Airtable.Table.Table ww1 ww2 ->
+                 case Airtable.Table.$wdeleteWhere
+                        @ a
+                        ww1
+                        ww2
+                        w1 of ww3 { (#,#) ww4 ww5 ->
+                 Airtable.Table.Table @ a ww4 ww5 } }) -}
+c758a9cd5f058aba05224ac015a009a6
+  exists ::
+    Airtable.Table.IsRecord r =>
+    Airtable.Table.Table a -> r -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U(U,U,U))><S(SL),1*U(1*U,A)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ r
+                   @ a
+                   (w :: Airtable.Table.IsRecord r)
+                   (w1 :: Airtable.Table.Table a)
+                   (w2 :: r) ->
+                 case w1 of ww { Airtable.Table.Table ww1 ww2 ->
+                 Airtable.Table.$wexists @ r @ a w ww1 w2 }) -}
+9857b40a65b1368cc74bb7f88ab63bf1
+  rec2str :: Airtable.Table.RecordID -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSS),1*U(U,U,U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.Text.Show.unpack
+                  `cast`
+                (Sym (Airtable.Table.N:RecordID[0]) ->_R <GHC.Base.String>_R) -}
+060faceee99f43056d915a39d36a434c
+  select ::
+    (GHC.Stack.Types.HasCallStack, Airtable.Table.IsRecord r,
+     GHC.Show.Show a) =>
+    Airtable.Table.Table a -> r -> a
+  {- Arity: 5,
+     Strictness: <L,1*U><C(S),1*C1(U(U,U,U))><L,A><S(SL),1*U(1*U,A)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ r
+                   @ a
+                   (w :: GHC.Stack.Types.HasCallStack)
+                   (w1 :: Airtable.Table.IsRecord r)
+                   (w2 :: GHC.Show.Show a)
+                   (w3 :: Airtable.Table.Table a)
+                   (w4 :: r) ->
+                 case w3 of ww { Airtable.Table.Table ww1 ww2 ->
+                 Airtable.Table.$wselect @ r @ a w w1 ww1 w4 }) -}
+cedac2e390e4038e6a20d9b61381a86b
+  select1 ::
+    GHC.Stack.Types.HasCallStack =>
+    GHC.Prim.Int# -> GHC.Prim.ByteArray# -> GHC.Prim.Int# -> a
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U>x -}
+f53a63030a2ac7e0d29cbf46e92f7b53
+  selectAll :: Airtable.Table.Table a -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (x :: Airtable.Table.Table a) ->
+                 GHC.Base.build
+                   @ a
+                   (\ @ b1 (c :: a -> b1 -> b1)[OneShot] (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ (Airtable.Table.RecordID, a)
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ a
+                         @ b1
+                         @ (Airtable.Table.RecordID, a)
+                         c
+                         (Data.Tuple.snd @ Airtable.Table.RecordID @ a))
+                      n
+                      (Airtable.Table.toList @ a x))) -}
+13a393e6ce83ea4c22cdb92d42d3abb1
+  selectAllKeys ::
+    Airtable.Table.Table a -> [Airtable.Table.RecordID]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (x :: Airtable.Table.Table a) ->
+                 GHC.Base.build
+                   @ Airtable.Table.RecordID
+                   (\ @ b1
+                      (c :: Airtable.Table.RecordID -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ (Airtable.Table.RecordID, a)
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ Airtable.Table.RecordID
+                         @ b1
+                         @ (Airtable.Table.RecordID, a)
+                         c
+                         (Data.Tuple.fst @ Airtable.Table.RecordID @ a))
+                      n
+                      (Airtable.Table.toList @ a x))) -}
+961e3b43f867594a94ca3a32c82fe87c
+  selectKeyWhere ::
+    Airtable.Table.Table a
+    -> (Airtable.Table.RecordID -> a -> GHC.Types.Bool)
+    -> [Airtable.Table.RecordID]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,A)><L,C(C1(U))>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: Airtable.Table.Table a)
+                   (w1 :: Airtable.Table.RecordID -> a -> GHC.Types.Bool) ->
+                 case w of ww { Airtable.Table.Table ww1 ww2 ->
+                 Airtable.Table.$wselectKeyWhere @ a ww1 w1 }) -}
+4326e7cd45fb9f6d04bcb8c3acff7681
+  selectMaybe ::
+    (Airtable.Table.IsRecord r, GHC.Show.Show a) =>
+    Airtable.Table.Table a -> r -> GHC.Base.Maybe a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U(U,U,U))><L,A><S(SL),1*U(1*U,A)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ r
+                   @ a
+                   (w :: Airtable.Table.IsRecord r)
+                   (w1 :: GHC.Show.Show a)
+                   (w2 :: Airtable.Table.Table a)
+                   (w3 :: r) ->
+                 case w2 of ww { Airtable.Table.Table ww1 ww2 ->
+                 Airtable.Table.$wselectMaybe @ r @ a w ww1 w3 }) -}
+1cfffc1dbe64fbaa98f1d2e22e3c2ef5
+  selectWhere ::
+    Airtable.Table.Table a
+    -> (Airtable.Table.RecordID -> a -> GHC.Types.Bool) -> [a]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,A)><L,C(C1(U))>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: Airtable.Table.Table a)
+                   (w1 :: Airtable.Table.RecordID -> a -> GHC.Types.Bool) ->
+                 case w of ww { Airtable.Table.Table ww1 ww2 ->
+                 Airtable.Table.$wselectWhere @ a ww1 w1 }) -}
+22324bda60b05a7dfeb15c6cd7faa993
+  tableOffset ::
+    Airtable.Table.Table a -> GHC.Base.Maybe Data.Text.Internal.Text
+  RecSel Left Airtable.Table.Table
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (ds :: Airtable.Table.Table a) ->
+                 case ds of wild { Airtable.Table.Table ds1 ds2 -> ds2 }) -}
+3bb34a14f09414a5edb8613d4747954d
+  tableRecords ::
+    Airtable.Table.Table a
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+  RecSel Left Airtable.Table.Table
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (ds :: Airtable.Table.Table a) ->
+                 case ds of wild { Airtable.Table.Table ds1 ds2 -> ds1 }) -}
+19116751eba02b17d5f7ce67ca48d881
+  toList :: Airtable.Table.Table a -> [(Airtable.Table.RecordID, a)]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (w :: Airtable.Table.Table a) ->
+                 case w of ww { Airtable.Table.Table ww1 ww2 ->
+                 Airtable.Table.$wtoList @ a ww1 }) -}
+2e9125c55b1a9072080e6ad43d73439d
+  toList1 ::
+    [(Airtable.Table.RecordID, a)]
+    -> Data.HashMap.Base.HashMap Airtable.Table.RecordID a
+    -> [(Airtable.Table.RecordID, a)]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U> -}
+instance GHC.Classes.Eq [Airtable.Table.RecordID]
+  = Airtable.Table.$fEqRecordID
+instance Data.Aeson.Types.Class.FromJSON [Airtable.Table.RecordID]
+  = Airtable.Table.$fFromJSONRecordID
+instance Data.Aeson.Types.Class.FromJSON [Airtable.Table.Table]
+  = Airtable.Table.$fFromJSONTable
+instance GHC.Generics.Generic [Airtable.Table.RecordID]
+  = Airtable.Table.$fGenericRecordID
+instance Data.Hashable.Class.Hashable [Airtable.Table.RecordID]
+  = Airtable.Table.$fHashableRecordID
+instance Airtable.Table.IsRecord [Airtable.Table.RecordID]
+  = Airtable.Table.$fIsRecordRecordID
+instance Airtable.Table.IsRecord [[]] = Airtable.Table.$fIsRecord[]
+instance GHC.Base.Monoid [Airtable.Table.Table]
+  = Airtable.Table.$fMonoidTable
+instance GHC.Classes.Ord [Airtable.Table.RecordID]
+  = Airtable.Table.$fOrdRecordID
+instance GHC.Show.Show [Airtable.Table.RecordID]
+  = Airtable.Table.$fShowRecordID
+instance GHC.Show.Show [Airtable.Table.Table]
+  = Airtable.Table.$fShowTable
+family instance GHC.Generics.Rep [Airtable.Table.RecordID]
+  = Airtable.Table.Rep_RecordID
+"SPEC/Airtable.Table $dmhashWithSalt @ RecordID" [ALWAYS] forall ($dHashable :: Data.Hashable.Class.Hashable
+                                                                                  Airtable.Table.RecordID)
+                                                                 ($dGeneric :: GHC.Generics.Generic
+                                                                                 Airtable.Table.RecordID)
+                                                                 ($dGHashable :: Data.Hashable.Class.GHashable
+                                                                                   (GHC.Generics.Rep
+                                                                                      Airtable.Table.RecordID))
+  Data.Hashable.Class.$dmhashWithSalt @ Airtable.Table.RecordID
+                                      $dHashable
+                                      $dGeneric
+                                      $dGHashable
+  = Airtable.Table.$fHashableRecordID_$s$dmhashWithSalt
+"SPEC/Airtable.Table $wupdateOrConcatWithKey @ RecordID _" [0] forall @ v
+                                                                      (w :: GHC.Classes.Eq
+                                                                              Airtable.Table.RecordID)
+  Data.HashMap.Base.$wupdateOrConcatWithKey @ Airtable.Table.RecordID
+                                            @ v
+                                            w
+  = Airtable.Table.$s$wupdateOrConcatWithKey @ v
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

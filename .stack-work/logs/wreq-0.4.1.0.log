@@ -1,0 +1,259 @@
+[1 of 1] Compiling Main             ( /tmp/stack5636/wreq-0.4.1.0/Setup.hs, /tmp/stack5636/wreq-0.4.1.0/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/Main.o )
+
+/tmp/stack5636/wreq-0.4.1.0/Setup.hs:63:15: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘InstalledPackageId’
+    (imported from Distribution.Package):
+    Deprecated: "Use UnitId instead"
+Linking /tmp/stack5636/wreq-0.4.1.0/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/setup ...
+Configuring wreq-0.4.1.0...
+Building wreq-0.4.1.0...
+Preprocessing library wreq-0.4.1.0...
+[ 1 of 15] Compiling Paths_wreq       ( .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Paths_wreq.o )
+[ 2 of 15] Compiling Network.Wreq.Lens.Machinery ( Network/Wreq/Lens/Machinery.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Lens/Machinery.o )
+[ 3 of 15] Compiling Network.Wreq.Internal.Types ( Network/Wreq/Internal/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Internal/Types.o )
+[ 4 of 15] Compiling Network.Wreq.Internal.OAuth1 ( Network/Wreq/Internal/OAuth1.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Internal/OAuth1.o )
+[ 5 of 15] Compiling Network.Wreq.Internal.Lens ( Network/Wreq/Internal/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Internal/Lens.o )
+
+Network/Wreq/Internal/Lens.hs:46:1: warning: [-Wunused-top-binds]
+    Defined but not used: ‘requestManagerOverride’
+[ 6 of 15] Compiling Network.Wreq.Internal.AWS ( Network/Wreq/Internal/AWS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Internal/AWS.o )
+[ 7 of 15] Compiling Network.Wreq.Types ( Network/Wreq/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Types.o )
+[ 8 of 15] Compiling Network.Wreq.Internal.Link ( Network/Wreq/Internal/Link.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Internal/Link.o )
+[ 9 of 15] Compiling Network.Wreq.Lens.TH ( Network/Wreq/Lens/TH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Lens/TH.o )
+[10 of 15] Compiling Network.Wreq.Lens ( Network/Wreq/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Lens.o )
+[11 of 15] Compiling Network.Wreq.Internal ( Network/Wreq/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Internal.o )
+
+Network/Wreq/Internal.hs:104:33: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Network/Wreq/Internal.hs:109:39: warning: [-Wdeprecations]
+    In the use of ‘parseUrl’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Request):
+    Deprecated: "Please use parseUrlThrow, parseRequest, or parseRequest_ instead"
+[12 of 15] Compiling Network.Wreq.Cache.Store ( Network/Wreq/Cache/Store.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Cache/Store.o )
+[13 of 15] Compiling Network.Wreq.Cache ( Network/Wreq/Cache.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Cache.o )
+
+Network/Wreq/Cache.hs:153:30: warning: [-Wdeprecations]
+    In the use of ‘parseTime’
+    (imported from Data.Time.Format, but defined in time-1.6.0.1:Data.Time.Format.Parse):
+    Deprecated: "use "parseTimeM True" instead"
+[14 of 15] Compiling Network.Wreq     ( Network/Wreq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq.o )
+
+Network/Wreq.hs:195:19: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+[15 of 15] Compiling Network.Wreq.Session ( Network/Wreq/Session.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Wreq/Session.o )
+
+Network/Wreq/Session.hs:112:3: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+Running Haddock for wreq-0.4.1.0...
+Preprocessing library wreq-0.4.1.0...
+Warning: The documentation for the following packages are not installed. No
+links will be generated to these packages: fail-4.9.0.0
+
+Network/Wreq/Internal/Lens.hs:46:1: warning: [-Wunused-top-binds]
+    Defined but not used: ‘requestManagerOverride’
+
+Network/Wreq/Internal.hs:104:33: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Network/Wreq/Internal.hs:109:39: warning: [-Wdeprecations]
+    In the use of ‘parseUrl’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Request):
+    Deprecated: "Please use parseUrlThrow, parseRequest, or parseRequest_ instead"
+
+Network/Wreq/Cache.hs:153:30: warning: [-Wdeprecations]
+    In the use of ‘parseTime’
+    (imported from Data.Time.Format, but defined in time-1.6.0.1:Data.Time.Format.Parse):
+    Deprecated: "use "parseTimeM True" instead"
+
+Network/Wreq.hs:195:19: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Network/Wreq/Session.hs:112:3: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+Haddock coverage:
+   0% (  0 /  8) in 'Paths_wreq'
+  Missing documentation for:
+    Module header
+    version (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:28)
+    getBinDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:38)
+    getLibDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:38)
+    getDataDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:38)
+    getLibexecDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:38)
+    getDataFileName (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:45)
+    getSysconfDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_wreq.hs:38)
+   0% (  0 /  4) in 'Network.Wreq.Lens.Machinery'
+  Missing documentation for:
+    Module header
+    makeLenses (Network/Wreq/Lens/Machinery.hs:19)
+    fieldName (Network/Wreq/Lens/Machinery.hs:16)
+    toCamelCase (Network/Wreq/Lens/Machinery.hs:22)
+  86% ( 24 / 28) in 'Network.Wreq.Internal.Types'
+  Missing documentation for:
+    Mgr (Network/Wreq/Internal/Types.hs:64)
+    AWSAuthVersion (Network/Wreq/Internal/Types.hs:191)
+    Body (Network/Wreq/Internal/Types.hs:309)
+    CacheEntry (Network/Wreq/Internal/Types.hs:303)
+   0% (  0 /  2) in 'Network.Wreq.Internal.OAuth1'
+  Missing documentation for:
+    Module header
+    signRequest (Network/Wreq/Internal/OAuth1.hs:8)
+  13% (  4 / 30) in 'Network.Wreq.Internal.Lens'
+  Missing documentation for:
+    Module header
+    method (Network/Wreq/Internal/Lens.hs:46)
+    secure (Network/Wreq/Internal/Lens.hs:46)
+    host (Network/Wreq/Internal/Lens.hs:46)
+    port (Network/Wreq/Internal/Lens.hs:46)
+    path (Network/Wreq/Internal/Lens.hs:46)
+    queryString (Network/Wreq/Internal/Lens.hs:46)
+    requestHeaders (Network/Wreq/Internal/Lens.hs:46)
+    requestBody (Network/Wreq/Internal/Lens.hs:46)
+    requestVersion (Network/Wreq/Internal/Lens.hs:46)
+    onRequestBodyException (Network/Wreq/Internal/Lens.hs:46)
+    proxy (Network/Wreq/Internal/Lens.hs:46)
+    hostAddress (Network/Wreq/Internal/Lens.hs:46)
+    rawBody (Network/Wreq/Internal/Lens.hs:46)
+    decompress (Network/Wreq/Internal/Lens.hs:46)
+    redirectCount (Network/Wreq/Internal/Lens.hs:46)
+    responseTimeout (Network/Wreq/Internal/Lens.hs:46)
+    checkStatus (Network/Wreq/Internal/Lens.hs:46)
+    getConnectionWrapper (Network/Wreq/Internal/Lens.hs:46)
+    cookieJar (Network/Wreq/Internal/Lens.hs:46)
+    seshCookies (Network/Wreq/Internal/Lens.hs:47)
+    seshManager (Network/Wreq/Internal/Lens.hs:47)
+    seshRun (Network/Wreq/Internal/Lens.hs:47)
+    assoc (Network/Wreq/Internal/Lens.hs:49)
+    assoc2 (Network/Wreq/Internal/Lens.hs:52)
+    deleteKey (Network/Wreq/Internal/Lens.hs:71)
+   0% (  0 /  2) in 'Network.Wreq.Internal.AWS'
+  Missing documentation for:
+    Module header
+    signRequest (Network/Wreq/Internal/AWS.hs:43)
+  95% ( 21 / 22) in 'Network.Wreq.Types'
+  Missing documentation for:
+    AWSAuthVersion (Network/Wreq/Internal/Types.hs:191)
+   0% (  0 /  2) in 'Network.Wreq.Internal.Link'
+  Missing documentation for:
+    Module header
+    links (Network/Wreq/Internal/Link.hs:16)
+  12% (  6 / 50) in 'Network.Wreq.Lens.TH'
+  Missing documentation for:
+    Module header
+    manager (Network/Wreq/Lens/TH.hs:76)
+    proxy (Network/Wreq/Lens/TH.hs:76)
+    auth (Network/Wreq/Lens/TH.hs:76)
+    header (Network/Wreq/Lens/TH.hs:90)
+    headers (Network/Wreq/Lens/TH.hs:76)
+    param (Network/Wreq/Lens/TH.hs:87)
+    params (Network/Wreq/Lens/TH.hs:76)
+    redirects (Network/Wreq/Lens/TH.hs:76)
+    cookie (Network/Wreq/Lens/TH.hs:97)
+    cookies (Network/Wreq/Lens/TH.hs:76)
+    checkStatus (Network/Wreq/Lens/TH.hs:76)
+    Cookie
+    cookieName (Network/Wreq/Lens/TH.hs:77)
+    cookieValue (Network/Wreq/Lens/TH.hs:77)
+    cookieExpiryTime (Network/Wreq/Lens/TH.hs:77)
+    cookieDomain (Network/Wreq/Lens/TH.hs:77)
+    cookiePath (Network/Wreq/Lens/TH.hs:77)
+    cookieCreationTime (Network/Wreq/Lens/TH.hs:77)
+    cookieLastAccessTime (Network/Wreq/Lens/TH.hs:77)
+    cookiePersistent (Network/Wreq/Lens/TH.hs:77)
+    cookieHostOnly (Network/Wreq/Lens/TH.hs:77)
+    cookieSecureOnly (Network/Wreq/Lens/TH.hs:77)
+    cookieHttpOnly (Network/Wreq/Lens/TH.hs:77)
+    proxyHost (Network/Wreq/Lens/TH.hs:78)
+    proxyPort (Network/Wreq/Lens/TH.hs:78)
+    responseStatus (Network/Wreq/Lens/TH.hs:79)
+    responseVersion (Network/Wreq/Lens/TH.hs:79)
+    responseHeader (Network/Wreq/Lens/TH.hs:84)
+    responseHeaders (Network/Wreq/Lens/TH.hs:79)
+    responseLink (Network/Wreq/Lens/TH.hs:106)
+    responseBody (Network/Wreq/Lens/TH.hs:79)
+    responseCookie (Network/Wreq/Lens/TH.hs:101)
+    responseCookieJar (Network/Wreq/Lens/TH.hs:79)
+    responseClose' (Network/Wreq/Lens/TH.hs:79)
+    statusCode (Network/Wreq/Lens/TH.hs:80)
+    statusMessage (Network/Wreq/Lens/TH.hs:80)
+    linkURL (Network/Wreq/Lens/TH.hs:81)
+    linkParams (Network/Wreq/Lens/TH.hs:81)
+    partName (Network/Wreq/Lens/TH.hs:82)
+    partFilename (Network/Wreq/Lens/TH.hs:82)
+    partContentType (Network/Wreq/Lens/TH.hs:82)
+    partGetBody (Network/Wreq/Lens/TH.hs:82)
+    partHeaders (Network/Wreq/Lens/TH.hs:82)
+  98% ( 58 / 59) in 'Network.Wreq.Lens'
+  Missing documentation for:
+    Cookie
+   0% (  0 / 18) in 'Network.Wreq.Internal'
+  Missing documentation for:
+    Module header
+    defaults (Network/Wreq/Internal.hs:60)
+    defaultManagerSettings (Network/Wreq/Internal.hs:57)
+    emptyMethodWith (Network/Wreq/Internal.hs:78)
+    foldResponseBody (Network/Wreq/Internal.hs:90)
+    ignoreResponse (Network/Wreq/Internal.hs:82)
+    readResponse (Network/Wreq/Internal.hs:85)
+    request (Network/Wreq/Internal.hs:99)
+    prepareGet (Network/Wreq/Internal.hs:153)
+    preparePost (Network/Wreq/Internal.hs:159)
+    runRead (Network/Wreq/Internal.hs:156)
+    prepareHead (Network/Wreq/Internal.hs:173)
+    runIgnore (Network/Wreq/Internal.hs:176)
+    prepareOptions (Network/Wreq/Internal.hs:179)
+    preparePut (Network/Wreq/Internal.hs:182)
+    prepareDelete (Network/Wreq/Internal.hs:186)
+    prepareMethod (Network/Wreq/Internal.hs:163)
+    preparePayloadMethod (Network/Wreq/Internal.hs:167)
+   0% (  0 /  8) in 'Network.Wreq.Cache.Store'
+  Missing documentation for:
+    Module header
+    Store (Network/Wreq/Cache/Store.hs:22)
+    empty (Network/Wreq/Cache/Store.hs:32)
+    insert (Network/Wreq/Cache/Store.hs:38)
+    delete (Network/Wreq/Cache/Store.hs:54)
+    lookup (Network/Wreq/Cache/Store.hs:46)
+    fromList (Network/Wreq/Cache/Store.hs:60)
+    toList (Network/Wreq/Cache/Store.hs:64)
+   0% (  0 /  4) in 'Network.Wreq.Cache'
+  Missing documentation for:
+    Module header
+    shouldCache (Network/Wreq/Cache.hs:93)
+    validateEntry (Network/Wreq/Cache.hs:86)
+    cacheStore (Network/Wreq/Cache.hs:47)
+  95% (104 /110) in 'Network.Wreq'
+  Missing documentation for:
+    foldGet (Network/Wreq.hs:382)
+    foldGetWith (Network/Wreq.hs:385)
+    defaults (Network/Wreq/Internal.hs:60)
+    AWSAuthVersion (Network/Wreq/Internal/Types.hs:191)
+    withManager (Network/Wreq.hs:194)
+    Cookie
+  96% ( 23 / 24) in 'Network.Wreq.Session'
+  Missing documentation for:
+    seshRun (Network/Wreq/Internal/Lens.hs:47)
+Warning: Network.Wreq.Types: could not find link destinations for:
+    Mgr
+Warning: Network.Wreq.Cache: could not find link destinations for:
+    CacheEntry
+Warning: Network.Wreq.Session: could not find link destinations for:
+    Body
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/wreq/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/wreq/wreq.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/wreq-0.4.1.0-DyJSmRkHAw2G15dYTDjjZ
+Registering wreq-0.4.1.0...

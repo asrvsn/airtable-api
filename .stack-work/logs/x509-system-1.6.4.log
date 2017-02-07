@@ -17,6 +17,35 @@ System/X509/MacOS.hs:8:1: warning: [-Wunused-imports]
 System/X509.hs:10:1: warning: [-Wtabs]
     Tab character found here, and in one further location.
     Please use spaces instead.
+Running Haddock for x509-system-1.6.4...
+Preprocessing library x509-system-1.6.4...
+
+System/X509/MacOS.hs:2:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+
+System/X509/MacOS.hs:8:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+System/X509.hs:10:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+Haddock coverage:
+   0% (  0 /  2) in 'System.X509.MacOS'
+  Missing documentation for:
+    Module header
+    getSystemCertificateStore (System/X509/MacOS.hs:28)
+  50% (  1 /  2) in 'System.X509.Unix'
+  Missing documentation for:
+    getSystemCertificateStore (System/X509/Unix.hs:39)
+  50% (  1 /  2) in 'System.X509'
+  Missing documentation for:
+    getSystemCertificateStore (System/X509/Unix.hs:39)
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/x509-system/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/x509-system/x509-system.txt
 Installing library in
 /home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/x509-system-1.6.4-5TUbn7N9HL62SDMPcaDxLf
 Registering x509-system-1.6.4...

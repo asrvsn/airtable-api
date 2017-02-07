@@ -120,6 +120,55 @@ on the commandline: warning: [-Wtrustworthy-safe]
 
 on the commandline: warning: [-Wtrustworthy-safe]
     ‘Crypto.MAC.HMAC’ is marked as Trustworthy but has been inferred as safe!
+Running Haddock for cryptohash-0.11.9...
+Preprocessing library cryptohash-0.11.9...
+
+Crypto/Hash/Internal.hs:33:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: HashAlgorithm h
+    • In the type signature for:
+           digestToByteString :: HashAlgorithm h => Digest h -> ByteString
+
+Crypto/Hash/Internal.hs:36:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: HashAlgorithm h
+    • In the type signature for:
+           digestToByteStringWitness :: HashAlgorithm h =>
+                                        h -> Digest h -> ByteString
+
+<no location info>: warning: [-Wtrustworthy-safe]
+    ‘Crypto.Hash.SHA512t’ is marked as Trustworthy but has been inferred as safe!
+
+<no location info>: warning: [-Wtrustworthy-safe]
+    ‘Crypto.MAC.HMAC’ is marked as Trustworthy but has been inferred as safe!
+Haddock coverage:
+  50% (  2 /  4) in 'Crypto.Hash.Internal'
+  Missing documentation for:
+    digestToByteString (Crypto/Hash/Internal.hs:33)
+    digestToByteStringWitness (Crypto/Hash/Internal.hs:36)
+ 100% ( 10 / 10) in 'Crypto.Hash.Whirlpool'
+ 100% ( 10 / 10) in 'Crypto.Hash.Tiger'
+ 100% ( 10 / 10) in 'Crypto.Hash.Skein512'
+ 100% ( 10 / 10) in 'Crypto.Hash.Skein256'
+ 100% ( 10 / 10) in 'Crypto.Hash.RIPEMD160'
+ 100% ( 10 / 10) in 'Crypto.Hash.MD5'
+ 100% ( 10 / 10) in 'Crypto.Hash.MD4'
+ 100% ( 10 / 10) in 'Crypto.Hash.MD2'
+ 100% ( 10 / 10) in 'Crypto.Hash.SHA3'
+ 100% ( 11 / 11) in 'Crypto.Hash.SHA512'
+ 100% (  9 /  9) in 'Crypto.Hash.SHA512t'
+ 100% ( 10 / 10) in 'Crypto.Hash.SHA384'
+ 100% ( 10 / 10) in 'Crypto.Hash.SHA256'
+ 100% ( 10 / 10) in 'Crypto.Hash.SHA224'
+ 100% ( 10 / 10) in 'Crypto.Hash.SHA1'
+  83% (  5 /  6) in 'Crypto.Hash.Types'
+  Missing documentation for:
+    contextToByteString (Crypto/Hash/Types.hs:32)
+ 100% ( 40 / 40) in 'Crypto.Hash'
+ 100% ( 11 / 11) in 'Crypto.MAC'
+ 100% (  9 /  9) in 'Crypto.MAC.SHA3'
+ 100% (  2 /  2) in 'Crypto.MAC.HMAC'
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/cryptohash/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/cryptohash/cryptohash.txt
 Installing library in
 /home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/cryptohash-0.11.9-8qx1pVOrdW6LyDlNXkIhFs
 Registering cryptohash-0.11.9...

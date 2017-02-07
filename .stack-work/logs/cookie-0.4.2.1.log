@@ -1,0 +1,44 @@
+Configuring cookie-0.4.2.1...
+Building cookie-0.4.2.1...
+Preprocessing library cookie-0.4.2.1...
+[1 of 1] Compiling Web.Cookie       ( Web/Cookie.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Web/Cookie.o )
+
+Web/Cookie.hs:92:18: warning: [-Wdeprecations]
+    In the use of ‘breakByte’ (imported from Data.ByteString):
+    Deprecated: "It is an internal function and should never have been exported. Use 'break (== x)' instead. (There are rewrite rules that handle this special case of 'break'.)"
+
+Web/Cookie.hs:241:21: warning: [-Wdeprecations]
+    In the use of ‘parseTime’
+    (imported from Data.Time, but defined in time-1.6.0.1:Data.Time.Format.Parse):
+    Deprecated: "use "parseTimeM True" instead"
+Running Haddock for cookie-0.4.2.1...
+Preprocessing library cookie-0.4.2.1...
+
+Web/Cookie.hs:92:18: warning: [-Wdeprecations]
+    In the use of ‘breakByte’ (imported from Data.ByteString):
+    Deprecated: "It is an internal function and should never have been exported. Use 'break (== x)' instead. (There are rewrite rules that handle this special case of 'break'.)"
+
+Web/Cookie.hs:241:21: warning: [-Wdeprecations]
+    In the use of ‘parseTime’
+    (imported from Data.Time, but defined in time-1.6.0.1:Data.Time.Format.Parse):
+    Deprecated: "use "parseTimeM True" instead"
+Haddock coverage:
+  66% ( 21 / 32) in 'Web.Cookie'
+  Missing documentation for:
+    Module header
+    sameSiteLax (Web/Cookie.hs:139)
+    sameSiteStrict (Web/Cookie.hs:142)
+    parseSetCookie (Web/Cookie.hs:207)
+    renderSetCookie (Web/Cookie.hs:174)
+    Cookies (Web/Cookie.hs:74)
+    renderCookies (Web/Cookie.hs:95)
+    parseCookiesText (Web/Cookie.hs:64)
+    renderCookiesText (Web/Cookie.hs:71)
+    expiresFormat (Web/Cookie.hs:231)
+    parseCookieExpires (Web/Cookie.hs:239)
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/cookie/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/cookie/cookie.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/cookie-0.4.2.1-2a2c54yIyBn79Ul3iLWclJ
+Registering cookie-0.4.2.1...

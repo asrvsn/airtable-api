@@ -1,10 +1,10 @@
-[1 of 1] Compiling Main             ( /tmp/stack30001/semigroupoids-5.1/Setup.lhs, /tmp/stack30001/semigroupoids-5.1/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/Main.o )
+[1 of 1] Compiling Main             ( /tmp/stack5636/semigroupoids-5.1/Setup.lhs, /tmp/stack5636/semigroupoids-5.1/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/Main.o )
 
-/tmp/stack30001/semigroupoids-5.1/Setup.lhs:46:69: warning: [-Wdeprecations]
+/tmp/stack5636/semigroupoids-5.1/Setup.lhs:46:69: warning: [-Wdeprecations]
     In the use of type constructor or class ‘InstalledPackageId’
     (imported from Distribution.Package):
     Deprecated: "Use UnitId instead"
-Linking /tmp/stack30001/semigroupoids-5.1/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/setup ...
+Linking /tmp/stack5636/semigroupoids-5.1/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/setup ...
 Configuring semigroupoids-5.1...
 Building semigroupoids-5.1...
 Preprocessing library semigroupoids-5.1...
@@ -13,22 +13,106 @@ Preprocessing library semigroupoids-5.1...
 [ 3 of 21] Compiling Data.Functor.Extend ( src/Data/Functor/Extend.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Extend.o )
 [ 4 of 21] Compiling Data.Functor.Bind.Class ( src/Data/Functor/Bind/Class.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Bind/Class.o )
 [ 5 of 21] Compiling Data.Functor.Apply ( src/Data/Functor/Apply.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Apply.o )
-[ 6 of 21] Compiling Data.Semigroup.Bifoldable ( src/Data/Semigroup/Bifoldable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Bifoldable.o )
-[ 7 of 21] Compiling Data.Functor.Bind ( src/Data/Functor/Bind.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Bind.o )
-[ 8 of 21] Compiling Data.Functor.Alt ( src/Data/Functor/Alt.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Alt.o )
-[ 9 of 21] Compiling Data.Semigroup.Foldable ( src/Data/Semigroup/Foldable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Foldable.o )
-[10 of 21] Compiling Data.Semigroup.Traversable.Class ( src/Data/Semigroup/Traversable/Class.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Traversable/Class.o )
-[11 of 21] Compiling Data.Semigroup.Bitraversable ( src/Data/Semigroup/Bitraversable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Bitraversable.o )
-[12 of 21] Compiling Data.Semigroup.Traversable ( src/Data/Semigroup/Traversable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Traversable.o )
-[13 of 21] Compiling Data.Functor.Bind.Trans ( src/Data/Functor/Bind/Trans.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Bind/Trans.o )
-[14 of 21] Compiling Data.Functor.Plus ( src/Data/Functor/Plus.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Plus.o )
-[15 of 21] Compiling Data.Semigroupoid ( src/Data/Semigroupoid.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid.o )
-[16 of 21] Compiling Data.Semigroupoid.Dual ( src/Data/Semigroupoid/Dual.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid/Dual.o )
-[17 of 21] Compiling Data.Groupoid    ( src/Data/Groupoid.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Groupoid.o )
-[18 of 21] Compiling Data.Isomorphism ( src/Data/Isomorphism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Isomorphism.o )
-[19 of 21] Compiling Data.Semigroupoid.Static ( src/Data/Semigroupoid/Static.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid/Static.o )
-[20 of 21] Compiling Data.Semigroupoid.Ob ( src/Data/Semigroupoid/Ob.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid/Ob.o )
+[ 6 of 21] Compiling Data.Functor.Bind ( src/Data/Functor/Bind.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Bind.o )
+[ 7 of 21] Compiling Data.Functor.Bind.Trans ( src/Data/Functor/Bind/Trans.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Bind/Trans.o )
+[ 8 of 21] Compiling Data.Semigroupoid ( src/Data/Semigroupoid.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid.o )
+[ 9 of 21] Compiling Data.Semigroupoid.Dual ( src/Data/Semigroupoid/Dual.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid/Dual.o )
+[10 of 21] Compiling Data.Groupoid    ( src/Data/Groupoid.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Groupoid.o )
+[11 of 21] Compiling Data.Isomorphism ( src/Data/Isomorphism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Isomorphism.o )
+[12 of 21] Compiling Data.Semigroupoid.Ob ( src/Data/Semigroupoid/Ob.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid/Ob.o )
+[13 of 21] Compiling Data.Semigroup.Bifoldable ( src/Data/Semigroup/Bifoldable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Bifoldable.o )
+[14 of 21] Compiling Data.Functor.Alt ( src/Data/Functor/Alt.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Alt.o )
+[15 of 21] Compiling Data.Functor.Plus ( src/Data/Functor/Plus.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Functor/Plus.o )
+[16 of 21] Compiling Data.Semigroupoid.Static ( src/Data/Semigroupoid/Static.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroupoid/Static.o )
+[17 of 21] Compiling Data.Semigroup.Foldable ( src/Data/Semigroup/Foldable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Foldable.o )
+[18 of 21] Compiling Data.Semigroup.Traversable.Class ( src/Data/Semigroup/Traversable/Class.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Traversable/Class.o )
+[19 of 21] Compiling Data.Semigroup.Bitraversable ( src/Data/Semigroup/Bitraversable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Bitraversable.o )
+[20 of 21] Compiling Data.Semigroup.Traversable ( src/Data/Semigroup/Traversable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Semigroup/Traversable.o )
 [21 of 21] Compiling Data.Bifunctor.Apply ( src/Data/Bifunctor/Apply.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Bifunctor/Apply.o )
+Running Haddock for semigroupoids-5.1...
+Preprocessing library semigroupoids-5.1...
+Haddock coverage:
+ 100% (  1 /  1) in 'Data.Traversable.Instances'
+  33% (  1 /  3) in 'Data.Semigroup.Foldable.Class'
+  Missing documentation for:
+    Foldable1 (src/Data/Semigroup/Foldable/Class.hs:53)
+    Bifoldable1 (src/Data/Semigroup/Foldable/Class.hs:60)
+  75% (  3 /  4) in 'Data.Functor.Extend'
+  Missing documentation for:
+    Extend (src/Data/Functor/Extend.hs:45)
+  75% (  9 / 12) in 'Data.Functor.Bind.Class'
+  Missing documentation for:
+    apDefault (src/Data/Functor/Bind/Class.hs:412)
+    returning (src/Data/Functor/Bind/Class.hs:409)
+    Biapply (src/Data/Functor/Bind/Class.hs:537)
+ 100% ( 13 / 13) in 'Data.Functor.Apply'
+  75% ( 15 / 20) in 'Data.Functor.Bind'
+  Missing documentation for:
+    -<< (src/Data/Functor/Bind.hs:47)
+    -<- (src/Data/Functor/Bind.hs:53)
+    ->- (src/Data/Functor/Bind.hs:50)
+    apDefault (src/Data/Functor/Bind/Class.hs:412)
+    returning (src/Data/Functor/Bind/Class.hs:409)
+ 100% (  2 /  2) in 'Data.Functor.Bind.Trans'
+  50% (  2 /  4) in 'Data.Semigroupoid'
+  Missing documentation for:
+    WrappedCategory (src/Data/Semigroupoid.hs:69)
+    Semi (src/Data/Semigroupoid.hs:78)
+  50% (  1 /  2) in 'Data.Semigroupoid.Dual'
+  Missing documentation for:
+    Dual (src/Data/Semigroupoid/Dual.hs:23)
+ 100% (  2 /  2) in 'Data.Groupoid'
+  50% (  1 /  2) in 'Data.Isomorphism'
+  Missing documentation for:
+    Iso (src/Data/Isomorphism.hs:25)
+  20% (  1 /  5) in 'Data.Semigroupoid.Ob'
+  Missing documentation for:
+    Ob (src/Data/Semigroupoid/Ob.hs:30)
+     (src/Data/Semigroupoid/Ob.hs:33)
+     (src/Data/Semigroupoid/Ob.hs:37)
+     (src/Data/Semigroupoid/Ob.hs:41)
+  33% (  2 /  6) in 'Data.Semigroup.Bifoldable'
+  Missing documentation for:
+    Bifoldable1 (src/Data/Semigroup/Foldable/Class.hs:60)
+    bitraverse1_ (src/Data/Semigroup/Bifoldable.hs:39)
+    bifor1_ (src/Data/Semigroup/Bifoldable.hs:43)
+    bisequenceA1_ (src/Data/Semigroup/Bifoldable.hs:51)
+ 100% (  3 /  3) in 'Data.Functor.Alt'
+ 100% (  3 /  3) in 'Data.Functor.Plus'
+  50% (  1 /  2) in 'Data.Semigroupoid.Static'
+  Missing documentation for:
+    Static (src/Data/Semigroupoid/Static.hs:44)
+  44% (  4 /  9) in 'Data.Semigroup.Foldable'
+  Missing documentation for:
+    Foldable1 (src/Data/Semigroup/Foldable/Class.hs:53)
+    traverse1_ (src/Data/Semigroup/Foldable.hs:73)
+    for1_ (src/Data/Semigroup/Foldable.hs:77)
+    sequenceA1_ (src/Data/Semigroup/Foldable.hs:81)
+    asum1 (src/Data/Semigroup/Foldable.hs:99)
+  33% (  1 /  3) in 'Data.Semigroup.Traversable.Class'
+  Missing documentation for:
+    Bitraversable1 (src/Data/Semigroup/Traversable/Class.hs:52)
+    Traversable1 (src/Data/Semigroup/Traversable/Class.hs:133)
+  33% (  1 /  3) in 'Data.Semigroup.Bitraversable'
+  Missing documentation for:
+    Bitraversable1 (src/Data/Semigroup/Traversable/Class.hs:52)
+    bifoldMap1Default (src/Data/Semigroup/Bitraversable.hs:21)
+  33% (  1 /  3) in 'Data.Semigroup.Traversable'
+  Missing documentation for:
+    Traversable1 (src/Data/Semigroup/Traversable/Class.hs:133)
+    foldMap1Default (src/Data/Semigroup/Traversable.hs:20)
+  62% (  5 /  8) in 'Data.Bifunctor.Apply'
+  Missing documentation for:
+    Biapply (src/Data/Functor/Bind/Class.hs:537)
+    <<$>>
+    <<..>> (src/Data/Bifunctor/Apply.hs:27)
+Warning: Data.Functor.Apply: could not find link destinations for:
+    Id Id Digit Node Elem FingerTree StateL StateR StateL StateR State
+Warning: Data.Functor.Bind: could not find link destinations for:
+    Id Id Digit Node Elem FingerTree StateL StateR StateL StateR State
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/semigroupoids/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/semigroupoids/semigroupoids.txt
 Installing library in
 /home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/semigroupoids-5.1-AGND0wXmROPBksSwQ5Dbx2
 Registering semigroupoids-5.1...

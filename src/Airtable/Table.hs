@@ -1,4 +1,8 @@
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Airtable.Table
     ( RecordID(..)
@@ -21,6 +25,8 @@ module Airtable.Table
 import           GHC.Generics
 import           GHC.Stack
 
+import           Control.Applicative ((<|>))
+
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import           Data.Aeson
@@ -29,12 +35,13 @@ import           Data.Text (Text)
 import qualified Data.Text as T
 import           Data.Monoid
 import           Data.Hashable
+import           Data.Foldable (foldlM)
 
 
 -- * RecordID 
 
 -- | Airtable's record ID for use in indexing records
-newtype RecordID = RecordID Text deriving (FromJSON, Show, Read, Eq, Generic, Ord)
+newtype RecordID = RecordID Text deriving (FromJSON, Show, Eq, Generic, Ord)
 
 instance Hashable RecordID 
 
@@ -43,7 +50,7 @@ rec2str (RecordID rec) = T.unpack rec
 
 -- * IsRecord class
 
--- | Convenience typeclass for selecting record using RecordID-like values.
+-- | A convenience typeclass for selecting records using RecordID-like keys.
 class IsRecord a where
   toRec :: a -> RecordID
 
@@ -55,15 +62,13 @@ instance IsRecord String where
 
 -- * Table 
 
--- | Airtable's table type, a map for indexed lookup of records
+-- | Airtable's table type
 data Table a = Table { tableRecords :: Map.HashMap RecordID a
                      , tableOffset :: Maybe Text
                      } deriving 
-                     ( Show
-                     , Read
-                     )
+                     ( Show )
 
--- | Used only to query API. 
+-- | Synonym used in querying tables from the API.
 type TableName = String
 
 instance (FromJSON a) => FromJSON (Table a) where
@@ -85,9 +90,11 @@ instance Monoid (Table a) where
 
 -- * Table methods
 
+-- | Convert a 'Table' to a list of key-record pairs.
 toList :: Table a -> [(RecordID, a)]
 toList = Map.toList . tableRecords
 
+-- | Check if a record exists at the given key in a table.
 exists :: (IsRecord r) => Table a -> r -> Bool
 exists tbl rec = Map.member (toRec rec) (tableRecords tbl)
 

@@ -1,15 +1,21 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Airtable.Query
-    ( AirtableOptions
+    ( module Airtable.Table
+    , AirtableOptions
     , getTable
     ) where
 
 
 import           Airtable.Table
-import           Airtable.Options
 
 import           Network.Wreq
+
 import           Control.Lens ((^.), (.~), (&))
+
 import           Data.Aeson (FromJSON, ToJSON, eitherDecode)
+import           Data.Monoid
+import qualified Data.ByteString.Char8 as BC
 
 -- * Configuration for Airtable requests.
 
@@ -30,7 +36,7 @@ base_url = "https://api.airtable.com/v0/"
 getTable :: (FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
 getTable opts tname = getTableFromUrl net_otps url 
   where
-    net_otps = defaults & header "Authorization" .~ ["Bearer " <> apiKey opts] 
+    net_otps = defaults & header "Authorization" .~ ["Bearer " <> BC.pack (apiKey opts)] 
     url  = base_url <> appId opts <> "/" <> tname
 
 getTableFromUrl :: (FromJSON a) => Options -> String -> IO (Table a)

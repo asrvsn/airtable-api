@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE FlexibleContexts, OverloadedStrings #-}</span><span>
+</span><a name="line-2"></a><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      : Network.Wreq</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   : (c) 2014 Bryan O'Sullivan</span><span>
+</span><a name="line-6"></a><span class="hs-comment">--</span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- License     : BSD-style</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  : bos@serpentine.com</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   : experimental</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability : GHC</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- A library for client-side HTTP requests, focused on ease of use.</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--</span><span>
+</span><a name="line-14"></a><span class="hs-comment">-- When reading the examples in this module, you should assume the</span><span>
+</span><a name="line-15"></a><span class="hs-comment">-- following environment:</span><span>
+</span><a name="line-16"></a><span class="hs-comment">--</span><span>
+</span><a name="line-17"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-18"></a><span class="hs-comment">-- \-\- Make it easy to write literal 'S.ByteString' and 'Text' values.</span><span>
+</span><a name="line-19"></a><span class="hs-comment">-- \{\-\# LANGUAGE OverloadedStrings \#\-\}</span><span>
+</span><a name="line-20"></a><span class="hs-comment">--</span><span>
+</span><a name="line-21"></a><span class="hs-comment">-- \-\- Our handy module.</span><span>
+</span><a name="line-22"></a><span class="hs-comment">-- import &quot;Network.Wreq&quot;</span><span>
+</span><a name="line-23"></a><span class="hs-comment">--</span><span>
+</span><a name="line-24"></a><span class="hs-comment">-- \-\- Operators such as ('&amp;') and ('.~').</span><span>
+</span><a name="line-25"></a><span class="hs-comment">-- import &quot;Control.Lens&quot;</span><span>
+</span><a name="line-26"></a><span class="hs-comment">--</span><span>
+</span><a name="line-27"></a><span class="hs-comment">-- \-\- Conversion of Haskell values to JSON.</span><span>
+</span><a name="line-28"></a><span class="hs-comment">-- import &quot;Data.Aeson&quot; ('Data.Aeson.toJSON')</span><span>
+</span><a name="line-29"></a><span class="hs-comment">--</span><span>
+</span><a name="line-30"></a><span class="hs-comment">-- \-\- Easy traversal of JSON data.</span><span>
+</span><a name="line-31"></a><span class="hs-comment">-- import &quot;Data.Aeson.Lens&quot; ('Data.Aeson.Lens.key', 'Data.Aeson.Lens.nth')</span><span>
+</span><a name="line-32"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-33"></a><span class="hs-comment">--</span><span>
+</span><a name="line-34"></a><span class="hs-comment">-- There exist some less frequently used lenses that are not exported</span><span>
+</span><a name="line-35"></a><span class="hs-comment">-- from this module; these can be found in &quot;Network.Wreq.Lens&quot;.</span><span>
+</span><a name="line-36"></a><span>
+</span><a name="line-37"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span>
+</span><a name="line-38"></a><span>    </span><span class="hs-special">(</span><span>
+</span><a name="line-39"></a><span>    </span><span class="hs-comment">-- * HTTP verbs</span><span>
+</span><a name="line-40"></a><span>
+</span><a name="line-41"></a><span>    </span><span class="hs-comment">-- ** Sessions</span><span>
+</span><a name="line-42"></a><span>    </span><span class="hs-comment">-- $session</span><span>
+</span><a name="line-43"></a><span>
+</span><a name="line-44"></a><span>    </span><span class="hs-comment">-- ** GET</span><span>
+</span><a name="line-45"></a><span>      </span><a href="Network.Wreq.html#get"><span class="hs-identifier hs-var">get</span></a><span>
+</span><a name="line-46"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#getWith"><span class="hs-identifier hs-var">getWith</span></a><span>
+</span><a name="line-47"></a><span>    </span><span class="hs-comment">-- ** POST</span><span>
+</span><a name="line-48"></a><span>    </span><span class="hs-comment">-- $postable</span><span>
+</span><a name="line-49"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#post"><span class="hs-identifier hs-var">post</span></a><span>
+</span><a name="line-50"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#postWith"><span class="hs-identifier hs-var">postWith</span></a><span>
+</span><a name="line-51"></a><span>    </span><span class="hs-comment">-- ** HEAD</span><span>
+</span><a name="line-52"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#head_"><span class="hs-identifier hs-var">head_</span></a><span>
+</span><a name="line-53"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#headWith"><span class="hs-identifier hs-var">headWith</span></a><span>
+</span><a name="line-54"></a><span>    </span><span class="hs-comment">-- ** OPTIONS</span><span>
+</span><a name="line-55"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#options"><span class="hs-identifier hs-var">options</span></a><span>
+</span><a name="line-56"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#optionsWith"><span class="hs-identifier hs-var">optionsWith</span></a><span>
+</span><a name="line-57"></a><span>    </span><span class="hs-comment">-- ** PUT</span><span>
+</span><a name="line-58"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#put"><span class="hs-identifier hs-var">put</span></a><span>
+</span><a name="line-59"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#putWith"><span class="hs-identifier hs-var">putWith</span></a><span>
+</span><a name="line-60"></a><span>    </span><span class="hs-comment">-- ** DELETE</span><span>
+</span><a name="line-61"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#delete"><span class="hs-identifier hs-var">delete</span></a><span>
+</span><a name="line-62"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#deleteWith"><span class="hs-identifier hs-var">deleteWith</span></a><span>
+</span><a name="line-63"></a><span>    </span><span class="hs-comment">-- ** Custom Method</span><span>
+</span><a name="line-64"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#customMethod"><span class="hs-identifier hs-var">customMethod</span></a><span>
+</span><a name="line-65"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#customMethodWith"><span class="hs-identifier hs-var">customMethodWith</span></a><span>
+</span><a name="line-66"></a><span>    </span><span class="hs-comment">-- ** Custom Payload Method</span><span>
+</span><a name="line-67"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#customPayloadMethod"><span class="hs-identifier hs-var">customPayloadMethod</span></a><span>
+</span><a name="line-68"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#customPayloadMethodWith"><span class="hs-identifier hs-var">customPayloadMethodWith</span></a><span>
+</span><a name="line-69"></a><span>    </span><span class="hs-comment">-- * Incremental consumption of responses</span><span>
+</span><a name="line-70"></a><span>    </span><span class="hs-comment">-- ** GET</span><span>
+</span><a name="line-71"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#foldGet"><span class="hs-identifier hs-var">foldGet</span></a><span>
+</span><a name="line-72"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#foldGetWith"><span class="hs-identifier hs-var">foldGetWith</span></a><span>
+</span><a name="line-73"></a><span>
+</span><a name="line-74"></a><span>    </span><span class="hs-comment">-- * Configuration</span><span>
+</span><a name="line-75"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span>
+</span><a name="line-76"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span>
+</span><a name="line-77"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#manager"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">manager</span></a><span>
+</span><a name="line-78"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#header"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">header</span></a><span>
+</span><a name="line-79"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#param"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">param</span></a><span>
+</span><a name="line-80"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#redirects"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">redirects</span></a><span>
+</span><a name="line-81"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#headers"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">headers</span></a><span>
+</span><a name="line-82"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#params"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">params</span></a><span>
+</span><a name="line-83"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookie"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookie</span></a><span>
+</span><a name="line-84"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookies"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookies</span></a><span>
+</span><a name="line-85"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#checkStatus"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">checkStatus</span></a><span>
+</span><a name="line-86"></a><span>
+</span><a name="line-87"></a><span>    </span><span class="hs-comment">-- ** Authentication</span><span>
+</span><a name="line-88"></a><span>    </span><span class="hs-comment">-- $auth</span><span>
+</span><a name="line-89"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a><span>
+</span><a name="line-90"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#AWSAuthVersion"><span class="hs-identifier hs-type">AWSAuthVersion</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><a name="line-91"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#auth"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">auth</span></a><span>
+</span><a name="line-92"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#basicAuth"><span class="hs-identifier hs-var">basicAuth</span></a><span>
+</span><a name="line-93"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#oauth1Auth"><span class="hs-identifier hs-var">oauth1Auth</span></a><span>
+</span><a name="line-94"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#oauth2Bearer"><span class="hs-identifier hs-var">oauth2Bearer</span></a><span>
+</span><a name="line-95"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#oauth2Token"><span class="hs-identifier hs-var">oauth2Token</span></a><span>
+</span><a name="line-96"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#awsAuth"><span class="hs-identifier hs-var">awsAuth</span></a><span>
+</span><a name="line-97"></a><span>    </span><span class="hs-comment">-- ** Proxy settings</span><span>
+</span><a name="line-98"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Proxy</span><span class="hs-special">(</span><span class="hs-identifier hs-var">Proxy</span><span class="hs-special">)</span><span>
+</span><a name="line-99"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#proxy"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">proxy</span></a><span>
+</span><a name="line-100"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#httpProxy"><span class="hs-identifier hs-var">httpProxy</span></a><span>
+</span><a name="line-101"></a><span>    </span><span class="hs-comment">-- ** Using a manager with defaults</span><span>
+</span><a name="line-102"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#withManager"><span class="hs-identifier hs-var">withManager</span></a><span>
+</span><a name="line-103"></a><span>
+</span><a name="line-104"></a><span>    </span><span class="hs-comment">-- * Payloads for POST and PUT</span><span>
+</span><a name="line-105"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#Payload"><span class="hs-identifier hs-type">Payload</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><a name="line-106"></a><span>    </span><span class="hs-comment">-- ** URL-encoded form data</span><span>
+</span><a name="line-107"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#FormParam"><span class="hs-identifier hs-type">FormParam</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><a name="line-108"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#FormValue"><span class="hs-identifier hs-type">FormValue</span></a><span>
+</span><a name="line-109"></a><span>    </span><span class="hs-comment">-- ** Multipart form data</span><span>
+</span><a name="line-110"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Form</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Part</span><span>
+</span><a name="line-111"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#partName"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partName</span></a><span>
+</span><a name="line-112"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#partFileName"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partFileName</span></a><span>
+</span><a name="line-113"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#partContentType"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partContentType</span></a><span>
+</span><a name="line-114"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#partGetBody"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partGetBody</span></a><span>
+</span><a name="line-115"></a><span>    </span><span class="hs-comment">-- *** Smart constructors</span><span>
+</span><a name="line-116"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-var">Form</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partBS</span><span>
+</span><a name="line-117"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-var">Form</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partLBS</span><span>
+</span><a name="line-118"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#partText"><span class="hs-identifier hs-var">partText</span></a><span>
+</span><a name="line-119"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#partString"><span class="hs-identifier hs-var">partString</span></a><span>
+</span><a name="line-120"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-var">Form</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partFile</span><span>
+</span><a name="line-121"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-var">Form</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partFileSource</span><span>
+</span><a name="line-122"></a><span>
+</span><a name="line-123"></a><span>    </span><span class="hs-comment">-- * Responses</span><span>
+</span><a name="line-124"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Response</span><span>
+</span><a name="line-125"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseBody"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseBody</span></a><span>
+</span><a name="line-126"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseHeader"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseHeader</span></a><span>
+</span><a name="line-127"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseLink"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseLink</span></a><span>
+</span><a name="line-128"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseCookie"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseCookie</span></a><span>
+</span><a name="line-129"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseHeaders"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseHeaders</span></a><span>
+</span><a name="line-130"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseCookieJar"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseCookieJar</span></a><span>
+</span><a name="line-131"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#responseStatus"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">responseStatus</span></a><span>
+</span><a name="line-132"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Lens</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Status</span><span>
+</span><a name="line-133"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#statusCode"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">statusCode</span></a><span>
+</span><a name="line-134"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#statusMessage"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">statusMessage</span></a><span>
+</span><a name="line-135"></a><span>    </span><span class="hs-comment">-- ** Link headers</span><span>
+</span><a name="line-136"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#Link"><span class="hs-identifier hs-type">Lens</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Link</span></a><span>
+</span><a name="line-137"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#linkURL"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">linkURL</span></a><span>
+</span><a name="line-138"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#linkParams"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">linkParams</span></a><span>
+</span><a name="line-139"></a><span>    </span><span class="hs-comment">-- ** Decoding responses</span><span>
+</span><a name="line-140"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Types.html#JSONError"><span class="hs-identifier hs-type">JSONError</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><a name="line-141"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#asJSON"><span class="hs-identifier hs-var">asJSON</span></a><span>
+</span><a name="line-142"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.html#asValue"><span class="hs-identifier hs-var">asValue</span></a><span>
+</span><a name="line-143"></a><span>
+</span><a name="line-144"></a><span>    </span><span class="hs-comment">-- * Cookies</span><span>
+</span><a name="line-145"></a><span>    </span><span class="hs-comment">-- $cookielenses</span><span>
+</span><a name="line-146"></a><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Lens</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Cookie</span><span>
+</span><a name="line-147"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookieName"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookieName</span></a><span>
+</span><a name="line-148"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookieValue"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookieValue</span></a><span>
+</span><a name="line-149"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookieExpiryTime"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookieExpiryTime</span></a><span>
+</span><a name="line-150"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookieDomain"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookieDomain</span></a><span>
+</span><a name="line-151"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#cookiePath"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">cookiePath</span></a><span>
+</span><a name="line-152"></a><span>
+</span><a name="line-153"></a><span>    </span><span class="hs-comment">-- * Parsing responses</span><span>
+</span><a name="line-154"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#atto"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">atto</span></a><span>
+</span><a name="line-155"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Lens.html#atto_"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">atto_</span></a><span>
+</span><a name="line-156"></a><span>    </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-157"></a><span>
+</span><a name="line-158"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Control</span><span class="hs-operator">.</span><span class="hs-identifier">Lens</span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="hs-operator hs-var">.~</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-operator hs-var">&amp;</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-159"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Control</span><span class="hs-operator">.</span><span class="hs-identifier">Monad</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">unless</span><span class="hs-special">)</span><span>
+</span><a name="line-160"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Control</span><span class="hs-operator">.</span><span class="hs-identifier">Monad</span><span class="hs-operator">.</span><span class="hs-identifier">Catch</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">MonadThrow</span><span class="hs-special">(</span><span class="hs-identifier hs-var">throwM</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-161"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Aeson</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">FromJSON</span><span class="hs-special">)</span><span>
+</span><a name="line-162"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Maybe</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">fromMaybe</span><span class="hs-special">)</span><span>
+</span><a name="line-163"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Text</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Text</span><span class="hs-special">)</span><span>
+</span><a name="line-164"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Text</span><span class="hs-operator">.</span><span class="hs-identifier">Encoding</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">encodeUtf8</span><span class="hs-special">)</span><span>
+</span><a name="line-165"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">Client</span><span class="hs-operator">.</span><span class="hs-identifier">Internal</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Proxy</span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Response</span><span class="hs-special">)</span><span>
+</span><a name="line-166"></a><span class="hs-keyword">import</span><span> </span><a href="Network.Wreq.Internal.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Internal</span></a><span>
+</span><a name="line-167"></a><span class="hs-keyword">import</span><span> </span><a href="Network.Wreq.Types.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span></a><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span class="hs-special">)</span><span>
+</span><a name="line-168"></a><span class="hs-keyword">import</span><span> </span><a href="Network.Wreq.Types.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span></a><span> </span><span class="hs-keyword">hiding</span><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-169"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Prelude</span><span> </span><span class="hs-keyword">hiding</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">head</span><span class="hs-special">)</span><span>
+</span><a name="line-170"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Aeson</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">Aeson</span><span>
+</span><a name="line-171"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">ByteString</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">S</span><span>
+</span><a name="line-172"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">ByteString</span><span class="hs-operator">.</span><span class="hs-identifier">Lazy</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">L</span><span>
+</span><a name="line-173"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Text</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">T</span><span>
+</span><a name="line-174"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">Client</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">HTTP</span><span>
+</span><a name="line-175"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">Client</span><span class="hs-operator">.</span><span class="hs-identifier">MultipartFormData</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">Form</span><span>
+</span><a name="line-176"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><a href="Network.Wreq.Lens.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Lens</span></a><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">Lens</span><span>
+</span><a name="line-177"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><a href="Network.Wreq.Types.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span></a><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">Wreq</span><span>
+</span><a name="line-178"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">ByteString</span><span class="hs-operator">.</span><span class="hs-identifier">Char8</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">BC8</span><span>
+</span><a name="line-179"></a><span>
+</span><a name="line-180"></a><span class="hs-comment">-- | Issue a GET request.</span><span>
+</span><a name="line-181"></a><span class="hs-comment">--</span><span>
+</span><a name="line-182"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-183"></a><span class="hs-comment">--</span><span>
+</span><a name="line-184"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-185"></a><span class="hs-comment">--'get' \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-186"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-187"></a><span class="hs-comment">--</span><span>
+</span><a name="line-188"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- get &quot;http://httpbin.org/get&quot;</span><span>
+</span><a name="line-189"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^. responseStatus . statusCode</span><span>
+</span><a name="line-190"></a><span class="hs-comment">-- 200</span><span>
+</span><a name="line-191"></a><span class="hs-identifier">get</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-192"></a><a name="get"><a href="Network.Wreq.html#get"><span class="hs-identifier">get</span></a></a><span> </span><a name="local-1627795820"><a href="#local-1627795820"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#getWith"><span class="hs-identifier hs-var">getWith</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><a href="#local-1627795820"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-193"></a><span>
+</span><a name="line-194"></a><span class="hs-identifier">withManager</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-1627795819"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-1627795819"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-195"></a><a name="withManager"><a href="Network.Wreq.html#withManager"><span class="hs-identifier">withManager</span></a></a><span> </span><a name="local-1627795821"><a href="#local-1627795821"><span class="hs-identifier">act</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">HTTP</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">withManager</span><span> </span><a href="Network.Wreq.Internal.html#defaultManagerSettings"><span class="hs-identifier hs-var">defaultManagerSettings</span></a><span> </span><span class="hs-operator hs-var">$</span><span> </span><span class="hs-glyph">\</span><a name="local-1627795822"><a href="#local-1627795822"><span class="hs-identifier">mgr</span></a></a><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><a name="line-196"></a><span>  </span><a href="#local-1627795821"><span class="hs-identifier hs-var">act</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><span class="hs-special">{</span><span> </span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">manager</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">Right</span><span> </span><a href="#local-1627795822"><span class="hs-identifier hs-var">mgr</span></a><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-197"></a><span>
+</span><a name="line-198"></a><span class="hs-comment">-- | Issue a GET request, using the supplied 'Options'.</span><span>
+</span><a name="line-199"></a><span class="hs-comment">--</span><span>
+</span><a name="line-200"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-201"></a><span class="hs-comment">--</span><span>
+</span><a name="line-202"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-203"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.param' \&quot;foo\&quot; '.~' [\&quot;bar\&quot;]</span><span>
+</span><a name="line-204"></a><span class="hs-comment">--'getWith' opts \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-205"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-206"></a><span class="hs-comment">--</span><span>
+</span><a name="line-207"></a><span class="hs-comment">-- &gt;&gt;&gt; let opts = defaults &amp; param &quot;foo&quot; .~ [&quot;bar&quot;]</span><span>
+</span><a name="line-208"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- getWith opts &quot;http://httpbin.org/get&quot;</span><span>
+</span><a name="line-209"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;url&quot;</span><span>
+</span><a name="line-210"></a><span class="hs-comment">-- Just (String &quot;http://httpbin.org/get?foo=bar&quot;)</span><span>
+</span><a name="line-211"></a><span class="hs-identifier">getWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-212"></a><a name="getWith"><a href="Network.Wreq.html#getWith"><span class="hs-identifier">getWith</span></a></a><span> </span><a name="local-1627795823"><a href="#local-1627795823"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795824"><a href="#local-1627795824"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runRead"><span class="hs-identifier hs-var">runRead</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#prepareGet"><span class="hs-identifier hs-var">prepareGet</span></a><span> </span><a href="#local-1627795823"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795824"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-213"></a><span>
+</span><a name="line-214"></a><span class="hs-comment">-- | Issue a POST request.</span><span>
+</span><a name="line-215"></a><span class="hs-comment">--</span><span>
+</span><a name="line-216"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-217"></a><span class="hs-comment">--</span><span>
+</span><a name="line-218"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-219"></a><span class="hs-comment">--'post' \&quot;http:\/\/httpbin.org\/post\&quot; ('Aeson.toJSON' [1,2,3])</span><span>
+</span><a name="line-220"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-221"></a><span class="hs-comment">--</span><span>
+</span><a name="line-222"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- post &quot;http://httpbin.org/post&quot; (toJSON [1,2,3])</span><span>
+</span><a name="line-223"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;json&quot; . nth 2</span><span>
+</span><a name="line-224"></a><span class="hs-comment">-- Just (Number 3.0)</span><span>
+</span><a name="line-225"></a><span class="hs-identifier">post</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Postable"><span class="hs-identifier hs-type">Postable</span></a><span> </span><a href="#local-1627795818"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795818"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-226"></a><a name="post"><a href="Network.Wreq.html#post"><span class="hs-identifier">post</span></a></a><span> </span><a name="local-1627795825"><a href="#local-1627795825"><span class="hs-identifier">url</span></a></a><span> </span><a name="local-1627795826"><a href="#local-1627795826"><span class="hs-identifier">payload</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#postWith"><span class="hs-identifier hs-var">postWith</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><a href="#local-1627795825"><span class="hs-identifier hs-var">url</span></a><span> </span><a href="#local-1627795826"><span class="hs-identifier hs-var">payload</span></a><span>
+</span><a name="line-227"></a><span>
+</span><a name="line-228"></a><span class="hs-comment">-- | Issue a POST request, using the supplied 'Options'.</span><span>
+</span><a name="line-229"></a><span class="hs-comment">--</span><span>
+</span><a name="line-230"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-231"></a><span class="hs-comment">--</span><span>
+</span><a name="line-232"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-233"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.param' \&quot;foo\&quot; '.~' [\&quot;bar\&quot;]</span><span>
+</span><a name="line-234"></a><span class="hs-comment">--'postWith' opts \&quot;http:\/\/httpbin.org\/post\&quot; ('Aeson.toJSON' [1,2,3])</span><span>
+</span><a name="line-235"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-236"></a><span class="hs-comment">--</span><span>
+</span><a name="line-237"></a><span class="hs-comment">-- &gt;&gt;&gt; let opts = defaults &amp; param &quot;foo&quot; .~ [&quot;bar&quot;]</span><span>
+</span><a name="line-238"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- postWith opts &quot;http://httpbin.org/post&quot; (toJSON [1,2,3])</span><span>
+</span><a name="line-239"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;url&quot;</span><span>
+</span><a name="line-240"></a><span class="hs-comment">-- Just (String &quot;http://httpbin.org/post?foo=bar&quot;)</span><span>
+</span><a name="line-241"></a><span class="hs-identifier">postWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Postable"><span class="hs-identifier hs-type">Postable</span></a><span> </span><a href="#local-1627795817"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795817"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-242"></a><a name="postWith"><a href="Network.Wreq.html#postWith"><span class="hs-identifier">postWith</span></a></a><span> </span><a name="local-1627795827"><a href="#local-1627795827"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795828"><a href="#local-1627795828"><span class="hs-identifier">url</span></a></a><span> </span><a name="local-1627795829"><a href="#local-1627795829"><span class="hs-identifier">payload</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runRead"><span class="hs-identifier hs-var">runRead</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#preparePost"><span class="hs-identifier hs-var">preparePost</span></a><span> </span><a href="#local-1627795827"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795828"><span class="hs-identifier hs-var">url</span></a><span> </span><a href="#local-1627795829"><span class="hs-identifier hs-var">payload</span></a><span>
+</span><a name="line-243"></a><span>
+</span><a name="line-244"></a><span class="hs-comment">-- | Issue a HEAD request.</span><span>
+</span><a name="line-245"></a><span class="hs-comment">--</span><span>
+</span><a name="line-246"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-247"></a><span class="hs-comment">--</span><span>
+</span><a name="line-248"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-249"></a><span class="hs-comment">--'head_' \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-250"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-251"></a><span class="hs-comment">--</span><span>
+</span><a name="line-252"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- head_ &quot;http://httpbin.org/get&quot;</span><span>
+</span><a name="line-253"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseHeader &quot;Content-Type&quot;</span><span>
+</span><a name="line-254"></a><span class="hs-comment">-- Just &quot;application/json&quot;</span><span>
+</span><a name="line-255"></a><span class="hs-identifier">head_</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-256"></a><a name="head_"><a href="Network.Wreq.html#head_"><span class="hs-identifier">head_</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#headWith"><span class="hs-identifier hs-var">headWith</span></a><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><span class="hs-operator hs-var">&amp;</span><span> </span><a href="Network.Wreq.Lens.html#redirects"><span class="hs-identifier hs-var">Lens</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">redirects</span></a><span> </span><span class="hs-operator hs-var">.~</span><span> </span><span class="hs-number">0</span><span class="hs-special">)</span><span>
+</span><a name="line-257"></a><span>
+</span><a name="line-258"></a><span class="hs-comment">-- | Issue a HEAD request, using the supplied 'Options'.</span><span>
+</span><a name="line-259"></a><span class="hs-comment">--</span><span>
+</span><a name="line-260"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-261"></a><span class="hs-comment">--</span><span>
+</span><a name="line-262"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-263"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.param' \&quot;foo\&quot; '.~' [\&quot;bar\&quot;]</span><span>
+</span><a name="line-264"></a><span class="hs-comment">--'headWith' opts \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-265"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-266"></a><span class="hs-comment">--</span><span>
+</span><a name="line-267"></a><span class="hs-comment">-- &gt;&gt;&gt; let opts = defaults &amp; param &quot;foo&quot; .~ [&quot;bar&quot;]</span><span>
+</span><a name="line-268"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- headWith opts &quot;http://httpbin.org/get&quot;</span><span>
+</span><a name="line-269"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseHeader &quot;Connection&quot;</span><span>
+</span><a name="line-270"></a><span class="hs-comment">-- Just &quot;keep-alive&quot;</span><span>
+</span><a name="line-271"></a><span class="hs-identifier">headWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-272"></a><a name="headWith"><a href="Network.Wreq.html#headWith"><span class="hs-identifier">headWith</span></a></a><span> </span><a name="local-1627795830"><a href="#local-1627795830"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795831"><a href="#local-1627795831"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runIgnore"><span class="hs-identifier hs-var">runIgnore</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#prepareHead"><span class="hs-identifier hs-var">prepareHead</span></a><span> </span><a href="#local-1627795830"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795831"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-273"></a><span>
+</span><a name="line-274"></a><span class="hs-comment">-- | Issue a PUT request.</span><span>
+</span><a name="line-275"></a><span class="hs-identifier">put</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Putable"><span class="hs-identifier hs-type">Putable</span></a><span> </span><a href="#local-1627795816"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795816"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-276"></a><a name="put"><a href="Network.Wreq.html#put"><span class="hs-identifier">put</span></a></a><span> </span><a name="local-1627795832"><a href="#local-1627795832"><span class="hs-identifier">url</span></a></a><span> </span><a name="local-1627795833"><a href="#local-1627795833"><span class="hs-identifier">payload</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#putWith"><span class="hs-identifier hs-var">putWith</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><a href="#local-1627795832"><span class="hs-identifier hs-var">url</span></a><span> </span><a href="#local-1627795833"><span class="hs-identifier hs-var">payload</span></a><span>
+</span><a name="line-277"></a><span>
+</span><a name="line-278"></a><span class="hs-comment">-- | Issue a PUT request, using the supplied 'Options'.</span><span>
+</span><a name="line-279"></a><span class="hs-identifier">putWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Putable"><span class="hs-identifier hs-type">Putable</span></a><span> </span><a href="#local-1627795815"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795815"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-280"></a><a name="putWith"><a href="Network.Wreq.html#putWith"><span class="hs-identifier">putWith</span></a></a><span> </span><a name="local-1627795834"><a href="#local-1627795834"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795835"><a href="#local-1627795835"><span class="hs-identifier">url</span></a></a><span> </span><a name="local-1627795836"><a href="#local-1627795836"><span class="hs-identifier">payload</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runRead"><span class="hs-identifier hs-var">runRead</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#preparePut"><span class="hs-identifier hs-var">preparePut</span></a><span> </span><a href="#local-1627795834"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795835"><span class="hs-identifier hs-var">url</span></a><span> </span><a href="#local-1627795836"><span class="hs-identifier hs-var">payload</span></a><span>
+</span><a name="line-281"></a><span>
+</span><a name="line-282"></a><span class="hs-comment">-- | Issue an OPTIONS request.</span><span>
+</span><a name="line-283"></a><span class="hs-comment">--</span><span>
+</span><a name="line-284"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-285"></a><span class="hs-comment">--</span><span>
+</span><a name="line-286"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-287"></a><span class="hs-comment">--'options' \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-288"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-289"></a><span class="hs-comment">--</span><span>
+</span><a name="line-290"></a><span class="hs-comment">-- See 'Lens.atto' for a more complex worked example.</span><span>
+</span><a name="line-291"></a><span class="hs-identifier">options</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-292"></a><a name="options"><a href="Network.Wreq.html#options"><span class="hs-identifier">options</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#optionsWith"><span class="hs-identifier hs-var">optionsWith</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span>
+</span><a name="line-293"></a><span>
+</span><a name="line-294"></a><span class="hs-comment">-- | Issue an OPTIONS request, using the supplied 'Options'.</span><span>
+</span><a name="line-295"></a><span class="hs-comment">--</span><span>
+</span><a name="line-296"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-297"></a><span class="hs-comment">--</span><span>
+</span><a name="line-298"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-299"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.param' \&quot;foo\&quot; '.~' [\&quot;bar\&quot;]</span><span>
+</span><a name="line-300"></a><span class="hs-comment">--'optionsWith' opts \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-301"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-302"></a><span class="hs-identifier">optionsWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-303"></a><a name="optionsWith"><a href="Network.Wreq.html#optionsWith"><span class="hs-identifier">optionsWith</span></a></a><span> </span><a name="local-1627795837"><a href="#local-1627795837"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795838"><a href="#local-1627795838"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runIgnore"><span class="hs-identifier hs-var">runIgnore</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#prepareOptions"><span class="hs-identifier hs-var">prepareOptions</span></a><span> </span><a href="#local-1627795837"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795838"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-304"></a><span>
+</span><a name="line-305"></a><span class="hs-comment">-- | Issue a DELETE request.</span><span>
+</span><a name="line-306"></a><span class="hs-comment">--</span><span>
+</span><a name="line-307"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-308"></a><span class="hs-comment">--</span><span>
+</span><a name="line-309"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-310"></a><span class="hs-comment">--'delete' \&quot;http:\/\/httpbin.org\/delete\&quot;</span><span>
+</span><a name="line-311"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-312"></a><span class="hs-comment">--</span><span>
+</span><a name="line-313"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- delete &quot;http://httpbin.org/delete&quot;</span><span>
+</span><a name="line-314"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^. responseStatus . statusCode</span><span>
+</span><a name="line-315"></a><span class="hs-comment">-- 200</span><span>
+</span><a name="line-316"></a><span class="hs-identifier">delete</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-317"></a><a name="delete"><a href="Network.Wreq.html#delete"><span class="hs-identifier">delete</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#deleteWith"><span class="hs-identifier hs-var">deleteWith</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span>
+</span><a name="line-318"></a><span>
+</span><a name="line-319"></a><span class="hs-comment">-- | Issue a DELETE request, using the supplied 'Options'.</span><span>
+</span><a name="line-320"></a><span class="hs-comment">--</span><span>
+</span><a name="line-321"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-322"></a><span class="hs-comment">--</span><span>
+</span><a name="line-323"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-324"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.redirects' '.~' 0</span><span>
+</span><a name="line-325"></a><span class="hs-comment">--'deleteWith' opts \&quot;http:\/\/httpbin.org\/delete\&quot;</span><span>
+</span><a name="line-326"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-327"></a><span class="hs-comment">--</span><span>
+</span><a name="line-328"></a><span class="hs-comment">-- &gt;&gt;&gt; let opts = defaults &amp; redirects .~ 0</span><span>
+</span><a name="line-329"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- deleteWith opts &quot;http://httpbin.org/delete&quot;</span><span>
+</span><a name="line-330"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^. responseStatus . statusCode</span><span>
+</span><a name="line-331"></a><span class="hs-comment">-- 200</span><span>
+</span><a name="line-332"></a><span class="hs-identifier">deleteWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-333"></a><a name="deleteWith"><a href="Network.Wreq.html#deleteWith"><span class="hs-identifier">deleteWith</span></a></a><span> </span><a name="local-1627795839"><a href="#local-1627795839"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795840"><a href="#local-1627795840"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runRead"><span class="hs-identifier hs-var">runRead</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#prepareDelete"><span class="hs-identifier hs-var">prepareDelete</span></a><span> </span><a href="#local-1627795839"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795840"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-334"></a><span>
+</span><a name="line-335"></a><span class="hs-comment">-- | Issue a custom-method request</span><span>
+</span><a name="line-336"></a><span class="hs-comment">--</span><span>
+</span><a name="line-337"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-338"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-339"></a><span class="hs-comment">-- 'customMethod' \&quot;PATCH\&quot; \&quot;http:\/\/httpbin.org\/patch\&quot;</span><span>
+</span><a name="line-340"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-341"></a><span class="hs-comment">--</span><span>
+</span><a name="line-342"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- customMethod &quot;PATCH&quot; &quot;http://httpbin.org/patch&quot;</span><span>
+</span><a name="line-343"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^. responseStatus . statusCode</span><span>
+</span><a name="line-344"></a><span class="hs-comment">-- 200</span><span>
+</span><a name="line-345"></a><span class="hs-identifier">customMethod</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-346"></a><a name="customMethod"><a href="Network.Wreq.html#customMethod"><span class="hs-identifier">customMethod</span></a></a><span> </span><a name="local-1627795841"><a href="#local-1627795841"><span class="hs-identifier">method</span></a></a><span> </span><a name="local-1627795842"><a href="#local-1627795842"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#customMethodWith"><span class="hs-identifier hs-var">customMethodWith</span></a><span> </span><a href="#local-1627795841"><span class="hs-identifier hs-var">method</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><a href="#local-1627795842"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-347"></a><span>
+</span><a name="line-348"></a><span class="hs-comment">-- | Issue a custom request method request, using the supplied 'Options'.</span><span>
+</span><a name="line-349"></a><span class="hs-comment">--</span><span>
+</span><a name="line-350"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-351"></a><span class="hs-comment">--</span><span>
+</span><a name="line-352"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-353"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.redirects' '.~' 0</span><span>
+</span><a name="line-354"></a><span class="hs-comment">--'customMethodWith' \&quot;PATCH\&quot; opts \&quot;http:\/\/httpbin.org\/patch\&quot;</span><span>
+</span><a name="line-355"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-356"></a><span class="hs-comment">--</span><span>
+</span><a name="line-357"></a><span class="hs-comment">-- &gt;&gt;&gt; let opts = defaults &amp; redirects .~ 0</span><span>
+</span><a name="line-358"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- customMethodWith &quot;PATCH&quot; opts &quot;http://httpbin.org/patch&quot;</span><span>
+</span><a name="line-359"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^. responseStatus . statusCode</span><span>
+</span><a name="line-360"></a><span class="hs-comment">-- 200</span><span>
+</span><a name="line-361"></a><span class="hs-identifier">customMethodWith</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-362"></a><a name="customMethodWith"><a href="Network.Wreq.html#customMethodWith"><span class="hs-identifier">customMethodWith</span></a></a><span> </span><a name="local-1627795843"><a href="#local-1627795843"><span class="hs-identifier">method</span></a></a><span> </span><a name="local-1627795844"><a href="#local-1627795844"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795845"><a href="#local-1627795845"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#runRead"><span class="hs-identifier hs-var">runRead</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#prepareMethod"><span class="hs-identifier hs-var">prepareMethod</span></a><span> </span><a href="#local-1627795846"><span class="hs-identifier hs-var">methodBS</span></a><span> </span><a href="#local-1627795844"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795845"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-363"></a><span>  </span><span class="hs-keyword">where</span><span>
+</span><a name="line-364"></a><span>    </span><a name="local-1627795846"><a href="#local-1627795846"><span class="hs-identifier">methodBS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">BC8</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">pack</span><span> </span><a href="#local-1627795843"><span class="hs-identifier hs-var">method</span></a><span>
+</span><a name="line-365"></a><span>
+</span><a name="line-366"></a><span class="hs-comment">-- | Issue a custom-method request with a payload</span><span>
+</span><a name="line-367"></a><span class="hs-identifier">customPayloadMethod</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Postable"><span class="hs-identifier hs-type">Postable</span></a><span> </span><a href="#local-1627795814"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795814"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-368"></a><span>                    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-369"></a><span>
+</span><a name="line-370"></a><a name="customPayloadMethod"><a href="Network.Wreq.html#customPayloadMethod"><span class="hs-identifier">customPayloadMethod</span></a></a><span> </span><a name="local-1627795847"><a href="#local-1627795847"><span class="hs-identifier">method</span></a></a><span> </span><a name="local-1627795848"><a href="#local-1627795848"><span class="hs-identifier">url</span></a></a><span> </span><a name="local-1627795849"><a href="#local-1627795849"><span class="hs-identifier">payload</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-371"></a><span>  </span><a href="Network.Wreq.html#customPayloadMethodWith"><span class="hs-identifier hs-var">customPayloadMethodWith</span></a><span> </span><a href="#local-1627795847"><span class="hs-identifier hs-var">method</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><a href="#local-1627795848"><span class="hs-identifier hs-var">url</span></a><span> </span><a href="#local-1627795849"><span class="hs-identifier hs-var">payload</span></a><span>
+</span><a name="line-372"></a><span>
+</span><a name="line-373"></a><span class="hs-comment">-- | Issue a custom-method request with a payload, using the supplied 'Options'.</span><span>
+</span><a name="line-374"></a><span class="hs-identifier">customPayloadMethodWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Postable"><span class="hs-identifier hs-type">Postable</span></a><span> </span><a href="#local-1627795813"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795813"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-375"></a><span>                        </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span class="hs-special">)</span><span>
+</span><a name="line-376"></a><span>                           </span><span>
+</span><a name="line-377"></a><a name="customPayloadMethodWith"><a href="Network.Wreq.html#customPayloadMethodWith"><span class="hs-identifier">customPayloadMethodWith</span></a></a><span> </span><a name="local-1627795850"><a href="#local-1627795850"><span class="hs-identifier">method</span></a></a><span> </span><a name="local-1627795851"><a href="#local-1627795851"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795852"><a href="#local-1627795852"><span class="hs-identifier">url</span></a></a><span> </span><a name="local-1627795853"><a href="#local-1627795853"><span class="hs-identifier">payload</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-378"></a><span>  </span><a href="Network.Wreq.Internal.html#runRead"><span class="hs-identifier hs-var">runRead</span></a><span> </span><span class="hs-operator hs-var">=&lt;&lt;</span><span> </span><a href="Network.Wreq.Internal.html#preparePayloadMethod"><span class="hs-identifier hs-var">preparePayloadMethod</span></a><span> </span><a href="#local-1627795854"><span class="hs-identifier hs-var">methodBS</span></a><span> </span><a href="#local-1627795851"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795852"><span class="hs-identifier hs-var">url</span></a><span> </span><a href="#local-1627795853"><span class="hs-identifier hs-var">payload</span></a><span>
+</span><a name="line-379"></a><span>  </span><span class="hs-keyword">where</span><span>
+</span><a name="line-380"></a><span>    </span><a name="local-1627795854"><a href="#local-1627795854"><span class="hs-identifier">methodBS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">BC8</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">pack</span><span> </span><a href="#local-1627795850"><span class="hs-identifier hs-var">method</span></a><span>
+</span><a name="line-381"></a><span>
+</span><a name="line-382"></a><span class="hs-identifier">foldGet</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><a href="#local-1627795812"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-1627795812"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795812"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-1627795812"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-383"></a><a name="foldGet"><a href="Network.Wreq.html#foldGet"><span class="hs-identifier">foldGet</span></a></a><span> </span><a name="local-1627795855"><a href="#local-1627795855"><span class="hs-identifier">f</span></a></a><span> </span><a name="local-1627795856"><a href="#local-1627795856"><span class="hs-identifier">z</span></a></a><span> </span><a name="local-1627795857"><a href="#local-1627795857"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#foldGetWith"><span class="hs-identifier hs-var">foldGetWith</span></a><span> </span><a href="Network.Wreq.Internal.html#defaults"><span class="hs-identifier hs-var">defaults</span></a><span> </span><a href="#local-1627795855"><span class="hs-identifier hs-var">f</span></a><span> </span><a href="#local-1627795856"><span class="hs-identifier hs-var">z</span></a><span> </span><a href="#local-1627795857"><span class="hs-identifier hs-var">url</span></a><span>
+</span><a name="line-384"></a><span>
+</span><a name="line-385"></a><span class="hs-identifier">foldGetWith</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#Options"><span class="hs-identifier hs-type">Options</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><a href="#local-1627795811"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-1627795811"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795811"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-1627795811"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-386"></a><a name="foldGetWith"><a href="Network.Wreq.html#foldGetWith"><span class="hs-identifier">foldGetWith</span></a></a><span> </span><a name="local-1627795858"><a href="#local-1627795858"><span class="hs-identifier">opts</span></a></a><span> </span><a name="local-1627795859"><a href="#local-1627795859"><span class="hs-identifier">f</span></a></a><span> </span><a name="local-1627795860"><a href="#local-1627795860"><span class="hs-identifier">z0</span></a></a><span> </span><a name="local-1627795861"><a href="#local-1627795861"><span class="hs-identifier">url</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.html#request"><span class="hs-identifier hs-var">request</span></a><span> </span><span class="hs-identifier hs-var">return</span><span> </span><a href="#local-1627795858"><span class="hs-identifier hs-var">opts</span></a><span> </span><a href="#local-1627795861"><span class="hs-identifier hs-var">url</span></a><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.html#foldResponseBody"><span class="hs-identifier hs-var">foldResponseBody</span></a><span> </span><a href="#local-1627795859"><span class="hs-identifier hs-var">f</span></a><span> </span><a href="#local-1627795860"><span class="hs-identifier hs-var">z0</span></a><span class="hs-special">)</span><span>
+</span><a name="line-387"></a><span>
+</span><a name="line-388"></a><span class="hs-comment">-- | Convert the body of an HTTP response from JSON to a suitable</span><span>
+</span><a name="line-389"></a><span class="hs-comment">-- Haskell type.</span><span>
+</span><a name="line-390"></a><span class="hs-comment">--</span><span>
+</span><a name="line-391"></a><span class="hs-comment">-- In this example, we use 'asJSON' in the @IO@ monad, where it will</span><span>
+</span><a name="line-392"></a><span class="hs-comment">-- throw a 'JSONError' exception if conversion to the desired type</span><span>
+</span><a name="line-393"></a><span class="hs-comment">-- fails.</span><span>
+</span><a name="line-394"></a><span class="hs-comment">--</span><span>
+</span><a name="line-395"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-396"></a><span class="hs-comment">-- \{-\# LANGUAGE DeriveGeneric \#-\}</span><span>
+</span><a name="line-397"></a><span class="hs-comment">--import &quot;GHC.Generics&quot; ('GHC.Generics.Generic')</span><span>
+</span><a name="line-398"></a><span class="hs-comment">--</span><span>
+</span><a name="line-399"></a><span class="hs-comment">-- \{- This Haskell type corresponds to the structure of a</span><span>
+</span><a name="line-400"></a><span class="hs-comment">--   response body from httpbin.org. -\}</span><span>
+</span><a name="line-401"></a><span class="hs-comment">--</span><span>
+</span><a name="line-402"></a><span class="hs-comment">--data GetBody = GetBody {</span><span>
+</span><a name="line-403"></a><span class="hs-comment">--    headers :: 'Data.Map.Map' 'Data.Text.Text' 'Data.Text.Text'</span><span>
+</span><a name="line-404"></a><span class="hs-comment">--  , args :: 'Data.Map.Map' 'Data.Text.Text' 'Data.Text.Text'</span><span>
+</span><a name="line-405"></a><span class="hs-comment">--  , origin :: 'Data.Text.Text'</span><span>
+</span><a name="line-406"></a><span class="hs-comment">--  , url :: 'Data.Text.Text'</span><span>
+</span><a name="line-407"></a><span class="hs-comment">--  } deriving (Show, 'GHC.Generics.Generic')</span><span>
+</span><a name="line-408"></a><span class="hs-comment">--</span><span>
+</span><a name="line-409"></a><span class="hs-comment">-- \-\- Get GHC to derive a 'FromJSON' instance for us.</span><span>
+</span><a name="line-410"></a><span class="hs-comment">--instance 'FromJSON' GetBody</span><span>
+</span><a name="line-411"></a><span class="hs-comment">--</span><span>
+</span><a name="line-412"></a><span class="hs-comment">-- \{- The fact that we want a GetBody below will be inferred by our</span><span>
+</span><a name="line-413"></a><span class="hs-comment">--   use of the \&quot;headers\&quot; accessor function. -\}</span><span>
+</span><a name="line-414"></a><span class="hs-comment">--</span><span>
+</span><a name="line-415"></a><span class="hs-comment">--foo = do</span><span>
+</span><a name="line-416"></a><span class="hs-comment">--  r &lt;- 'asJSON' =&lt;&lt; 'get' \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-417"></a><span class="hs-comment">--  print (headers (r 'Control.Lens.^.' 'responseBody'))</span><span>
+</span><a name="line-418"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-419"></a><span class="hs-comment">--</span><span>
+</span><a name="line-420"></a><span class="hs-comment">-- If we use 'asJSON' in the 'Either' monad, it will return 'Left'</span><span>
+</span><a name="line-421"></a><span class="hs-comment">-- with a 'JSONError' payload if conversion fails, and 'Right' with a</span><span>
+</span><a name="line-422"></a><span class="hs-comment">-- 'Response' whose 'responseBody' is the converted value on success.</span><span>
+</span><a name="line-423"></a><span>
+</span><a name="line-424"></a><span class="hs-identifier">asJSON</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">MonadThrow</span><span> </span><a href="#local-1627795809"><span class="hs-identifier hs-type">m</span></a><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">FromJSON</span><span> </span><a href="#local-1627795810"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><a name="line-425"></a><span>          </span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795809"><span class="hs-identifier hs-type">m</span></a><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><a href="#local-1627795810"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span>
+</span><a name="line-426"></a><span class="hs-pragma">{-# SPECIALIZE asJSON :: (FromJSON a) =&gt;
+                         Response L.ByteString -&gt; IO (Response a) #-}</span><span>
+</span><a name="line-428"></a><span class="hs-pragma">{-# SPECIALIZE asJSON :: Response L.ByteString -&gt; IO (Response Aeson.Value) #-}</span><span>
+</span><a name="line-429"></a><a name="asJSON"><a href="Network.Wreq.html#asJSON"><span class="hs-identifier">asJSON</span></a></a><span> </span><a name="local-1627795862"><a href="#local-1627795862"><span class="hs-identifier">resp</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><a name="line-430"></a><span>  </span><span class="hs-keyword">let</span><span> </span><a name="local-1627795863"><a href="#local-1627795863"><span class="hs-identifier">contentType</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">fst</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier hs-var">S</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">break</span><span> </span><span class="hs-special">(</span><span class="hs-operator hs-var">==</span><span class="hs-number">59</span><span class="hs-special">)</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier hs-var">fromMaybe</span><span> </span><span class="hs-string">&quot;unknown&quot;</span><span> </span><span class="hs-operator hs-var">.</span><span>
+</span><a name="line-431"></a><span>                    </span><span class="hs-identifier hs-var">lookup</span><span> </span><span class="hs-string">&quot;Content-Type&quot;</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">responseHeaders</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="#local-1627795862"><span class="hs-identifier hs-var">resp</span></a><span>
+</span><a name="line-432"></a><span>  </span><span class="hs-identifier hs-var">unless</span><span> </span><span class="hs-special">(</span><span class="hs-string">&quot;application/json&quot;</span><span> </span><span class="hs-special">`</span><span class="hs-identifier hs-var">S</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">isPrefixOf</span><span class="hs-special">`</span><span> </span><a href="#local-1627795863"><span class="hs-identifier hs-var">contentType</span></a><span class="hs-special">)</span><span> </span><span class="hs-operator hs-var">$</span><span>
+</span><a name="line-433"></a><span>    </span><span class="hs-identifier hs-var">throwM</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><a href="Network.Wreq.Internal.Types.html#JSONError"><span class="hs-identifier hs-var">JSONError</span></a><span> </span><span class="hs-operator hs-var">$</span><span> </span><span class="hs-string">&quot;content type of response is &quot;</span><span> </span><span class="hs-operator hs-var">++</span><span> </span><span class="hs-identifier hs-var">show</span><span> </span><a href="#local-1627795863"><span class="hs-identifier hs-var">contentType</span></a><span>
+</span><a name="line-434"></a><span>  </span><span class="hs-keyword">case</span><span> </span><span class="hs-identifier hs-var">Aeson</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">eitherDecode'</span><span> </span><span class="hs-special">(</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">responseBody</span><span> </span><a href="#local-1627795862"><span class="hs-identifier hs-var">resp</span></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
+</span><a name="line-435"></a><span>    </span><span class="hs-identifier hs-var">Left</span><span> </span><a name="local-1627795864"><a href="#local-1627795864"><span class="hs-identifier">err</span></a></a><span>  </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">throwM</span><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.Types.html#JSONError"><span class="hs-identifier hs-var">JSONError</span></a><span> </span><a href="#local-1627795864"><span class="hs-identifier hs-var">err</span></a><span class="hs-special">)</span><span>
+</span><a name="line-436"></a><span>    </span><span class="hs-identifier hs-var">Right</span><span> </span><a name="local-1627795865"><a href="#local-1627795865"><span class="hs-identifier">val</span></a></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">return</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">fmap</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">const</span><span> </span><a href="#local-1627795865"><span class="hs-identifier hs-var">val</span></a><span class="hs-special">)</span><span> </span><a href="#local-1627795862"><span class="hs-identifier hs-var">resp</span></a><span class="hs-special">)</span><span>
+</span><a name="line-437"></a><span>
+</span><a name="line-438"></a><span>
+</span><a name="line-439"></a><span class="hs-comment">-- | Convert the body of an HTTP response from JSON to a 'Value'.</span><span>
+</span><a name="line-440"></a><span class="hs-comment">--</span><span>
+</span><a name="line-441"></a><span class="hs-comment">-- In this example, we use 'asValue' in the @IO@ monad, where it will</span><span>
+</span><a name="line-442"></a><span class="hs-comment">-- throw a 'JSONError' exception if the conversion to 'Value' fails.</span><span>
+</span><a name="line-443"></a><span class="hs-comment">--</span><span>
+</span><a name="line-444"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-445"></a><span class="hs-comment">--foo = do</span><span>
+</span><a name="line-446"></a><span class="hs-comment">--  r &lt;- 'asValue' =&lt;&lt; 'get' \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-447"></a><span class="hs-comment">--  print (r 'Control.Lens.^?' 'responseBody' . key \&quot;headers\&quot; . key \&quot;User-Agent\&quot;)</span><span>
+</span><a name="line-448"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-449"></a><span class="hs-identifier">asValue</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">MonadThrow</span><span> </span><a href="#local-1627795807"><span class="hs-identifier hs-type">m</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">L</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-1627795807"><span class="hs-identifier hs-type">m</span></a><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Response</span><span> </span><span class="hs-identifier hs-type">Aeson</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Value</span><span class="hs-special">)</span><span>
+</span><a name="line-450"></a><span class="hs-pragma">{-# SPECIALIZE asValue :: Response L.ByteString
+                       -&gt; IO (Response Aeson.Value) #-}</span><span>
+</span><a name="line-452"></a><a name="asValue"><a href="Network.Wreq.html#asValue"><span class="hs-identifier">asValue</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.html#asJSON"><span class="hs-identifier hs-var">asJSON</span></a><span>
+</span><a name="line-453"></a><span>
+</span><a name="line-454"></a><span class="hs-comment">-- $auth</span><span>
+</span><a name="line-455"></a><span class="hs-comment">--</span><span>
+</span><a name="line-456"></a><span class="hs-comment">-- Do not use HTTP authentication unless you are using TLS encryption.</span><span>
+</span><a name="line-457"></a><span class="hs-comment">-- These authentication tokens can easily be captured and reused by an</span><span>
+</span><a name="line-458"></a><span class="hs-comment">-- attacker if transmitted in the clear.</span><span>
+</span><a name="line-459"></a><span>
+</span><a name="line-460"></a><span class="hs-comment">-- | Basic authentication. This consists of a plain username and</span><span>
+</span><a name="line-461"></a><span class="hs-comment">-- password.</span><span>
+</span><a name="line-462"></a><span class="hs-comment">--</span><span>
+</span><a name="line-463"></a><span class="hs-comment">-- Example (note the use of TLS):</span><span>
+</span><a name="line-464"></a><span class="hs-comment">--</span><span>
+</span><a name="line-465"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-466"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.auth' '?~' 'basicAuth' \&quot;user\&quot; \&quot;pass\&quot;</span><span>
+</span><a name="line-467"></a><span class="hs-comment">--'getWith' opts \&quot;https:\/\/httpbin.org\/basic-auth\/user\/pass\&quot;</span><span>
+</span><a name="line-468"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-469"></a><span class="hs-comment">--</span><span>
+</span><a name="line-470"></a><span class="hs-comment">-- Note here the use of the 'Control.Lens.?~' setter to turn an 'Auth'</span><span>
+</span><a name="line-471"></a><span class="hs-comment">-- into a 'Maybe' 'Auth', to make the type of the RHS compatible with</span><span>
+</span><a name="line-472"></a><span class="hs-comment">-- the 'Lens.auth' lens.</span><span>
+</span><a name="line-473"></a><span class="hs-comment">--</span><span>
+</span><a name="line-474"></a><span class="hs-comment">-- &gt;&gt;&gt; let opts = defaults &amp; auth ?~ basicAuth &quot;user&quot; &quot;pass&quot;</span><span>
+</span><a name="line-475"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- getWith opts &quot;https://httpbin.org/basic-auth/user/pass&quot;</span><span>
+</span><a name="line-476"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;authenticated&quot;</span><span>
+</span><a name="line-477"></a><span class="hs-comment">-- Just (Bool True)</span><span>
+</span><a name="line-478"></a><span class="hs-identifier">basicAuth</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span>       </span><span class="hs-comment">-- ^ Username.</span><span>
+</span><a name="line-479"></a><span>          </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span>       </span><span class="hs-comment">-- ^ Password.</span><span>
+</span><a name="line-480"></a><span>          </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a><span>
+</span><a name="line-481"></a><a name="basicAuth"><a href="Network.Wreq.html#basicAuth"><span class="hs-identifier">basicAuth</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.Types.html#BasicAuth"><span class="hs-identifier hs-var">BasicAuth</span></a><span>
+</span><a name="line-482"></a><span>
+</span><a name="line-483"></a><span class="hs-comment">-- | OAuth1 authentication. This consists of a consumer token,</span><span>
+</span><a name="line-484"></a><span class="hs-comment">-- a consumer secret, a token and a token secret</span><span>
+</span><a name="line-485"></a><span class="hs-identifier">oauth1Auth</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span>          </span><span class="hs-comment">-- ^ Consumer token</span><span>
+</span><a name="line-486"></a><span>       </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span>          </span><span class="hs-comment">-- ^ Consumer secret</span><span>
+</span><a name="line-487"></a><span>       </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span>          </span><span class="hs-comment">-- ^ OAuth token</span><span>
+</span><a name="line-488"></a><span>       </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span>          </span><span class="hs-comment">-- ^ OAuth token secret</span><span>
+</span><a name="line-489"></a><span>       </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a><span>
+</span><a name="line-490"></a><a name="oauth1Auth"><a href="Network.Wreq.html#oauth1Auth"><span class="hs-identifier">oauth1Auth</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.Types.html#OAuth1"><span class="hs-identifier hs-var">OAuth1</span></a><span>
+</span><a name="line-491"></a><span>
+</span><a name="line-492"></a><span>
+</span><a name="line-493"></a><span class="hs-comment">-- | An OAuth2 bearer token. This is treated by many services as the</span><span>
+</span><a name="line-494"></a><span class="hs-comment">-- equivalent of a username and password.</span><span>
+</span><a name="line-495"></a><span class="hs-comment">--</span><span>
+</span><a name="line-496"></a><span class="hs-comment">-- Example (note the use of TLS):</span><span>
+</span><a name="line-497"></a><span class="hs-comment">--</span><span>
+</span><a name="line-498"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-499"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.auth' '?~' 'oauth2Bearer' \&quot;1234abcd\&quot;</span><span>
+</span><a name="line-500"></a><span class="hs-comment">--'getWith' opts \&quot;https:\/\/public-api.wordpress.com\/rest\/v1\/me\/\&quot;</span><span>
+</span><a name="line-501"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-502"></a><span class="hs-identifier">oauth2Bearer</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a><span>
+</span><a name="line-503"></a><a name="oauth2Bearer"><a href="Network.Wreq.html#oauth2Bearer"><span class="hs-identifier">oauth2Bearer</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.Types.html#OAuth2Bearer"><span class="hs-identifier hs-var">OAuth2Bearer</span></a><span>
+</span><a name="line-504"></a><span>
+</span><a name="line-505"></a><span class="hs-comment">-- | A not-quite-standard OAuth2 bearer token (that seems to be used</span><span>
+</span><a name="line-506"></a><span class="hs-comment">-- only by GitHub). This will be treated by whatever services accept</span><span>
+</span><a name="line-507"></a><span class="hs-comment">-- it as the equivalent of a username and password.</span><span>
+</span><a name="line-508"></a><span class="hs-comment">--</span><span>
+</span><a name="line-509"></a><span class="hs-comment">-- Example (note the use of TLS):</span><span>
+</span><a name="line-510"></a><span class="hs-comment">--</span><span>
+</span><a name="line-511"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-512"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.auth' '?~' 'oauth2Token' \&quot;abcd1234\&quot;</span><span>
+</span><a name="line-513"></a><span class="hs-comment">--'getWith' opts \&quot;https:\/\/api.github.com\/user\&quot;</span><span>
+</span><a name="line-514"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-515"></a><span class="hs-identifier">oauth2Token</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a><span>
+</span><a name="line-516"></a><a name="oauth2Token"><a href="Network.Wreq.html#oauth2Token"><span class="hs-identifier">oauth2Token</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.Types.html#OAuth2Token"><span class="hs-identifier hs-var">OAuth2Token</span></a><span>
+</span><a name="line-517"></a><span>
+</span><a name="line-518"></a><span class="hs-comment">-- | AWS v4 request signature.</span><span>
+</span><a name="line-519"></a><span class="hs-comment">--</span><span>
+</span><a name="line-520"></a><span class="hs-comment">-- Example (note the use of TLS):</span><span>
+</span><a name="line-521"></a><span class="hs-comment">--</span><span>
+</span><a name="line-522"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-523"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.auth' '?~' 'awsAuth AWSv4' \&quot;key\&quot; \&quot;secret\&quot;</span><span>
+</span><a name="line-524"></a><span class="hs-comment">--'getWith' opts \&quot;https:\/\/dynamodb.us-west-2.amazonaws.com\&quot;</span><span>
+</span><a name="line-525"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-526"></a><span class="hs-identifier">awsAuth</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Network.Wreq.Internal.Types.html#AWSAuthVersion"><span class="hs-identifier hs-type">AWSAuthVersion</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Network.Wreq.Internal.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a><span>
+</span><a name="line-527"></a><a name="awsAuth"><a href="Network.Wreq.html#awsAuth"><span class="hs-identifier">awsAuth</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Network.Wreq.Internal.Types.html#AWSAuth"><span class="hs-identifier hs-var">AWSAuth</span></a><span>
+</span><a name="line-528"></a><span>
+</span><a name="line-529"></a><span class="hs-comment">-- | Proxy configuration.</span><span>
+</span><a name="line-530"></a><span class="hs-comment">--</span><span>
+</span><a name="line-531"></a><span class="hs-comment">-- Example:</span><span>
+</span><a name="line-532"></a><span class="hs-comment">--</span><span>
+</span><a name="line-533"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-534"></a><span class="hs-comment">--let opts = 'defaults' '&amp;' 'Lens.proxy' '?~' 'httpProxy' \&quot;localhost\&quot; 8000</span><span>
+</span><a name="line-535"></a><span class="hs-comment">--'getWith' opts \&quot;http:\/\/httpbin.org\/get\&quot;</span><span>
+</span><a name="line-536"></a><span class="hs-comment">-- @</span><span>
+</span><a name="line-537"></a><span class="hs-comment">--</span><span>
+</span><a name="line-538"></a><span class="hs-comment">-- Note here the use of the 'Control.Lens.?~' setter to turn a 'Proxy'</span><span>
+</span><a name="line-539"></a><span class="hs-comment">-- into a 'Maybe' 'Proxy', to make the type of the RHS compatible with</span><span>
+</span><a name="line-540"></a><span class="hs-comment">-- the 'Lens.proxy' lens.</span><span>
+</span><a name="line-541"></a><span class="hs-identifier">httpProxy</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">S</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Int</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Proxy</span><span>
+</span><a name="line-542"></a><a name="httpProxy"><a href="Network.Wreq.html#httpProxy"><span class="hs-identifier">httpProxy</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">Proxy</span><span>
+</span><a name="line-543"></a><span>
+</span><a name="line-544"></a><span class="hs-comment">-- | Make a 'Part' whose content is a strict 'T.Text', encoded as</span><span>
+</span><a name="line-545"></a><span class="hs-comment">-- UTF-8.</span><span>
+</span><a name="line-546"></a><span class="hs-comment">--</span><span>
+</span><a name="line-547"></a><span class="hs-comment">-- The 'Part' does not have a file name or content type associated</span><span>
+</span><a name="line-548"></a><span class="hs-comment">-- with it.</span><span>
+</span><a name="line-549"></a><span class="hs-identifier">partText</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Text</span><span>             </span><span class="hs-comment">-- ^ Name of the corresponding \&lt;input\&gt;.</span><span>
+</span><a name="line-550"></a><span>         </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Text</span><span>             </span><span class="hs-comment">-- ^ The body for this 'Form.Part'.</span><span>
+</span><a name="line-551"></a><span>         </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Form</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Part</span><span>
+</span><a name="line-552"></a><a name="partText"><a href="Network.Wreq.html#partText"><span class="hs-identifier">partText</span></a></a><span> </span><a name="local-1627795866"><a href="#local-1627795866"><span class="hs-identifier">name</span></a></a><span> </span><a name="local-1627795867"><a href="#local-1627795867"><span class="hs-identifier">value</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">Form</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partBS</span><span> </span><a href="#local-1627795866"><span class="hs-identifier hs-var">name</span></a><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">encodeUtf8</span><span> </span><a href="#local-1627795867"><span class="hs-identifier hs-var">value</span></a><span class="hs-special">)</span><span>
+</span><a name="line-553"></a><span>
+</span><a name="line-554"></a><span class="hs-comment">-- | Make a 'Part' whose content is a 'String', encoded as UTF-8.</span><span>
+</span><a name="line-555"></a><span class="hs-comment">--</span><span>
+</span><a name="line-556"></a><span class="hs-comment">-- The 'Part' does not have a file name or content type associated</span><span>
+</span><a name="line-557"></a><span class="hs-comment">-- with it.</span><span>
+</span><a name="line-558"></a><span class="hs-identifier">partString</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Text</span><span>           </span><span class="hs-comment">-- ^ Name of the corresponding \&lt;input\&gt;.</span><span>
+</span><a name="line-559"></a><span>           </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span>         </span><span class="hs-comment">-- ^ The body for this 'Form.Part'.</span><span>
+</span><a name="line-560"></a><span>           </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Form</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Part</span><span>
+</span><a name="line-561"></a><a name="partString"><a href="Network.Wreq.html#partString"><span class="hs-identifier">partString</span></a></a><span> </span><a name="local-1627795868"><a href="#local-1627795868"><span class="hs-identifier">name</span></a></a><span> </span><a name="local-1627795869"><a href="#local-1627795869"><span class="hs-identifier">value</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">Form</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">partBS</span><span> </span><a href="#local-1627795868"><span class="hs-identifier hs-var">name</span></a><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">encodeUtf8</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">T</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">pack</span><span> </span><a href="#local-1627795869"><span class="hs-identifier hs-var">value</span></a><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-562"></a><span>
+</span><a name="line-563"></a><span class="hs-comment">-- $session</span><span>
+</span><a name="line-564"></a><span class="hs-comment">--</span><span>
+</span><a name="line-565"></a><span class="hs-comment">-- The basic HTTP functions ('get', 'post', and so on) in this module</span><span>
+</span><a name="line-566"></a><span class="hs-comment">-- have a few key drawbacks:</span><span>
+</span><a name="line-567"></a><span class="hs-comment">--</span><span>
+</span><a name="line-568"></a><span class="hs-comment">-- * If several requests go to the same server, there is no reuse of</span><span>
+</span><a name="line-569"></a><span class="hs-comment">--   TCP connections.</span><span>
+</span><a name="line-570"></a><span class="hs-comment">--</span><span>
+</span><a name="line-571"></a><span class="hs-comment">-- * There is no management of cookies across multiple requests.</span><span>
+</span><a name="line-572"></a><span class="hs-comment">--</span><span>
+</span><a name="line-573"></a><span class="hs-comment">-- This makes these functions inefficient and verbose for many common</span><span>
+</span><a name="line-574"></a><span class="hs-comment">-- uses.  For greater efficiency, use the &quot;Network.Wreq.Session&quot;</span><span>
+</span><a name="line-575"></a><span class="hs-comment">-- module.</span><span>
+</span><a name="line-576"></a><span>
+</span><a name="line-577"></a><span class="hs-comment">-- $cookielenses</span><span>
+</span><a name="line-578"></a><span class="hs-comment">--</span><span>
+</span><a name="line-579"></a><span class="hs-comment">-- These are only the most frequently-used cookie-related lenses.  See</span><span>
+</span><a name="line-580"></a><span class="hs-comment">-- &quot;Network.Wreq.Lens&quot; for the full accounting of them all.</span><span>
+</span><a name="line-581"></a><span>
+</span><a name="line-582"></a><span class="hs-comment">-- $postable</span><span>
+</span><a name="line-583"></a><span class="hs-comment">--</span><span>
+</span><a name="line-584"></a><span class="hs-comment">-- The 'Postable' class determines which Haskell types can be used as</span><span>
+</span><a name="line-585"></a><span class="hs-comment">-- POST payloads.</span><span>
+</span><a name="line-586"></a><span class="hs-comment">--</span><span>
+</span><a name="line-587"></a><span class="hs-comment">-- 'Form.Part' and ['Form.Part'] give a request body with a</span><span>
+</span><a name="line-588"></a><span class="hs-comment">-- @Content-Type@ of @multipart/form-data@.  Constructor functions</span><span>
+</span><a name="line-589"></a><span class="hs-comment">-- include 'partText' and 'Form.partFile'.</span><span>
+</span><a name="line-590"></a><span class="hs-comment">--</span><span>
+</span><a name="line-591"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- post &quot;http://httpbin.org/post&quot; (partText &quot;hello&quot; &quot;world&quot;)</span><span>
+</span><a name="line-592"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;form&quot; . key &quot;hello&quot;</span><span>
+</span><a name="line-593"></a><span class="hs-comment">-- Just (String &quot;world&quot;)</span><span>
+</span><a name="line-594"></a><span class="hs-comment">--</span><span>
+</span><a name="line-595"></a><span class="hs-comment">-- ('S.ByteString', 'S.ByteString') and 'FormParam' (and lists of</span><span>
+</span><a name="line-596"></a><span class="hs-comment">-- each) give a request body with a @Content-Type@ of</span><span>
+</span><a name="line-597"></a><span class="hs-comment">-- @application/x-www-form-urlencoded@. The easiest way to use this is</span><span>
+</span><a name="line-598"></a><span class="hs-comment">-- via the (':=') constructor.</span><span>
+</span><a name="line-599"></a><span class="hs-comment">--</span><span>
+</span><a name="line-600"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- post &quot;http://httpbin.org/post&quot; [&quot;num&quot; := 31337, &quot;str&quot; := &quot;foo&quot;]</span><span>
+</span><a name="line-601"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;form&quot; . key &quot;num&quot;</span><span>
+</span><a name="line-602"></a><span class="hs-comment">-- Just (String &quot;31337&quot;)</span><span>
+</span><a name="line-603"></a><span class="hs-comment">--</span><span>
+</span><a name="line-604"></a><span class="hs-comment">-- The \&quot;magical\&quot; type conversion on the right-hand side of ':='</span><span>
+</span><a name="line-605"></a><span class="hs-comment">-- above is due to the 'FormValue' class. This package provides</span><span>
+</span><a name="line-606"></a><span class="hs-comment">-- sensible instances for the standard string and number types.</span><span>
+</span><a name="line-607"></a><span class="hs-comment">--</span><span>
+</span><a name="line-608"></a><span class="hs-comment">-- The 'Aeson.Value' type gives a JSON request body with a</span><span>
+</span><a name="line-609"></a><span class="hs-comment">-- @Content-Type@ of @application/json@. Any instance of</span><span>
+</span><a name="line-610"></a><span class="hs-comment">-- 'Aeson.ToJSON' can of course be converted to a 'Aeson.Value' using</span><span>
+</span><a name="line-611"></a><span class="hs-comment">-- 'Aeson.toJSON'.</span><span>
+</span><a name="line-612"></a><span class="hs-comment">--</span><span>
+</span><a name="line-613"></a><span class="hs-comment">-- &gt;&gt;&gt; r &lt;- post &quot;http://httpbin.org/post&quot; (toJSON [1,2,3])</span><span>
+</span><a name="line-614"></a><span class="hs-comment">-- &gt;&gt;&gt; r ^? responseBody . key &quot;json&quot; . nth 0</span><span>
+</span><a name="line-615"></a><span class="hs-comment">-- Just (Number 1.0)</span><span>
+</span><a name="line-616"></a><span>
+</span><a name="line-617"></a><span class="hs-comment">-- $setup</span><span>
+</span><a name="line-618"></a><span class="hs-comment">--</span><span>
+</span><a name="line-619"></a><span class="hs-comment">-- &gt;&gt;&gt; :set -XOverloadedStrings</span><span>
+</span><a name="line-620"></a><span class="hs-comment">-- &gt;&gt;&gt; import Control.Lens</span><span>
+</span><a name="line-621"></a><span class="hs-comment">-- &gt;&gt;&gt; import Data.Aeson (toJSON)</span><span>
+</span><a name="line-622"></a><span class="hs-comment">-- &gt;&gt;&gt; import Data.Aeson.Lens (key, nth)</span><span>
+</span><a name="line-623"></a><span class="hs-comment">-- &gt;&gt;&gt; import Network.Wreq</span><span>
+</span><a name="line-624"></a></pre></body></html>

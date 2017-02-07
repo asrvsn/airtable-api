@@ -56,6 +56,75 @@ Web/Authenticate/OAuth/IO.hs:82:39: warning: [-Wdeprecations]
     In the use of ‘withManager’
     (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
     Deprecated: "Use newManager instead"
+Running Haddock for authenticate-oauth-1.5.1.2...
+Preprocessing library authenticate-oauth-1.5.1.2...
+
+Web/Authenticate/OAuth.hs:44:1: warning: [-Wunused-imports]
+    The import of ‘PublicKey’
+    from module ‘Crypto.Types.PubKey.RSA’ is redundant
+
+Web/Authenticate/OAuth.hs:316:24: warning: [-Wdeprecations]
+    In the use of ‘parseUrl’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Request):
+    Deprecated: "Please use parseUrlThrow, parseRequest, or parseRequest_ instead"
+
+Web/Authenticate/OAuth.hs:393:34: warning: [-Wdeprecations]
+    In the use of ‘parseUrl’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Request):
+    Deprecated: "Please use parseUrlThrow, parseRequest, or parseRequest_ instead"
+
+Web/Authenticate/OAuth/IO.hs:35:35: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Web/Authenticate/OAuth/IO.hs:43:12: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Web/Authenticate/OAuth/IO.hs:51:45: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Web/Authenticate/OAuth/IO.hs:57:44: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Web/Authenticate/OAuth/IO.hs:66:33: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Web/Authenticate/OAuth/IO.hs:75:40: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+
+Web/Authenticate/OAuth/IO.hs:82:39: warning: [-Wdeprecations]
+    In the use of ‘withManager’
+    (imported from Network.HTTP.Client, but defined in http-client-0.4.31.2:Network.HTTP.Client.Manager):
+    Deprecated: "Use newManager instead"
+Haddock coverage:
+  86% ( 51 / 59) in 'Web.Authenticate.OAuth'
+  Missing documentation for:
+    Module header
+    OAuthVersion (Web/Authenticate/OAuth.hs:107)
+    OAuthException (Web/Authenticate/OAuth.hs:138)
+    getTemporaryCredential' (Web/Authenticate/OAuth.hs:310)
+    getAccessToken' (Web/Authenticate/OAuth.hs:377)
+    getAccessTokenWith (Web/Authenticate/OAuth.hs:389)
+    addScope (Web/Authenticate/OAuth.hs:494)
+    addMaybeProxy (Web/Authenticate/OAuth.hs:504)
+  82% (  9 / 11) in 'Web.Authenticate.OAuth.IO'
+  Missing documentation for:
+    getTemporaryCredential' (Web/Authenticate/OAuth/IO.hs:53)
+    getAccessToken' (Web/Authenticate/OAuth/IO.hs:77)
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/authenticate-oauth/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/authenticate-oauth/authenticate-oauth.txt
 Installing library in
 /home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/authenticate-oauth-1.5.1.2-4mAwUKGHSWxEAZjOcPPkr0
 Registering authenticate-oauth-1.5.1.2...

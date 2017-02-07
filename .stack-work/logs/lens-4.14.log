@@ -1,46 +1,692 @@
-[1 of 1] Compiling Main             ( /tmp/stack30001/lens-4.14/Setup.lhs, /tmp/stack30001/lens-4.14/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/Main.o )
+[1 of 1] Compiling Main             ( /tmp/stack5636/lens-4.14/Setup.lhs, /tmp/stack5636/lens-4.14/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/Main.o )
 
-/tmp/stack30001/lens-4.14/Setup.lhs:55:69: warning: [-Wdeprecations]
+/tmp/stack5636/lens-4.14/Setup.lhs:55:69: warning: [-Wdeprecations]
     In the use of type constructor or class ‘InstalledPackageId’
     (imported from Distribution.Package):
     Deprecated: "Use UnitId instead"
-Linking /tmp/stack30001/lens-4.14/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/setup ...
+Linking /tmp/stack5636/lens-4.14/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/setup ...
 Configuring lens-4.14...
 Building lens-4.14...
 Preprocessing library lens-4.14...
 [ 1 of 81] Compiling Paths_lens       ( .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Paths_lens.o )
 [ 2 of 81] Compiling Data.Map.Lens    ( src/Data/Map/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Map/Lens.o )
-[ 3 of 81] Compiling Control.Lens.Internal.List ( src/Control/Lens/Internal/List.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/List.o )
+[ 3 of 81] Compiling Control.Lens.Internal.Zoom ( src/Control/Lens/Internal/Zoom.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Zoom.o )
 [ 4 of 81] Compiling Control.Lens.Internal.TH ( src/Control/Lens/Internal/TH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/TH.o )
-[ 5 of 81] Compiling Control.Lens.Internal.Coerce ( src/Control/Lens/Internal/Coerce.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Coerce.o )
-[ 6 of 81] Compiling Control.Lens.Internal.Instances ( src/Control/Lens/Internal/Instances.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Instances.o )
-[ 7 of 81] Compiling Control.Lens.Internal.Zoom ( src/Control/Lens/Internal/Zoom.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Zoom.o )
-[ 8 of 81] Compiling Control.Lens.Internal.Setter ( src/Control/Lens/Internal/Setter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Setter.o )
-[ 9 of 81] Compiling Control.Lens.Internal.Review ( src/Control/Lens/Internal/Review.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Review.o )
-[10 of 81] Compiling Control.Lens.Internal.Prism ( src/Control/Lens/Internal/Prism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Prism.o )
-[11 of 81] Compiling Control.Lens.Internal.Iso ( src/Control/Lens/Internal/Iso.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Iso.o )
-[12 of 81] Compiling Control.Lens.Internal.Level ( src/Control/Lens/Internal/Level.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Level.o )
+[ 5 of 81] Compiling Control.Lens.Internal.Setter ( src/Control/Lens/Internal/Setter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Setter.o )
+[ 6 of 81] Compiling Control.Lens.Internal.Review ( src/Control/Lens/Internal/Review.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Review.o )
+[ 7 of 81] Compiling Control.Lens.Internal.List ( src/Control/Lens/Internal/List.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/List.o )
+[ 8 of 81] Compiling Control.Lens.Internal.Level ( src/Control/Lens/Internal/Level.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Level.o )
+[ 9 of 81] Compiling Control.Lens.Internal.Instances ( src/Control/Lens/Internal/Instances.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Instances.o )
+[10 of 81] Compiling Control.Lens.Internal.Getter ( src/Control/Lens/Internal/Getter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Getter.o )
+[11 of 81] Compiling Control.Lens.Internal.Fold ( src/Control/Lens/Internal/Fold.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Fold.o )
+[12 of 81] Compiling Control.Lens.Internal.Coerce ( src/Control/Lens/Internal/Coerce.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Coerce.o )
 [13 of 81] Compiling Control.Lens.Internal.Indexed ( src/Control/Lens/Internal/Indexed.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Indexed.o )
 [14 of 81] Compiling Control.Lens.Internal.Context ( src/Control/Lens/Internal/Context.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Context.o )
-[15 of 81] Compiling Control.Lens.Internal.Bazaar ( src/Control/Lens/Internal/Bazaar.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Bazaar.o )
-[16 of 81] Compiling Control.Lens.Internal.Magma ( src/Control/Lens/Internal/Magma.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Magma.o )
-[17 of 81] Compiling Control.Lens.Internal.Getter ( src/Control/Lens/Internal/Getter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Getter.o )
-[18 of 81] Compiling Control.Lens.Internal.Fold ( src/Control/Lens/Internal/Fold.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Fold.o )
-[19 of 81] Compiling Control.Lens.Type ( src/Control/Lens/Type.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Type.o )
-[20 of 81] Compiling Control.Lens.Setter ( src/Control/Lens/Setter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Setter.o )
-[21 of 81] Compiling Control.Lens.Lens ( src/Control/Lens/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Lens.o )
-[22 of 81] Compiling Control.Lens.Tuple ( src/Control/Lens/Tuple.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Tuple.o )
-[23 of 81] Compiling Control.Lens.Getter ( src/Control/Lens/Getter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Getter.o )
-[24 of 81] Compiling Control.Lens.Review ( src/Control/Lens/Review.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Review.o )
-[25 of 81] Compiling Control.Lens.Prism ( src/Control/Lens/Prism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Prism.o )
-[26 of 81] Compiling Control.Lens.Zoom ( src/Control/Lens/Zoom.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Zoom.o )
-[27 of 81] Compiling Data.Set.Lens    ( src/Data/Set/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Set/Lens.o )
+[15 of 81] Compiling Control.Lens.Type ( src/Control/Lens/Type.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Type.o )
+[16 of 81] Compiling Control.Lens.Lens ( src/Control/Lens/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Lens.o )
+[17 of 81] Compiling Control.Lens.Tuple ( src/Control/Lens/Tuple.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Tuple.o )
+[18 of 81] Compiling Control.Lens.Setter ( src/Control/Lens/Setter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Setter.o )
+[19 of 81] Compiling Control.Lens.Internal.Iso ( src/Control/Lens/Internal/Iso.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Iso.o )
+[20 of 81] Compiling Control.Lens.Internal.Prism ( src/Control/Lens/Internal/Prism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Prism.o )
+[21 of 81] Compiling Control.Lens.Internal.Bazaar ( src/Control/Lens/Internal/Bazaar.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Bazaar.o )
+[22 of 81] Compiling Control.Lens.Internal.Magma ( src/Control/Lens/Internal/Magma.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Magma.o )
+[23 of 81] Compiling Control.Lens.Internal ( src/Control/Lens/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal.o )
+[24 of 81] Compiling Control.Lens.Getter ( src/Control/Lens/Getter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Getter.o )
+[25 of 81] Compiling Control.Lens.Review ( src/Control/Lens/Review.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Review.o )
+[26 of 81] Compiling Control.Lens.Prism ( src/Control/Lens/Prism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Prism.o )
+[27 of 81] Compiling Control.Lens.Zoom ( src/Control/Lens/Zoom.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Zoom.o )
 [28 of 81] Compiling Data.HashSet.Lens ( src/Data/HashSet/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashSet/Lens.o )
-[29 of 81] Compiling Control.Lens.Fold ( src/Control/Lens/Fold.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Fold.o )
-[30 of 81] Compiling Control.Lens.Traversal ( src/Control/Lens/Traversal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Traversal.o )
-[31 of 81] Compiling Control.Lens.Indexed ( src/Control/Lens/Indexed.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Indexed.o )
-[32 of 81] Compiling Control.Lens.Level ( src/Control/Lens/Level.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Level.o )
-[33 of 81] Compiling Control.Lens.Reified ( src/Control/Lens/Reified.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Reified.o )
-[34 of 81] Compiling Data.Data.Lens   ( src/Data/Data/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Data/Lens.o )
-[35 of 81] Compiling Control.Lens.Plated ( src/Control/Lens/Plated.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Plated.o )
-[36 of 81] Compiling Control.Lens.Internal.ByteString ( src/Control/Lens/Internal/ByteString.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/ByteString.o )
+[29 of 81] Compiling Data.Set.Lens    ( src/Data/Set/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Set/Lens.o )
+[30 of 81] Compiling Control.Lens.Fold ( src/Control/Lens/Fold.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Fold.o )
+[31 of 81] Compiling Control.Lens.Internal.Exception ( src/Control/Lens/Internal/Exception.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Exception.o )
+[32 of 81] Compiling Control.Lens.Traversal ( src/Control/Lens/Traversal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Traversal.o )
+[33 of 81] Compiling Control.Lens.Indexed ( src/Control/Lens/Indexed.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Indexed.o )
+[34 of 81] Compiling Control.Lens.Internal.ByteString ( src/Control/Lens/Internal/ByteString.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/ByteString.o )
+[35 of 81] Compiling Control.Lens.Level ( src/Control/Lens/Level.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Level.o )
+[36 of 81] Compiling Control.Lens.Reified ( src/Control/Lens/Reified.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Reified.o )
+[37 of 81] Compiling Data.Data.Lens   ( src/Data/Data/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Data/Lens.o )
+[38 of 81] Compiling Control.Lens.Plated ( src/Control/Lens/Plated.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Plated.o )
+[39 of 81] Compiling Control.Lens.Equality ( src/Control/Lens/Equality.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Equality.o )
+[40 of 81] Compiling Control.Lens.Iso ( src/Control/Lens/Iso.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Iso.o )
+[41 of 81] Compiling Control.Lens.Wrapped ( src/Control/Lens/Wrapped.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Wrapped.o )
+[42 of 81] Compiling Data.Text.Strict.Lens ( src/Data/Text/Strict/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Text/Strict/Lens.o )
+[43 of 81] Compiling Data.Text.Lazy.Lens ( src/Data/Text/Lazy/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Text/Lazy/Lens.o )
+[44 of 81] Compiling Data.Text.Lens   ( src/Data/Text/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Text/Lens.o )
+[45 of 81] Compiling Data.Vector.Generic.Lens ( src/Data/Vector/Generic/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Vector/Generic/Lens.o )
+[46 of 81] Compiling Control.Lens.Empty ( src/Control/Lens/Empty.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Empty.o )
+[47 of 81] Compiling Control.Lens.Each ( src/Control/Lens/Each.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Each.o )
+[48 of 81] Compiling Control.Lens.Cons ( src/Control/Lens/Cons.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Cons.o )
+[49 of 81] Compiling Control.Lens.Internal.Deque ( src/Control/Lens/Internal/Deque.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Deque.o )
+[50 of 81] Compiling Control.Lens.At  ( src/Control/Lens/At.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/At.o )
+[51 of 81] Compiling Language.Haskell.TH.Lens ( src/Language/Haskell/TH/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Language/Haskell/TH/Lens.o )
+[52 of 81] Compiling Control.Lens.Internal.FieldTH ( src/Control/Lens/Internal/FieldTH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/FieldTH.o )
+[53 of 81] Compiling Control.Lens.Internal.PrismTH ( src/Control/Lens/Internal/PrismTH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/PrismTH.o )
+[54 of 81] Compiling Control.Lens.TH  ( src/Control/Lens/TH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/TH.o )
+[55 of 81] Compiling Control.Lens     ( src/Control/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens.o )
+[56 of 81] Compiling Control.Lens.Combinators ( src/Control/Lens/Combinators.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Combinators.o )
+[57 of 81] Compiling Control.Lens.Extras ( src/Control/Lens/Extras.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Extras.o )
+[58 of 81] Compiling Control.Lens.Operators ( src/Control/Lens/Operators.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Operators.o )
+[59 of 81] Compiling Control.Monad.Error.Lens ( src/Control/Monad/Error/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Monad/Error/Lens.o )
+[60 of 81] Compiling Control.Parallel.Strategies.Lens ( src/Control/Parallel/Strategies/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Parallel/Strategies/Lens.o )
+[61 of 81] Compiling Control.Seq.Lens ( src/Control/Seq/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Seq/Lens.o )
+[62 of 81] Compiling Data.Array.Lens  ( src/Data/Array/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Array/Lens.o )
+[63 of 81] Compiling Data.Bits.Lens   ( src/Data/Bits/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Bits/Lens.o )
+[64 of 81] Compiling Data.ByteString.Strict.Lens ( src/Data/ByteString/Strict/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/ByteString/Strict/Lens.o )
+[65 of 81] Compiling Data.ByteString.Lazy.Lens ( src/Data/ByteString/Lazy/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/ByteString/Lazy/Lens.o )
+[66 of 81] Compiling Data.ByteString.Lens ( src/Data/ByteString/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/ByteString/Lens.o )
+[67 of 81] Compiling Data.Complex.Lens ( src/Data/Complex/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Complex/Lens.o )
+[68 of 81] Compiling Data.IntSet.Lens ( src/Data/IntSet/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/IntSet/Lens.o )
+[69 of 81] Compiling Data.List.Lens   ( src/Data/List/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/List/Lens.o )
+[70 of 81] Compiling Data.Sequence.Lens ( src/Data/Sequence/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Sequence/Lens.o )
+[71 of 81] Compiling Data.Tree.Lens   ( src/Data/Tree/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Tree/Lens.o )
+[72 of 81] Compiling Data.Typeable.Lens ( src/Data/Typeable/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Typeable/Lens.o )
+[73 of 81] Compiling Data.Vector.Lens ( src/Data/Vector/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Vector/Lens.o )
+[74 of 81] Compiling Generics.Deriving.Lens ( src/Generics/Deriving/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Generics/Deriving/Lens.o )
+[75 of 81] Compiling GHC.Generics.Lens ( src/GHC/Generics/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/GHC/Generics/Lens.o )
+[76 of 81] Compiling System.FilePath.Lens ( src/System/FilePath/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/System/FilePath/Lens.o )
+[77 of 81] Compiling System.IO.Error.Lens ( src/System/IO/Error/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/System/IO/Error/Lens.o )
+[78 of 81] Compiling Numeric.Lens     ( src/Numeric/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Numeric/Lens.o )
+[79 of 81] Compiling Control.Exception.Lens ( src/Control/Exception/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Exception/Lens.o )
+[80 of 81] Compiling Data.Dynamic.Lens ( src/Data/Dynamic/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Dynamic/Lens.o )
+[81 of 81] Compiling System.Exit.Lens ( src/System/Exit/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/System/Exit/Lens.o )
+Running Haddock for lens-4.14...
+Preprocessing library lens-4.14...
+Haddock coverage:
+   0% (  0 /  8) in 'Paths_lens'
+  Missing documentation for:
+    Module header
+    version (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:28)
+    getBinDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:38)
+    getLibDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:38)
+    getDataDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:38)
+    getLibexecDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:38)
+    getDataFileName (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:45)
+    getSysconfDir (.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs:38)
+ 100% (  1 /  1) in 'Data.Map.Lens'
+ 100% ( 15 / 15) in 'Control.Lens.Internal.Zoom'
+  24% ( 10 / 41) in 'Control.Lens.Internal.TH'
+  Missing documentation for:
+    fromSet (src/Control/Lens/Internal/TH.hs:84)
+    lensPackageKey (src/Control/Lens/Internal/TH.hs:102)
+    mkLensName_tc (src/Control/Lens/Internal/TH.hs:109)
+    mkLensName_v (src/Control/Lens/Internal/TH.hs:112)
+    traversalTypeName (src/Control/Lens/Internal/TH.hs:115)
+    traversal'TypeName (src/Control/Lens/Internal/TH.hs:118)
+    lensTypeName (src/Control/Lens/Internal/TH.hs:121)
+    lens'TypeName (src/Control/Lens/Internal/TH.hs:124)
+    isoTypeName (src/Control/Lens/Internal/TH.hs:127)
+    iso'TypeName (src/Control/Lens/Internal/TH.hs:130)
+    getterTypeName (src/Control/Lens/Internal/TH.hs:133)
+    foldTypeName (src/Control/Lens/Internal/TH.hs:136)
+    prismTypeName (src/Control/Lens/Internal/TH.hs:139)
+    prism'TypeName (src/Control/Lens/Internal/TH.hs:142)
+    reviewTypeName (src/Control/Lens/Internal/TH.hs:145)
+    wrappedTypeName (src/Control/Lens/Internal/TH.hs:148)
+    unwrappedTypeName (src/Control/Lens/Internal/TH.hs:151)
+    rewrappedTypeName (src/Control/Lens/Internal/TH.hs:154)
+    _wrapped'ValName (src/Control/Lens/Internal/TH.hs:157)
+    isoValName (src/Control/Lens/Internal/TH.hs:160)
+    prismValName (src/Control/Lens/Internal/TH.hs:163)
+    untoValName (src/Control/Lens/Internal/TH.hs:166)
+    phantomValName (src/Control/Lens/Internal/TH.hs:169)
+    phantom2 (src/Control/Lens/Internal/TH.hs:172)
+    composeValName (src/Control/Lens/Internal/TH.hs:176)
+    idValName (src/Control/Lens/Internal/TH.hs:179)
+    fmapValName (src/Control/Lens/Internal/TH.hs:182)
+    pureValName (src/Control/Lens/Internal/TH.hs:186)
+    apValName (src/Control/Lens/Internal/TH.hs:189)
+    rightDataName (src/Control/Lens/Internal/TH.hs:199)
+    leftDataName (src/Control/Lens/Internal/TH.hs:202)
+ 100% (  3 /  3) in 'Control.Lens.Internal.Setter'
+ 100% (  5 /  5) in 'Control.Lens.Internal.Review'
+ 100% (  2 /  2) in 'Control.Lens.Internal.List'
+ 100% (  6 /  6) in 'Control.Lens.Internal.Level'
+ 100% (  1 /  1) in 'Control.Lens.Internal.Instances'
+  50% (  2 /  4) in 'Control.Lens.Internal.Getter'
+  Missing documentation for:
+    AlongsideLeft (src/Control/Lens/Internal/Getter.hs:37)
+    AlongsideRight (src/Control/Lens/Internal/Getter.hs:78)
+  93% ( 13 / 14) in 'Control.Lens.Internal.Fold'
+  Missing documentation for:
+    ReifiedMonoid
+  67% (  2 /  3) in 'Control.Lens.Internal.Coerce'
+  Missing documentation for:
+    coerce' (src/Control/Lens/Internal/Coerce.hs:35)
+ 100% ( 15 / 15) in 'Control.Lens.Internal.Indexed'
+ 100% ( 11 / 11) in 'Control.Lens.Internal.Context'
+  86% ( 51 / 59) in 'Control.Lens.Type'
+  Missing documentation for:
+    Traversal1 (src/Control/Lens/Type.hs:215)
+    Traversal1' (src/Control/Lens/Type.hs:216)
+    IndexedTraversal1 (src/Control/Lens/Type.hs:236)
+    IndexedTraversal1' (src/Control/Lens/Type.hs:237)
+    IndexedFold1 (src/Control/Lens/Type.hs:518)
+    IndexPreservingTraversal1 (src/Control/Lens/Type.hs:247)
+    IndexPreservingTraversal1' (src/Control/Lens/Type.hs:248)
+    IndexPreservingFold1 (src/Control/Lens/Type.hs:519)
+ 100% (110 /110) in 'Control.Lens.Lens'
+ 100% ( 21 / 21) in 'Control.Lens.Tuple'
+ 100% ( 85 / 85) in 'Control.Lens.Setter'
+ 100% (  3 /  3) in 'Control.Lens.Internal.Iso'
+ 100% (  3 /  3) in 'Control.Lens.Internal.Prism'
+  91% ( 10 / 11) in 'Control.Lens.Internal.Bazaar'
+  Missing documentation for:
+    Bizarre1 (src/Control/Lens/Internal/Bazaar.hs:212)
+ 100% ( 12 / 12) in 'Control.Lens.Internal.Magma'
+ 100% ( 13 / 13) in 'Control.Lens.Internal'
+ 100% ( 33 / 33) in 'Control.Lens.Getter'
+ 100% ( 15 / 15) in 'Control.Lens.Review'
+ 100% ( 29 / 29) in 'Control.Lens.Prism'
+ 100% (  5 /  5) in 'Control.Lens.Zoom'
+ 100% (  3 /  3) in 'Data.HashSet.Lens'
+ 100% (  3 /  3) in 'Data.Set.Lens'
+  99% (123 /124) in 'Control.Lens.Fold'
+  Missing documentation for:
+    ifolding (src/Control/Lens/Fold.hs:222)
+ 100% (  3 /  3) in 'Control.Lens.Internal.Exception'
+  91% ( 88 / 97) in 'Control.Lens.Traversal'
+  Missing documentation for:
+    Traversal1 (src/Control/Lens/Type.hs:215)
+    Traversal1' (src/Control/Lens/Type.hs:216)
+    IndexedTraversal1 (src/Control/Lens/Type.hs:236)
+    IndexedTraversal1' (src/Control/Lens/Type.hs:237)
+    Traversing1 (src/Control/Lens/Traversal.hs:236)
+    Traversing1' (src/Control/Lens/Traversal.hs:242)
+    unsafePartsOf' (src/Control/Lens/Traversal.hs:589)
+    Traversable1
+    iunsafePartsOf' (src/Control/Lens/Traversal.hs:593)
+  92% ( 47 / 51) in 'Control.Lens.Indexed'
+  Missing documentation for:
+    ifoldMapBy (src/Control/Lens/Indexed.hs:878)
+    ifoldMapByOf (src/Control/Lens/Indexed.hs:881)
+    itraverseBy (src/Control/Lens/Indexed.hs:884)
+    itraverseByOf (src/Control/Lens/Indexed.hs:887)
+ 100% (  9 /  9) in 'Control.Lens.Internal.ByteString'
+ 100% (  4 /  4) in 'Control.Lens.Level'
+  25% ( 21 / 83) in 'Control.Lens.Reified'
+  Missing documentation for:
+     (src/Control/Lens/Reified.hs:106)
+     (src/Control/Lens/Reified.hs:109)
+     (src/Control/Lens/Reified.hs:113)
+     (src/Control/Lens/Reified.hs:117)
+     (src/Control/Lens/Reified.hs:123)
+     (src/Control/Lens/Reified.hs:131)
+     (src/Control/Lens/Reified.hs:139)
+     (src/Control/Lens/Reified.hs:149)
+     (src/Control/Lens/Reified.hs:153)
+     (src/Control/Lens/Reified.hs:159)
+     (src/Control/Lens/Reified.hs:165)
+     (src/Control/Lens/Reified.hs:173)
+     (src/Control/Lens/Reified.hs:176)
+     (src/Control/Lens/Reified.hs:179)
+     (src/Control/Lens/Reified.hs:183)
+     (src/Control/Lens/Reified.hs:186)
+     (src/Control/Lens/Reified.hs:190)
+     (src/Control/Lens/Reified.hs:193)
+     (src/Control/Lens/Reified.hs:195)
+     (src/Control/Lens/Reified.hs:203)
+     (src/Control/Lens/Reified.hs:209)
+     (src/Control/Lens/Reified.hs:214)
+     (src/Control/Lens/Reified.hs:226)
+     (src/Control/Lens/Reified.hs:230)
+     (src/Control/Lens/Reified.hs:240)
+     (src/Control/Lens/Reified.hs:251)
+     (src/Control/Lens/Reified.hs:255)
+     (src/Control/Lens/Reified.hs:259)
+     (src/Control/Lens/Reified.hs:264)
+     (src/Control/Lens/Reified.hs:272)
+     (src/Control/Lens/Reified.hs:276)
+     (src/Control/Lens/Reified.hs:298)
+     (src/Control/Lens/Reified.hs:306)
+     (src/Control/Lens/Reified.hs:309)
+     (src/Control/Lens/Reified.hs:313)
+     (src/Control/Lens/Reified.hs:321)
+     (src/Control/Lens/Reified.hs:331)
+     (src/Control/Lens/Reified.hs:336)
+     (src/Control/Lens/Reified.hs:348)
+     (src/Control/Lens/Reified.hs:354)
+     (src/Control/Lens/Reified.hs:358)
+     (src/Control/Lens/Reified.hs:362)
+     (src/Control/Lens/Reified.hs:370)
+     (src/Control/Lens/Reified.hs:380)
+     (src/Control/Lens/Reified.hs:386)
+     (src/Control/Lens/Reified.hs:390)
+     (src/Control/Lens/Reified.hs:396)
+     (src/Control/Lens/Reified.hs:402)
+     (src/Control/Lens/Reified.hs:408)
+     (src/Control/Lens/Reified.hs:412)
+     (src/Control/Lens/Reified.hs:418)
+     (src/Control/Lens/Reified.hs:422)
+    ReifiedIndexedFold (src/Control/Lens/Reified.hs:430)
+     (src/Control/Lens/Reified.hs:432)
+     (src/Control/Lens/Reified.hs:436)
+     (src/Control/Lens/Reified.hs:442)
+     (src/Control/Lens/Reified.hs:447)
+     (src/Control/Lens/Reified.hs:451)
+     (src/Control/Lens/Reified.hs:455)
+     (src/Control/Lens/Reified.hs:463)
+     (src/Control/Lens/Reified.hs:467)
+     (src/Control/Lens/Reified.hs:472)
+ 100% ( 13 / 13) in 'Data.Data.Lens'
+  98% ( 47 / 48) in 'Control.Lens.Plated'
+  Missing documentation for:
+    GPlated (src/Control/Lens/Plated.hs:734)
+ 100% ( 15 / 15) in 'Control.Lens.Equality'
+  91% ( 49 / 54) in 'Control.Lens.Iso'
+  Missing documentation for:
+    Swapped (src/Control/Lens/Iso.hs:426)
+    Strict (src/Control/Lens/Iso.hs:420)
+    Lazy (src/Control/Lens/Iso.hs:423)
+    Reversed (src/Control/Lens/Iso.hs:429)
+    List (src/Control/Lens/Iso.hs:495)
+  70% ( 14 / 20) in 'Control.Lens.Wrapped'
+  Missing documentation for:
+    _Unwrapped' (src/Control/Lens/Wrapped.hs:164)
+    Rewrapped (src/Control/Lens/Wrapped.hs:159)
+    Rewrapping (src/Control/Lens/Wrapped.hs:161)
+    _Unwrapped (src/Control/Lens/Wrapped.hs:181)
+    Wrapped (src/Control/Lens/Wrapped.hs:150)
+    Unwrapped (src/Control/Lens/Wrapped.hs:153)
+  88% (  7 /  8) in 'Data.Text.Strict.Lens'
+  Missing documentation for:
+    Text (src/Data/Text/Strict/Lens.hs:145)
+  88% (  7 /  8) in 'Data.Text.Lazy.Lens'
+  Missing documentation for:
+    Text (src/Data/Text/Lazy/Lens.hs:152)
+  80% (  4 /  5) in 'Data.Text.Lens'
+  Missing documentation for:
+    Text (src/Data/Text/Lens.hs:110)
+ 100% ( 15 / 15) in 'Data.Vector.Generic.Lens'
+  33% (  1 /  3) in 'Control.Lens.Empty'
+  Missing documentation for:
+    AsEmpty (src/Control/Lens/Empty.hs:60)
+    Empty (src/Control/Lens/Empty.hs:71)
+ 100% (  3 /  3) in 'Control.Lens.Each'
+  88% ( 15 / 17) in 'Control.Lens.Cons'
+  Missing documentation for:
+    :> (src/Control/Lens/Cons.hs:92)
+    :< (src/Control/Lens/Cons.hs:86)
+ 100% (  6 /  6) in 'Control.Lens.Internal.Deque'
+  93% ( 13 / 14) in 'Control.Lens.At'
+  Missing documentation for:
+    Index (src/Control/Lens/At.hs:85)
+  21% ( 54 /259) in 'Language.Haskell.TH.Lens'
+  Missing documentation for:
+    locFileName (src/Language/Haskell/TH/Lens.hs:588)
+    locPackage (src/Language/Haskell/TH/Lens.hs:592)
+    locModule (src/Language/Haskell/TH/Lens.hs:596)
+    locStart (src/Language/Haskell/TH/Lens.hs:600)
+    locEnd (src/Language/Haskell/TH/Lens.hs:604)
+    funDepInputs (src/Language/Haskell/TH/Lens.hs:608)
+    funDepOutputs (src/Language/Haskell/TH/Lens.hs:613)
+    matchPattern (src/Language/Haskell/TH/Lens.hs:630)
+    matchBody (src/Language/Haskell/TH/Lens.hs:635)
+    matchDeclarations (src/Language/Haskell/TH/Lens.hs:640)
+    fixityPrecedence (src/Language/Haskell/TH/Lens.hs:645)
+    fixityDirection (src/Language/Haskell/TH/Lens.hs:650)
+    clausePattern (src/Language/Haskell/TH/Lens.hs:655)
+    clauseBody (src/Language/Haskell/TH/Lens.hs:660)
+    clauseDecs (src/Language/Haskell/TH/Lens.hs:665)
+    fieldExpName (src/Language/Haskell/TH/Lens.hs:618)
+    fieldExpExpression (src/Language/Haskell/TH/Lens.hs:621)
+    fieldPatName (src/Language/Haskell/TH/Lens.hs:624)
+    fieldPatPattern (src/Language/Haskell/TH/Lens.hs:627)
+    tySynEqnPatterns (src/Language/Haskell/TH/Lens.hs:1546)
+    tySynEqnResult (src/Language/Haskell/TH/Lens.hs:1551)
+    injectivityAnnOutput (src/Language/Haskell/TH/Lens.hs:671)
+    injectivityAnnInputs (src/Language/Haskell/TH/Lens.hs:676)
+    typeFamilyHeadName (src/Language/Haskell/TH/Lens.hs:681)
+    typeFamilyHeadTyVarBndrs (src/Language/Haskell/TH/Lens.hs:686)
+    typeFamilyHeadResultSig (src/Language/Haskell/TH/Lens.hs:691)
+    typeFamilyHeadInjectivityAnn (src/Language/Haskell/TH/Lens.hs:696)
+    bangSourceUnpackedness (src/Language/Haskell/TH/Lens.hs:701)
+    bangSourceStrictness (src/Language/Haskell/TH/Lens.hs:706)
+    _ClassI (src/Language/Haskell/TH/Lens.hs:713)
+    _ClassOpI (src/Language/Haskell/TH/Lens.hs:725)
+    _TyConI (src/Language/Haskell/TH/Lens.hs:746)
+    _FamilyI (src/Language/Haskell/TH/Lens.hs:755)
+    _PrimTyConI (src/Language/Haskell/TH/Lens.hs:767)
+    _DataConI (src/Language/Haskell/TH/Lens.hs:779)
+    _VarI (src/Language/Haskell/TH/Lens.hs:801)
+    _TyVarI (src/Language/Haskell/TH/Lens.hs:818)
+    _FunD (src/Language/Haskell/TH/Lens.hs:826)
+    _ValD (src/Language/Haskell/TH/Lens.hs:834)
+    _DataD (src/Language/Haskell/TH/Lens.hs:1003)
+    _NewtypeD (src/Language/Haskell/TH/Lens.hs:1011)
+    _TySynD (src/Language/Haskell/TH/Lens.hs:842)
+    _ClassD (src/Language/Haskell/TH/Lens.hs:850)
+    _InstanceD (src/Language/Haskell/TH/Lens.hs:859)
+    _SigD (src/Language/Haskell/TH/Lens.hs:905)
+    _ForeignD (src/Language/Haskell/TH/Lens.hs:913)
+    _InfixD (src/Language/Haskell/TH/Lens.hs:922)
+    _PragmaD (src/Language/Haskell/TH/Lens.hs:931)
+    _DataInstD (src/Language/Haskell/TH/Lens.hs:1019)
+    _NewtypeInstD (src/Language/Haskell/TH/Lens.hs:1027)
+    _TySynInstD (src/Language/Haskell/TH/Lens.hs:940)
+    _ClosedTypeFamilyD (src/Language/Haskell/TH/Lens.hs:985)
+    _RoleAnnotD (src/Language/Haskell/TH/Lens.hs:948)
+    _StandaloneDerivD (src/Language/Haskell/TH/Lens.hs:967)
+    _DefaultSigD (src/Language/Haskell/TH/Lens.hs:975)
+    _DataFamilyD (src/Language/Haskell/TH/Lens.hs:1035)
+    _OpenTypeFamilyD (src/Language/Haskell/TH/Lens.hs:1043)
+    _NormalC (src/Language/Haskell/TH/Lens.hs:1092)
+    _RecC (src/Language/Haskell/TH/Lens.hs:1107)
+    _InfixC (src/Language/Haskell/TH/Lens.hs:1122)
+    _ForallC (src/Language/Haskell/TH/Lens.hs:1136)
+    _GadtC (src/Language/Haskell/TH/Lens.hs:1145)
+    _RecGadtC (src/Language/Haskell/TH/Lens.hs:1153)
+    _Overlappable (src/Language/Haskell/TH/Lens.hs:876)
+    _Overlapping (src/Language/Haskell/TH/Lens.hs:883)
+    _Overlaps (src/Language/Haskell/TH/Lens.hs:890)
+    _Incoherent (src/Language/Haskell/TH/Lens.hs:897)
+    _NoSourceUnpackedness (src/Language/Haskell/TH/Lens.hs:1163)
+    _SourceNoUnpack (src/Language/Haskell/TH/Lens.hs:1171)
+    _SourceUnpack (src/Language/Haskell/TH/Lens.hs:1179)
+    _NoSourceStrictness (src/Language/Haskell/TH/Lens.hs:1187)
+    _SourceLazy (src/Language/Haskell/TH/Lens.hs:1195)
+    _SourceStrict (src/Language/Haskell/TH/Lens.hs:1203)
+    _DecidedLazy (src/Language/Haskell/TH/Lens.hs:1211)
+    _DecidedStrict (src/Language/Haskell/TH/Lens.hs:1219)
+    _DecidedUnpack (src/Language/Haskell/TH/Lens.hs:1227)
+    _ImportF (src/Language/Haskell/TH/Lens.hs:1260)
+    _ExportF (src/Language/Haskell/TH/Lens.hs:1268)
+    _CCall (src/Language/Haskell/TH/Lens.hs:1276)
+    _StdCall (src/Language/Haskell/TH/Lens.hs:1284)
+    _CApi (src/Language/Haskell/TH/Lens.hs:1293)
+    _Prim (src/Language/Haskell/TH/Lens.hs:1301)
+    _JavaScript (src/Language/Haskell/TH/Lens.hs:1309)
+    _Unsafe (src/Language/Haskell/TH/Lens.hs:1318)
+    _Safe (src/Language/Haskell/TH/Lens.hs:1326)
+    _Interruptible (src/Language/Haskell/TH/Lens.hs:1334)
+    _InlineP (src/Language/Haskell/TH/Lens.hs:1343)
+    _SpecialiseP (src/Language/Haskell/TH/Lens.hs:1351)
+    _SpecialiseInstP (src/Language/Haskell/TH/Lens.hs:1379)
+    _RuleP (src/Language/Haskell/TH/Lens.hs:1387)
+    _AnnP (src/Language/Haskell/TH/Lens.hs:1396)
+    _LineP (src/Language/Haskell/TH/Lens.hs:1406)
+    _NoInline (src/Language/Haskell/TH/Lens.hs:1415)
+    _Inline (src/Language/Haskell/TH/Lens.hs:1423)
+    _Inlinable (src/Language/Haskell/TH/Lens.hs:1431)
+    _ConLike (src/Language/Haskell/TH/Lens.hs:1439)
+    _FunLike (src/Language/Haskell/TH/Lens.hs:1447)
+    _AllPhases (src/Language/Haskell/TH/Lens.hs:1455)
+    _FromPhase (src/Language/Haskell/TH/Lens.hs:1463)
+    _BeforePhase (src/Language/Haskell/TH/Lens.hs:1471)
+    _RuleVar (src/Language/Haskell/TH/Lens.hs:1479)
+    _TypedRuleVar (src/Language/Haskell/TH/Lens.hs:1487)
+    _ModuleAnnotation (src/Language/Haskell/TH/Lens.hs:1497)
+    _TypeAnnotation (src/Language/Haskell/TH/Lens.hs:1505)
+    _ValueAnnotation (src/Language/Haskell/TH/Lens.hs:1513)
+    _FunDep (src/Language/Haskell/TH/Lens.hs:1522)
+    _TypeFam (src/Language/Haskell/TH/Lens.hs:1529)
+    _DataFam (src/Language/Haskell/TH/Lens.hs:1537)
+    _InfixL (src/Language/Haskell/TH/Lens.hs:1557)
+    _InfixR (src/Language/Haskell/TH/Lens.hs:1565)
+    _InfixN (src/Language/Haskell/TH/Lens.hs:1573)
+    _VarE (src/Language/Haskell/TH/Lens.hs:1581)
+    _ConE (src/Language/Haskell/TH/Lens.hs:1589)
+    _LitE (src/Language/Haskell/TH/Lens.hs:1597)
+    _AppE (src/Language/Haskell/TH/Lens.hs:1605)
+    _InfixE (src/Language/Haskell/TH/Lens.hs:1613)
+    _UInfixE (src/Language/Haskell/TH/Lens.hs:1621)
+    _ParensE (src/Language/Haskell/TH/Lens.hs:1629)
+    _LamE (src/Language/Haskell/TH/Lens.hs:1637)
+    _LamCaseE (src/Language/Haskell/TH/Lens.hs:1646)
+    _TupE (src/Language/Haskell/TH/Lens.hs:1655)
+    _UnboxedTupE (src/Language/Haskell/TH/Lens.hs:1663)
+    _CondE (src/Language/Haskell/TH/Lens.hs:1671)
+    _MultiIfE (src/Language/Haskell/TH/Lens.hs:1680)
+    _LetE (src/Language/Haskell/TH/Lens.hs:1689)
+    _CaseE (src/Language/Haskell/TH/Lens.hs:1697)
+    _DoE (src/Language/Haskell/TH/Lens.hs:1705)
+    _CompE (src/Language/Haskell/TH/Lens.hs:1713)
+    _ArithSeqE (src/Language/Haskell/TH/Lens.hs:1721)
+    _ListE (src/Language/Haskell/TH/Lens.hs:1729)
+    _SigE (src/Language/Haskell/TH/Lens.hs:1737)
+    _RecConE (src/Language/Haskell/TH/Lens.hs:1745)
+    _RecUpdE (src/Language/Haskell/TH/Lens.hs:1753)
+    _StaticE (src/Language/Haskell/TH/Lens.hs:1762)
+    _UnboundVarE (src/Language/Haskell/TH/Lens.hs:1772)
+    _GuardedB (src/Language/Haskell/TH/Lens.hs:1781)
+    _NormalB (src/Language/Haskell/TH/Lens.hs:1789)
+    _NormalG (src/Language/Haskell/TH/Lens.hs:1797)
+    _PatG (src/Language/Haskell/TH/Lens.hs:1805)
+    _BindS (src/Language/Haskell/TH/Lens.hs:1813)
+    _LetS (src/Language/Haskell/TH/Lens.hs:1821)
+    _NoBindS (src/Language/Haskell/TH/Lens.hs:1829)
+    _ParS (src/Language/Haskell/TH/Lens.hs:1837)
+    _FromR (src/Language/Haskell/TH/Lens.hs:1845)
+    _FromThenR (src/Language/Haskell/TH/Lens.hs:1853)
+    _FromToR (src/Language/Haskell/TH/Lens.hs:1861)
+    _FromThenToR (src/Language/Haskell/TH/Lens.hs:1869)
+    _CharL (src/Language/Haskell/TH/Lens.hs:1877)
+    _StringL (src/Language/Haskell/TH/Lens.hs:1885)
+    _IntegerL (src/Language/Haskell/TH/Lens.hs:1893)
+    _RationalL (src/Language/Haskell/TH/Lens.hs:1901)
+    _IntPrimL (src/Language/Haskell/TH/Lens.hs:1909)
+    _WordPrimL (src/Language/Haskell/TH/Lens.hs:1917)
+    _FloatPrimL (src/Language/Haskell/TH/Lens.hs:1925)
+    _DoublePrimL (src/Language/Haskell/TH/Lens.hs:1933)
+    _StringPrimL (src/Language/Haskell/TH/Lens.hs:1942)
+    _CharPrimL (src/Language/Haskell/TH/Lens.hs:1960)
+    _LitP (src/Language/Haskell/TH/Lens.hs:1969)
+    _VarP (src/Language/Haskell/TH/Lens.hs:1977)
+    _TupP (src/Language/Haskell/TH/Lens.hs:1985)
+    _UnboxedTupP (src/Language/Haskell/TH/Lens.hs:1993)
+    _ConP (src/Language/Haskell/TH/Lens.hs:2001)
+    _InfixP (src/Language/Haskell/TH/Lens.hs:2009)
+    _UInfixP (src/Language/Haskell/TH/Lens.hs:2017)
+    _ParensP (src/Language/Haskell/TH/Lens.hs:2025)
+    _TildeP (src/Language/Haskell/TH/Lens.hs:2033)
+    _BangP (src/Language/Haskell/TH/Lens.hs:2041)
+    _AsP (src/Language/Haskell/TH/Lens.hs:2049)
+    _WildP (src/Language/Haskell/TH/Lens.hs:2057)
+    _RecP (src/Language/Haskell/TH/Lens.hs:2065)
+    _ListP (src/Language/Haskell/TH/Lens.hs:2073)
+    _SigP (src/Language/Haskell/TH/Lens.hs:2081)
+    _ViewP (src/Language/Haskell/TH/Lens.hs:2089)
+    _ForallT (src/Language/Haskell/TH/Lens.hs:2097)
+    _AppT (src/Language/Haskell/TH/Lens.hs:2105)
+    _SigT (src/Language/Haskell/TH/Lens.hs:2113)
+    _VarT (src/Language/Haskell/TH/Lens.hs:2121)
+    _ConT (src/Language/Haskell/TH/Lens.hs:2129)
+    _PromotedT (src/Language/Haskell/TH/Lens.hs:2138)
+    _TupleT (src/Language/Haskell/TH/Lens.hs:2147)
+    _UnboxedTupleT (src/Language/Haskell/TH/Lens.hs:2155)
+    _ArrowT (src/Language/Haskell/TH/Lens.hs:2163)
+    _EqualityT (src/Language/Haskell/TH/Lens.hs:2172)
+    _ListT (src/Language/Haskell/TH/Lens.hs:2181)
+    _PromotedTupleT (src/Language/Haskell/TH/Lens.hs:2190)
+    _PromotedNilT (src/Language/Haskell/TH/Lens.hs:2198)
+    _PromotedConsT (src/Language/Haskell/TH/Lens.hs:2206)
+    _StarT (src/Language/Haskell/TH/Lens.hs:2214)
+    _ConstraintT (src/Language/Haskell/TH/Lens.hs:2222)
+    _LitT (src/Language/Haskell/TH/Lens.hs:2230)
+    _InfixT (src/Language/Haskell/TH/Lens.hs:2240)
+    _UInfixT (src/Language/Haskell/TH/Lens.hs:2248)
+    _ParensT (src/Language/Haskell/TH/Lens.hs:2256)
+    _WildCardT (src/Language/Haskell/TH/Lens.hs:2264)
+    _PlainTV (src/Language/Haskell/TH/Lens.hs:2273)
+    _KindedTV (src/Language/Haskell/TH/Lens.hs:2281)
+    _NoSig (src/Language/Haskell/TH/Lens.hs:2290)
+    _KindSig (src/Language/Haskell/TH/Lens.hs:2298)
+    _TyVarSig (src/Language/Haskell/TH/Lens.hs:2306)
+    _NumTyLit (src/Language/Haskell/TH/Lens.hs:2316)
+    _StrTyLit (src/Language/Haskell/TH/Lens.hs:2324)
+    _NominalR (src/Language/Haskell/TH/Lens.hs:2352)
+    _RepresentationalR (src/Language/Haskell/TH/Lens.hs:2360)
+    _PhantomR (src/Language/Haskell/TH/Lens.hs:2368)
+    _InferR (src/Language/Haskell/TH/Lens.hs:2376)
+  80% (  4 /  5) in 'Control.Lens.Internal.FieldTH'
+  Missing documentation for:
+    makeFieldOpticsForDec (src/Control/Lens/Internal/FieldTH.hs:69)
+ 100% (  4 /  4) in 'Control.Lens.Internal.PrismTH'
+  98% ( 57 / 58) in 'Control.Lens.TH'
+  Missing documentation for:
+    defaultFieldRules (src/Control/Lens/TH.hs:758)
+ 100% ( 23 / 23) in 'Control.Lens'
+ 100% (  2 /  2) in 'Control.Lens.Combinators'
+ 100% (  3 /  3) in 'Control.Lens.Extras'
+ 100% (127 /127) in 'Control.Lens.Operators'
+ 100% ( 15 / 15) in 'Control.Monad.Error.Lens'
+ 100% (  5 /  5) in 'Control.Parallel.Strategies.Lens'
+ 100% (  2 /  2) in 'Control.Seq.Lens'
+ 100% (  3 /  3) in 'Data.Array.Lens'
+  76% ( 13 / 17) in 'Data.Bits.Lens'
+  Missing documentation for:
+    <<.|.~ (src/Data/Bits/Lens.hs:166)
+    <<.&.~ (src/Data/Bits/Lens.hs:162)
+    <<.|.= (src/Data/Bits/Lens.hs:174)
+    <<.&.= (src/Data/Bits/Lens.hs:170)
+  78% (  7 /  9) in 'Data.ByteString.Strict.Lens'
+  Missing documentation for:
+    Bytes (src/Data/ByteString/Strict/Lens.hs:140)
+    Chars (src/Data/ByteString/Strict/Lens.hs:143)
+  78% (  7 /  9) in 'Data.ByteString.Lazy.Lens'
+  Missing documentation for:
+    Bytes (src/Data/ByteString/Lazy/Lens.hs:143)
+    Chars (src/Data/ByteString/Lazy/Lens.hs:146)
+  67% (  4 /  6) in 'Data.ByteString.Lens'
+  Missing documentation for:
+    Bytes (src/Data/ByteString/Lens.hs:114)
+    Chars (src/Data/ByteString/Lens.hs:117)
+  67% (  8 / 12) in 'Data.Complex.Lens'
+  Missing documentation for:
+    Polar (src/Data/Complex/Lens.hs:92)
+    Real (src/Data/Complex/Lens.hs:95)
+    Imaginary (src/Data/Complex/Lens.hs:96)
+    Conjugate (src/Data/Complex/Lens.hs:152)
+ 100% (  4 /  4) in 'Data.IntSet.Lens'
+  75% (  3 /  4) in 'Data.List.Lens'
+  Missing documentation for:
+    stripSuffix (src/Data/List/Lens.hs:151)
+ 100% (  7 /  7) in 'Data.Sequence.Lens'
+ 100% (  3 /  3) in 'Data.Tree.Lens'
+ 100% (  3 /  3) in 'Data.Typeable.Lens'
+ 100% (  9 /  9) in 'Data.Vector.Lens'
+ 100% (  7 /  7) in 'Generics.Deriving.Lens'
+  30% (  3 / 10) in 'GHC.Generics.Lens'
+  Missing documentation for:
+    _V1 (src/GHC/Generics/Lens.hs:47)
+    _U1 (src/GHC/Generics/Lens.hs:52)
+    _Par1 (src/GHC/Generics/Lens.hs:56)
+    _Rec1 (src/GHC/Generics/Lens.hs:60)
+    _K1 (src/GHC/Generics/Lens.hs:64)
+    _M1 (src/GHC/Generics/Lens.hs:68)
+    _L1 (src/GHC/Generics/Lens.hs:72)
+  84% ( 16 / 19) in 'System.FilePath.Lens'
+  Missing documentation for:
+    <<</>~ (src/System/FilePath/Lens.hs:94)
+    <<</>= (src/System/FilePath/Lens.hs:98)
+    <<<.>= (src/System/FilePath/Lens.hs:165)
+  32% (  9 / 28) in 'System.IO.Error.Lens'
+  Missing documentation for:
+    _AlreadyExists (src/System/IO/Error/Lens.hs:63)
+    _NoSuchThing (src/System/IO/Error/Lens.hs:66)
+    _ResourceBusy (src/System/IO/Error/Lens.hs:69)
+    _ResourceExhausted (src/System/IO/Error/Lens.hs:72)
+    _EOF (src/System/IO/Error/Lens.hs:75)
+    _IllegalOperation (src/System/IO/Error/Lens.hs:78)
+    _PermissionDenied (src/System/IO/Error/Lens.hs:81)
+    _UserError (src/System/IO/Error/Lens.hs:84)
+    _UnsatisfiedConstraints (src/System/IO/Error/Lens.hs:87)
+    _SystemError (src/System/IO/Error/Lens.hs:90)
+    _ProtocolError (src/System/IO/Error/Lens.hs:93)
+    _OtherError (src/System/IO/Error/Lens.hs:96)
+    _InvalidArgument (src/System/IO/Error/Lens.hs:99)
+    _InappropriateType (src/System/IO/Error/Lens.hs:102)
+    _HardwareFault (src/System/IO/Error/Lens.hs:105)
+    _UnsupportedOperation (src/System/IO/Error/Lens.hs:108)
+    _TimeExpired (src/System/IO/Error/Lens.hs:111)
+    _ResourceVanished (src/System/IO/Error/Lens.hs:114)
+    _Interrupted (src/System/IO/Error/Lens.hs:117)
+  94% ( 15 / 16) in 'Numeric.Lens'
+  Missing documentation for:
+    Integral (src/Numeric/Lens.hs:57)
+  68% ( 65 / 95) in 'Control.Exception.Lens'
+  Missing documentation for:
+    Exception (src/Control/Exception/Lens.hs:213)
+    IOException_ (src/Control/Exception/Lens.hs:461)
+    ArithException_ (src/Control/Exception/Lens.hs:476)
+    Overflow_ (src/Control/Exception/Lens.hs:505)
+    Underflow_ (src/Control/Exception/Lens.hs:526)
+    LossOfPrecision_ (src/Control/Exception/Lens.hs:547)
+    DivideByZero_ (src/Control/Exception/Lens.hs:568)
+    Denormal_ (src/Control/Exception/Lens.hs:589)
+    RatioZeroDenominator_ (src/Control/Exception/Lens.hs:613)
+    ArrayException_ (src/Control/Exception/Lens.hs:642)
+    IndexOutOfBounds_ (src/Control/Exception/Lens.hs:663)
+    UndefinedElement_ (src/Control/Exception/Lens.hs:684)
+    AssertionFailed_ (src/Control/Exception/Lens.hs:714)
+    AsyncException_ (src/Control/Exception/Lens.hs:741)
+    StackOverflow_ (src/Control/Exception/Lens.hs:760)
+    HeapOverflow_ (src/Control/Exception/Lens.hs:784)
+    ThreadKilled_ (src/Control/Exception/Lens.hs:803)
+    UserInterrupt_ (src/Control/Exception/Lens.hs:822)
+    NonTermination_ (src/Control/Exception/Lens.hs:851)
+    NestedAtomically_ (src/Control/Exception/Lens.hs:879)
+    BlockedIndefinitelyOnMVar_ (src/Control/Exception/Lens.hs:908)
+    BlockedIndefinitelyOnSTM_ (src/Control/Exception/Lens.hs:937)
+    Deadlock_ (src/Control/Exception/Lens.hs:965)
+    NoMethodError_ (src/Control/Exception/Lens.hs:993)
+    PatternMatchFail_ (src/Control/Exception/Lens.hs:1020)
+    RecConError_ (src/Control/Exception/Lens.hs:1048)
+    RecSelError_ (src/Control/Exception/Lens.hs:1072)
+    RecUpdError_ (src/Control/Exception/Lens.hs:1096)
+    ErrorCall_ (src/Control/Exception/Lens.hs:1123)
+    HandlingException_ (src/Control/Exception/Lens.hs:1151)
+  67% (  2 /  3) in 'Data.Dynamic.Lens'
+  Missing documentation for:
+    Dynamic (src/Data/Dynamic/Lens.hs:54)
+  67% (  4 /  6) in 'System.Exit.Lens'
+  Missing documentation for:
+    ExitFailure_ (src/System/Exit/Lens.hs:85)
+    ExitSuccess_ (src/System/Exit/Lens.hs:82)
+Warning: Control.Lens.Internal.Indexed: could not find link destinations for:
+    ~
+Warning: Control.Lens.Internal.Context: could not find link destinations for:
+    ~
+Warning: Control.Lens.Lens: could not find link destinations for:
+    ~
+Warning: Control.Lens.Tuple: could not find link destinations for:
+    GIxed N0 N1 N2 N3 N4 N5 N6 N7 N8
+Warning: Control.Lens.Setter: could not find link destinations for:
+    unsafeIndex unsafeRangeSize ~
+Warning: Control.Lens.Internal.Bazaar: could not find link destinations for:
+    ~
+Warning: Control.Lens.Internal.Magma: could not find link destinations for:
+    ~
+Warning: Control.Lens.Getter: could not find link destinations for:
+    unsafeIndex unsafeRangeSize ~
+Warning: Control.Lens.Zoom: could not find link destinations for:
+    ~
+Warning: Control.Lens.Fold: could not find link destinations for:
+    ifoldr
+Warning: Control.Lens.Traversal: could not find link destinations for:
+    Digit Node Elem FingerTree ~
+Warning: Control.Lens.Indexed: could not find link destinations for:
+    ~
+Warning: Control.Lens.Reified: could not find link destinations for:
+    ~
+Warning: Control.Lens.Plated: could not find link destinations for:
+    gplate'
+Warning: Control.Lens.Equality: could not find link destinations for:
+    ~
+Warning: Control.Lens.Wrapped: could not find link destinations for:
+    ~
+Warning: Control.Lens.Each: could not find link destinations for:
+    ~
+Warning: Control.Lens.At: could not find link destinations for:
+    ~
+Warning: Control.Lens.Internal.FieldTH: could not find link destinations for:
+    OpticStab quantifyType
+Warning: Generics.Deriving.Lens: could not find link destinations for:
+    tinplated
+Warning: Numeric.Lens: could not find link destinations for:
+    digitToInt'
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/lens/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/lens/lens.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/lens-4.14-CWZ8MRs2QVS3ee9C5XeQsf
+Registering lens-4.14...

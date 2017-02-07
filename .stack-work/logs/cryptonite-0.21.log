@@ -1,36 +1,29 @@
 Configuring cryptonite-0.21...
 Building cryptonite-0.21...
 Preprocessing library cryptonite-0.21...
-[  1 of 111] Compiling Crypto.Internal.CompatPrim ( Crypto/Internal/CompatPrim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/CompatPrim.o )
-[  2 of 111] Compiling Crypto.Random.Entropy.Source ( Crypto/Random/Entropy/Source.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Source.o )
-[  3 of 111] Compiling Crypto.Random.Entropy.RDRand ( Crypto/Random/Entropy/RDRand.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/RDRand.o )
-[  4 of 111] Compiling Crypto.Random.Entropy.Unix ( Crypto/Random/Entropy/Unix.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Unix.o )
-[  5 of 111] Compiling Crypto.Internal.Words ( Crypto/Internal/Words.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Words.o )
-[  6 of 111] Compiling Crypto.Random.Entropy.Backend ( Crypto/Random/Entropy/Backend.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Backend.o )
-[  7 of 111] Compiling Crypto.Random.Entropy.Unsafe ( Crypto/Random/Entropy/Unsafe.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Unsafe.o )
-[  8 of 111] Compiling Crypto.PubKey.Internal ( Crypto/PubKey/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Internal.o )
-[  9 of 111] Compiling Crypto.Number.Compat ( Crypto/Number/Compat.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Compat.o )
-[ 10 of 111] Compiling Crypto.Number.Basic ( Crypto/Number/Basic.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Basic.o )
-[ 11 of 111] Compiling Crypto.Number.ModArithmetic ( Crypto/Number/ModArithmetic.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/ModArithmetic.o )
-[ 12 of 111] Compiling Crypto.Number.Serialize.Internal ( Crypto/Number/Serialize/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Serialize/Internal.o )
-[ 13 of 111] Compiling Crypto.Internal.DeepSeq ( Crypto/Internal/DeepSeq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/DeepSeq.o )
-[ 14 of 111] Compiling Crypto.Internal.Proxy ( Crypto/Internal/Proxy.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Proxy.o )
-[ 15 of 111] Compiling Crypto.Data.Padding ( Crypto/Data/Padding.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Data/Padding.o )
-[ 16 of 111] Compiling Crypto.Cipher.DES.Primitive ( Crypto/Cipher/DES/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/DES/Primitive.o )
-[ 17 of 111] Compiling Crypto.Internal.Compat ( Crypto/Internal/Compat.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Compat.o )
-[ 18 of 111] Compiling Crypto.Internal.WordArray ( Crypto/Internal/WordArray.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/WordArray.o )
+[  1 of 111] Compiling Crypto.Internal.Words ( Crypto/Internal/Words.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Words.o )
+[  2 of 111] Compiling Crypto.Internal.DeepSeq ( Crypto/Internal/DeepSeq.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/DeepSeq.o )
+[  3 of 111] Compiling Crypto.Internal.Imports ( Crypto/Internal/Imports.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Imports.o )
+[  4 of 111] Compiling Crypto.Internal.CompatPrim ( Crypto/Internal/CompatPrim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/CompatPrim.o )
+[  5 of 111] Compiling Crypto.Internal.Compat ( Crypto/Internal/Compat.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Compat.o )
+[  6 of 111] Compiling Crypto.Internal.WordArray ( Crypto/Internal/WordArray.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/WordArray.o )
+[  7 of 111] Compiling Crypto.Internal.ByteArray ( Crypto/Internal/ByteArray.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/ByteArray.o )
+[  8 of 111] Compiling Crypto.Internal.Proxy ( Crypto/Internal/Proxy.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Proxy.o )
+[  9 of 111] Compiling Crypto.PubKey.Internal ( Crypto/PubKey/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Internal.o )
+[ 10 of 111] Compiling Crypto.Random.Entropy.Source ( Crypto/Random/Entropy/Source.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Source.o )
+[ 11 of 111] Compiling Crypto.Random.Entropy.RDRand ( Crypto/Random/Entropy/RDRand.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/RDRand.o )
+[ 12 of 111] Compiling Crypto.Random.Entropy.Unix ( Crypto/Random/Entropy/Unix.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Unix.o )
+[ 13 of 111] Compiling Crypto.Random.Entropy.Backend ( Crypto/Random/Entropy/Backend.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Backend.o )
+[ 14 of 111] Compiling Crypto.Number.Compat ( Crypto/Number/Compat.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Compat.o )
+[ 15 of 111] Compiling Crypto.Error.Types ( Crypto/Error/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Error/Types.o )
+[ 16 of 111] Compiling Crypto.Cipher.Types.Utils ( Crypto/Cipher/Types/Utils.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Utils.o )
+[ 17 of 111] Compiling Crypto.Cipher.Types.GF ( Crypto/Cipher/Types/GF.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/GF.o )
+[ 18 of 111] Compiling Crypto.Cipher.DES.Primitive ( Crypto/Cipher/DES/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/DES/Primitive.o )
 [ 19 of 111] Compiling Crypto.Cipher.Blowfish.Box ( Crypto/Cipher/Blowfish/Box.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Blowfish/Box.o )
-[ 20 of 111] Compiling Crypto.Internal.ByteArray ( Crypto/Internal/ByteArray.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/ByteArray.o )
-[ 21 of 111] Compiling Crypto.Number.Serialize ( Crypto/Number/Serialize.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Serialize.o )
+[ 20 of 111] Compiling Crypto.Random.Entropy.Unsafe ( Crypto/Random/Entropy/Unsafe.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy/Unsafe.o )
+[ 21 of 111] Compiling Crypto.Random.EntropyPool ( Crypto/Random/EntropyPool.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/EntropyPool.o )
 [ 22 of 111] Compiling Crypto.Random.Entropy ( Crypto/Random/Entropy.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Entropy.o )
-[ 23 of 111] Compiling Crypto.Random.EntropyPool ( Crypto/Random/EntropyPool.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/EntropyPool.o )
-[ 24 of 111] Compiling Crypto.Cipher.Types.Utils ( Crypto/Cipher/Types/Utils.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Utils.o )
-[ 25 of 111] Compiling Crypto.Internal.Imports ( Crypto/Internal/Imports.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Internal/Imports.o )
-[ 26 of 111] Compiling Crypto.Cipher.ChaCha ( Crypto/Cipher/ChaCha.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/ChaCha.o )
-[ 27 of 111] Compiling Crypto.Cipher.RC4 ( Crypto/Cipher/RC4.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/RC4.o )
-[ 28 of 111] Compiling Crypto.Cipher.Salsa ( Crypto/Cipher/Salsa.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Salsa.o )
-[ 29 of 111] Compiling Crypto.Cipher.XSalsa ( Crypto/Cipher/XSalsa.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/XSalsa.o )
-[ 30 of 111] Compiling Crypto.Random.Types ( Crypto/Random/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Types.o )
+[ 23 of 111] Compiling Crypto.Random.Types ( Crypto/Random/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Types.o )
 
 Crypto/Random/Types.hs:38:10: warning: [-Wredundant-constraints]
     • Redundant constraint: DRG gen
@@ -40,62 +33,26 @@ Crypto/Random/Types.hs:60:1: warning: [-Wredundant-constraints]
     • Redundant constraint: DRG gen
     • In the type signature for:
            withDRG :: DRG gen => gen -> MonadPseudoRandom gen a -> (a, gen)
-[ 31 of 111] Compiling Crypto.ECC.Simple.Types ( Crypto/ECC/Simple/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ECC/Simple/Types.o )
-[ 32 of 111] Compiling Crypto.Error.Types ( Crypto/Error/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Error/Types.o )
-[ 33 of 111] Compiling Crypto.Number.F2m ( Crypto/Number/F2m.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/F2m.o )
-[ 34 of 111] Compiling Crypto.Number.Generate ( Crypto/Number/Generate.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Generate.o )
-[ 35 of 111] Compiling Crypto.Hash.Types ( Crypto/Hash/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Types.o )
-[ 36 of 111] Compiling Crypto.Hash.IO   ( Crypto/Hash/IO.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/IO.o )
-[ 37 of 111] Compiling Crypto.Hash.Blake2s ( Crypto/Hash/Blake2s.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2s.o )
-[ 38 of 111] Compiling Crypto.Hash.Blake2sp ( Crypto/Hash/Blake2sp.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2sp.o )
-[ 39 of 111] Compiling Crypto.Hash.Blake2b ( Crypto/Hash/Blake2b.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2b.o )
-[ 40 of 111] Compiling Crypto.Hash.Blake2bp ( Crypto/Hash/Blake2bp.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2bp.o )
-[ 41 of 111] Compiling Crypto.Hash.MD2  ( Crypto/Hash/MD2.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/MD2.o )
-[ 42 of 111] Compiling Crypto.Hash.MD4  ( Crypto/Hash/MD4.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/MD4.o )
-[ 43 of 111] Compiling Crypto.Hash.MD5  ( Crypto/Hash/MD5.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/MD5.o )
-[ 44 of 111] Compiling Crypto.Hash.SHA1 ( Crypto/Hash/SHA1.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA1.o )
-[ 45 of 111] Compiling Crypto.Hash.SHA224 ( Crypto/Hash/SHA224.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA224.o )
-[ 46 of 111] Compiling Crypto.Hash.SHA256 ( Crypto/Hash/SHA256.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA256.o )
-[ 47 of 111] Compiling Crypto.Hash.SHA384 ( Crypto/Hash/SHA384.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA384.o )
-[ 48 of 111] Compiling Crypto.Hash.SHA512 ( Crypto/Hash/SHA512.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA512.o )
-[ 49 of 111] Compiling Crypto.Hash.SHA512t ( Crypto/Hash/SHA512t.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA512t.o )
-[ 50 of 111] Compiling Crypto.Hash.SHA3 ( Crypto/Hash/SHA3.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA3.o )
-[ 51 of 111] Compiling Crypto.Hash.Keccak ( Crypto/Hash/Keccak.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Keccak.o )
-[ 52 of 111] Compiling Crypto.Hash.RIPEMD160 ( Crypto/Hash/RIPEMD160.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/RIPEMD160.o )
-[ 53 of 111] Compiling Crypto.Hash.Tiger ( Crypto/Hash/Tiger.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Tiger.o )
-[ 54 of 111] Compiling Crypto.Hash.Skein256 ( Crypto/Hash/Skein256.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Skein256.o )
-[ 55 of 111] Compiling Crypto.Hash.Skein512 ( Crypto/Hash/Skein512.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Skein512.o )
-[ 56 of 111] Compiling Crypto.Hash.Whirlpool ( Crypto/Hash/Whirlpool.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Whirlpool.o )
-[ 57 of 111] Compiling Crypto.Hash.Algorithms ( Crypto/Hash/Algorithms.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Algorithms.o )
-[ 58 of 111] Compiling Crypto.Hash      ( Crypto/Hash.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash.o )
-[ 59 of 111] Compiling Crypto.Data.AFIS ( Crypto/Data/AFIS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Data/AFIS.o )
-[ 60 of 111] Compiling Crypto.MAC.HMAC  ( Crypto/MAC/HMAC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/MAC/HMAC.o )
-[ 61 of 111] Compiling Crypto.KDF.PBKDF2 ( Crypto/KDF/PBKDF2.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/PBKDF2.o )
-
-Crypto/KDF/PBKDF2.hs:51:1: warning: [-Wredundant-constraints]
-    • Redundant constraint: ByteArrayAccess password
-    • In the type signature for:
-           generate :: (ByteArrayAccess password, ByteArrayAccess salt,
-                        ByteArray ba) =>
-                       PRF password -> Parameters -> password -> salt -> ba
-[ 62 of 111] Compiling Crypto.KDF.Scrypt ( Crypto/KDF/Scrypt.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/Scrypt.o )
-[ 63 of 111] Compiling Crypto.KDF.HKDF  ( Crypto/KDF/HKDF.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/HKDF.o )
-[ 64 of 111] Compiling Crypto.PubKey.MaskGenFunction ( Crypto/PubKey/MaskGenFunction.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/MaskGenFunction.o )
-[ 65 of 111] Compiling Crypto.PubKey.DSA ( Crypto/PubKey/DSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/DSA.o )
-[ 66 of 111] Compiling Crypto.PubKey.ECC.Types ( Crypto/PubKey/ECC/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/Types.o )
-[ 67 of 111] Compiling Crypto.PubKey.RSA.Types ( Crypto/PubKey/RSA/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/Types.o )
-[ 68 of 111] Compiling Crypto.PubKey.RSA.Prim ( Crypto/PubKey/RSA/Prim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/Prim.o )
-[ 69 of 111] Compiling Crypto.Random.ChaChaDRG ( Crypto/Random/ChaChaDRG.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/ChaChaDRG.o )
-[ 70 of 111] Compiling Crypto.Random.SystemDRG ( Crypto/Random/SystemDRG.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/SystemDRG.o )
-[ 71 of 111] Compiling Crypto.Cipher.Types.GF ( Crypto/Cipher/Types/GF.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/GF.o )
-[ 72 of 111] Compiling Crypto.Error     ( Crypto/Error.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Error.o )
-[ 73 of 111] Compiling Crypto.Cipher.Blowfish.Primitive ( Crypto/Cipher/Blowfish/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Blowfish/Primitive.o )
-[ 74 of 111] Compiling Crypto.Cipher.Camellia.Primitive ( Crypto/Cipher/Camellia/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Camellia/Primitive.o )
-[ 75 of 111] Compiling Crypto.MAC.Poly1305 ( Crypto/MAC/Poly1305.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/MAC/Poly1305.o )
-[ 76 of 111] Compiling Crypto.Cipher.ChaChaPoly1305 ( Crypto/Cipher/ChaChaPoly1305.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/ChaChaPoly1305.o )
-[ 77 of 111] Compiling Crypto.Cipher.Types.Base ( Crypto/Cipher/Types/Base.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Base.o )
-[ 78 of 111] Compiling Crypto.Cipher.Types.AEAD ( Crypto/Cipher/Types/AEAD.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/AEAD.o )
-[ 79 of 111] Compiling Crypto.Cipher.Types.Block ( Crypto/Cipher/Types/Block.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Block.o )
+[ 24 of 111] Compiling Crypto.Random.SystemDRG ( Crypto/Random/SystemDRG.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/SystemDRG.o )
+[ 25 of 111] Compiling Crypto.PubKey.RSA.Types ( Crypto/PubKey/RSA/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/Types.o )
+[ 26 of 111] Compiling Crypto.Number.Basic ( Crypto/Number/Basic.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Basic.o )
+[ 27 of 111] Compiling Crypto.Number.F2m ( Crypto/Number/F2m.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/F2m.o )
+[ 28 of 111] Compiling Crypto.Number.ModArithmetic ( Crypto/Number/ModArithmetic.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/ModArithmetic.o )
+[ 29 of 111] Compiling Crypto.Number.Serialize.Internal ( Crypto/Number/Serialize/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Serialize/Internal.o )
+[ 30 of 111] Compiling Crypto.Number.Serialize ( Crypto/Number/Serialize.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Serialize.o )
+[ 31 of 111] Compiling Crypto.Number.Generate ( Crypto/Number/Generate.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Generate.o )
+[ 32 of 111] Compiling Crypto.PubKey.RSA.Prim ( Crypto/PubKey/RSA/Prim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/Prim.o )
+[ 33 of 111] Compiling Crypto.PubKey.ECC.Types ( Crypto/PubKey/ECC/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/Types.o )
+[ 34 of 111] Compiling Crypto.ECC.Simple.Types ( Crypto/ECC/Simple/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ECC/Simple/Types.o )
+[ 35 of 111] Compiling Crypto.Error     ( Crypto/Error.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Error.o )
+[ 36 of 111] Compiling Crypto.MAC.Poly1305 ( Crypto/MAC/Poly1305.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/MAC/Poly1305.o )
+[ 37 of 111] Compiling Crypto.PubKey.Ed25519 ( Crypto/PubKey/Ed25519.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Ed25519.o )
+[ 38 of 111] Compiling Crypto.Cipher.Blowfish.Primitive ( Crypto/Cipher/Blowfish/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Blowfish/Primitive.o )
+[ 39 of 111] Compiling Crypto.Cipher.Camellia.Primitive ( Crypto/Cipher/Camellia/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Camellia/Primitive.o )
+[ 40 of 111] Compiling Crypto.Cipher.Types.Base ( Crypto/Cipher/Types/Base.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Base.o )
+[ 41 of 111] Compiling Crypto.Cipher.Types.AEAD ( Crypto/Cipher/Types/AEAD.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/AEAD.o )
+[ 42 of 111] Compiling Crypto.Cipher.Types.Stream ( Crypto/Cipher/Types/Stream.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Stream.o )
+[ 43 of 111] Compiling Crypto.Cipher.Types.Block ( Crypto/Cipher/Types/Block.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Block.o )
 
 Crypto/Cipher/Types/Block.hs:56:10: warning: [-Wredundant-constraints]
     • Redundant constraint: BlockCipher c
@@ -105,38 +62,283 @@ Crypto/Cipher/Types/Block.hs:167:1: warning: [-Wredundant-constraints]
     • Redundant constraint: BlockCipher c
     • In the type signature for:
            ivAdd :: BlockCipher c => IV c -> Int -> IV c
-[ 80 of 111] Compiling Crypto.Cipher.Types.Stream ( Crypto/Cipher/Types/Stream.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types/Stream.o )
-[ 81 of 111] Compiling Crypto.Cipher.Types ( Crypto/Cipher/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types.o )
-[ 82 of 111] Compiling Crypto.Cipher.AES.Primitive ( Crypto/Cipher/AES/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/AES/Primitive.o )
-[ 83 of 111] Compiling Crypto.Cipher.Blowfish ( Crypto/Cipher/Blowfish.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Blowfish.o )
-[ 84 of 111] Compiling Crypto.Cipher.Camellia ( Crypto/Cipher/Camellia.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Camellia.o )
-[ 85 of 111] Compiling Crypto.Cipher.DES ( Crypto/Cipher/DES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/DES.o )
-[ 86 of 111] Compiling Crypto.Cipher.TripleDES ( Crypto/Cipher/TripleDES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/TripleDES.o )
-[ 87 of 111] Compiling Crypto.MAC.CMAC  ( Crypto/MAC/CMAC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/MAC/CMAC.o )
-[ 88 of 111] Compiling Crypto.Tutorial  ( Crypto/Tutorial.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Tutorial.o )
-[ 89 of 111] Compiling Crypto.ConstructHash.MiyaguchiPreneel ( Crypto/ConstructHash/MiyaguchiPreneel.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ConstructHash/MiyaguchiPreneel.o )
-[ 90 of 111] Compiling Crypto.PubKey.Ed25519 ( Crypto/PubKey/Ed25519.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Ed25519.o )
-[ 91 of 111] Compiling Crypto.Cipher.AES ( Crypto/Cipher/AES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/AES.o )
-[ 92 of 111] Compiling Crypto.Random    ( Crypto/Random.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random.o )
-[ 93 of 111] Compiling Crypto.PubKey.ECC.P256 ( Crypto/PubKey/ECC/P256.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/P256.o )
-[ 94 of 111] Compiling Crypto.ECC.Simple.Prim ( Crypto/ECC/Simple/Prim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ECC/Simple/Prim.o )
-[ 95 of 111] Compiling Crypto.PubKey.Curve25519 ( Crypto/PubKey/Curve25519.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Curve25519.o )
-[ 96 of 111] Compiling Crypto.PubKey.Ed448 ( Crypto/PubKey/Ed448.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Ed448.o )
-[ 97 of 111] Compiling Crypto.ECC       ( Crypto/ECC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ECC.o )
-[ 98 of 111] Compiling Crypto.Random.Probabilistic ( Crypto/Random/Probabilistic.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Probabilistic.o )
-[ 99 of 111] Compiling Crypto.Number.Prime ( Crypto/Number/Prime.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Prime.o )
-[100 of 111] Compiling Crypto.PubKey.DH ( Crypto/PubKey/DH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/DH.o )
-[101 of 111] Compiling Crypto.PubKey.ElGamal ( Crypto/PubKey/ElGamal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ElGamal.o )
-[102 of 111] Compiling Crypto.PubKey.RSA ( Crypto/PubKey/RSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA.o )
-[103 of 111] Compiling Crypto.PubKey.RSA.PKCS15 ( Crypto/PubKey/RSA/PKCS15.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/PKCS15.o )
-[104 of 111] Compiling Crypto.PubKey.RSA.PSS ( Crypto/PubKey/RSA/PSS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/PSS.o )
-[105 of 111] Compiling Crypto.PubKey.RSA.OAEP ( Crypto/PubKey/RSA/OAEP.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/OAEP.o )
-[106 of 111] Compiling Crypto.KDF.BCrypt ( Crypto/KDF/BCrypt.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/BCrypt.o )
-[107 of 111] Compiling Crypto.PubKey.ECC.Prim ( Crypto/PubKey/ECC/Prim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/Prim.o )
-[108 of 111] Compiling Crypto.PubKey.ECC.ECDSA ( Crypto/PubKey/ECC/ECDSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/ECDSA.o )
-[109 of 111] Compiling Crypto.PubKey.ECC.Generate ( Crypto/PubKey/ECC/Generate.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/Generate.o )
-[110 of 111] Compiling Crypto.PubKey.ECC.DH ( Crypto/PubKey/ECC/DH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/DH.o )
-[111 of 111] Compiling Crypto.PubKey.ECIES ( Crypto/PubKey/ECIES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECIES.o )
+[ 44 of 111] Compiling Crypto.Data.Padding ( Crypto/Data/Padding.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Data/Padding.o )
+[ 45 of 111] Compiling Crypto.Cipher.Types ( Crypto/Cipher/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Types.o )
+[ 46 of 111] Compiling Crypto.ConstructHash.MiyaguchiPreneel ( Crypto/ConstructHash/MiyaguchiPreneel.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ConstructHash/MiyaguchiPreneel.o )
+[ 47 of 111] Compiling Crypto.MAC.CMAC  ( Crypto/MAC/CMAC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/MAC/CMAC.o )
+[ 48 of 111] Compiling Crypto.Tutorial  ( Crypto/Tutorial.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Tutorial.o )
+[ 49 of 111] Compiling Crypto.Cipher.AES.Primitive ( Crypto/Cipher/AES/Primitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/AES/Primitive.o )
+[ 50 of 111] Compiling Crypto.Cipher.TripleDES ( Crypto/Cipher/TripleDES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/TripleDES.o )
+[ 51 of 111] Compiling Crypto.Cipher.Salsa ( Crypto/Cipher/Salsa.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Salsa.o )
+[ 52 of 111] Compiling Crypto.Cipher.XSalsa ( Crypto/Cipher/XSalsa.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/XSalsa.o )
+[ 53 of 111] Compiling Crypto.Cipher.RC4 ( Crypto/Cipher/RC4.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/RC4.o )
+[ 54 of 111] Compiling Crypto.Cipher.DES ( Crypto/Cipher/DES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/DES.o )
+[ 55 of 111] Compiling Crypto.Cipher.ChaCha ( Crypto/Cipher/ChaCha.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/ChaCha.o )
+[ 56 of 111] Compiling Crypto.Cipher.ChaChaPoly1305 ( Crypto/Cipher/ChaChaPoly1305.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/ChaChaPoly1305.o )
+[ 57 of 111] Compiling Crypto.Random.ChaChaDRG ( Crypto/Random/ChaChaDRG.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/ChaChaDRG.o )
+[ 58 of 111] Compiling Crypto.Random    ( Crypto/Random.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random.o )
+[ 59 of 111] Compiling Crypto.KDF.BCrypt ( Crypto/KDF/BCrypt.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/BCrypt.o )
+[ 60 of 111] Compiling Crypto.PubKey.Curve25519 ( Crypto/PubKey/Curve25519.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Curve25519.o )
+[ 61 of 111] Compiling Crypto.PubKey.ECC.Prim ( Crypto/PubKey/ECC/Prim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/Prim.o )
+[ 62 of 111] Compiling Crypto.PubKey.ECC.P256 ( Crypto/PubKey/ECC/P256.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/P256.o )
+[ 63 of 111] Compiling Crypto.PubKey.Ed448 ( Crypto/PubKey/Ed448.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/Ed448.o )
+[ 64 of 111] Compiling Crypto.Random.Probabilistic ( Crypto/Random/Probabilistic.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random/Probabilistic.o )
+[ 65 of 111] Compiling Crypto.Number.Prime ( Crypto/Number/Prime.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Number/Prime.o )
+[ 66 of 111] Compiling Crypto.PubKey.DH ( Crypto/PubKey/DH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/DH.o )
+[ 67 of 111] Compiling Crypto.PubKey.ECC.DH ( Crypto/PubKey/ECC/DH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/DH.o )
+[ 68 of 111] Compiling Crypto.PubKey.RSA ( Crypto/PubKey/RSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA.o )
+[ 69 of 111] Compiling Crypto.ECC.Simple.Prim ( Crypto/ECC/Simple/Prim.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ECC/Simple/Prim.o )
+[ 70 of 111] Compiling Crypto.ECC       ( Crypto/ECC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/ECC.o )
+[ 71 of 111] Compiling Crypto.PubKey.ECIES ( Crypto/PubKey/ECIES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECIES.o )
+[ 72 of 111] Compiling Crypto.Cipher.Camellia ( Crypto/Cipher/Camellia.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Camellia.o )
+[ 73 of 111] Compiling Crypto.Cipher.Blowfish ( Crypto/Cipher/Blowfish.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/Blowfish.o )
+[ 74 of 111] Compiling Crypto.Cipher.AES ( Crypto/Cipher/AES.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Cipher/AES.o )
+[ 75 of 111] Compiling Crypto.Hash.Types ( Crypto/Hash/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Types.o )
+[ 76 of 111] Compiling Crypto.Hash.SHA1 ( Crypto/Hash/SHA1.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA1.o )
+[ 77 of 111] Compiling Crypto.Hash.SHA224 ( Crypto/Hash/SHA224.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA224.o )
+[ 78 of 111] Compiling Crypto.Hash.SHA256 ( Crypto/Hash/SHA256.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA256.o )
+[ 79 of 111] Compiling Crypto.Hash.SHA384 ( Crypto/Hash/SHA384.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA384.o )
+[ 80 of 111] Compiling Crypto.Hash.SHA512 ( Crypto/Hash/SHA512.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA512.o )
+[ 81 of 111] Compiling Crypto.Hash.SHA512t ( Crypto/Hash/SHA512t.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA512t.o )
+[ 82 of 111] Compiling Crypto.Hash.SHA3 ( Crypto/Hash/SHA3.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/SHA3.o )
+[ 83 of 111] Compiling Crypto.Hash.MD2  ( Crypto/Hash/MD2.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/MD2.o )
+[ 84 of 111] Compiling Crypto.Hash.MD4  ( Crypto/Hash/MD4.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/MD4.o )
+[ 85 of 111] Compiling Crypto.Hash.MD5  ( Crypto/Hash/MD5.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/MD5.o )
+[ 86 of 111] Compiling Crypto.Hash.RIPEMD160 ( Crypto/Hash/RIPEMD160.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/RIPEMD160.o )
+[ 87 of 111] Compiling Crypto.Hash.Skein256 ( Crypto/Hash/Skein256.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Skein256.o )
+[ 88 of 111] Compiling Crypto.Hash.Skein512 ( Crypto/Hash/Skein512.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Skein512.o )
+[ 89 of 111] Compiling Crypto.Hash.Tiger ( Crypto/Hash/Tiger.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Tiger.o )
+[ 90 of 111] Compiling Crypto.Hash.Whirlpool ( Crypto/Hash/Whirlpool.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Whirlpool.o )
+[ 91 of 111] Compiling Crypto.Hash.IO   ( Crypto/Hash/IO.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/IO.o )
+[ 92 of 111] Compiling Crypto.Hash.Blake2s ( Crypto/Hash/Blake2s.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2s.o )
+[ 93 of 111] Compiling Crypto.Hash.Blake2sp ( Crypto/Hash/Blake2sp.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2sp.o )
+[ 94 of 111] Compiling Crypto.Hash.Blake2b ( Crypto/Hash/Blake2b.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2b.o )
+[ 95 of 111] Compiling Crypto.Hash.Blake2bp ( Crypto/Hash/Blake2bp.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Blake2bp.o )
+[ 96 of 111] Compiling Crypto.Hash.Keccak ( Crypto/Hash/Keccak.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Keccak.o )
+[ 97 of 111] Compiling Crypto.Hash.Algorithms ( Crypto/Hash/Algorithms.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash/Algorithms.o )
+[ 98 of 111] Compiling Crypto.Hash      ( Crypto/Hash.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Hash.o )
+[ 99 of 111] Compiling Crypto.MAC.HMAC  ( Crypto/MAC/HMAC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/MAC/HMAC.o )
+[100 of 111] Compiling Crypto.Data.AFIS ( Crypto/Data/AFIS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Data/AFIS.o )
+[101 of 111] Compiling Crypto.KDF.PBKDF2 ( Crypto/KDF/PBKDF2.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/PBKDF2.o )
+
+Crypto/KDF/PBKDF2.hs:51:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: ByteArrayAccess password
+    • In the type signature for:
+           generate :: (ByteArrayAccess password, ByteArrayAccess salt,
+                        ByteArray ba) =>
+                       PRF password -> Parameters -> password -> salt -> ba
+[102 of 111] Compiling Crypto.KDF.Scrypt ( Crypto/KDF/Scrypt.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/Scrypt.o )
+[103 of 111] Compiling Crypto.KDF.HKDF  ( Crypto/KDF/HKDF.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/KDF/HKDF.o )
+[104 of 111] Compiling Crypto.PubKey.MaskGenFunction ( Crypto/PubKey/MaskGenFunction.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/MaskGenFunction.o )
+[105 of 111] Compiling Crypto.PubKey.DSA ( Crypto/PubKey/DSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/DSA.o )
+[106 of 111] Compiling Crypto.PubKey.ECC.ECDSA ( Crypto/PubKey/ECC/ECDSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/ECDSA.o )
+[107 of 111] Compiling Crypto.PubKey.ECC.Generate ( Crypto/PubKey/ECC/Generate.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ECC/Generate.o )
+[108 of 111] Compiling Crypto.PubKey.RSA.PKCS15 ( Crypto/PubKey/RSA/PKCS15.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/PKCS15.o )
+[109 of 111] Compiling Crypto.PubKey.RSA.PSS ( Crypto/PubKey/RSA/PSS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/PSS.o )
+[110 of 111] Compiling Crypto.PubKey.RSA.OAEP ( Crypto/PubKey/RSA/OAEP.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/RSA/OAEP.o )
+[111 of 111] Compiling Crypto.PubKey.ElGamal ( Crypto/PubKey/ElGamal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/PubKey/ElGamal.o )
+Running Haddock for cryptonite-0.21...
+Preprocessing library cryptonite-0.21...
+
+Crypto/Random/Types.hs:38:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: DRG gen
+    • In the instance declaration for ‘Functor (MonadPseudoRandom gen)’
+
+Crypto/Random/Types.hs:60:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: DRG gen
+    • In the type signature for:
+           withDRG :: DRG gen => gen -> MonadPseudoRandom gen a -> (a, gen)
+
+Crypto/Cipher/Types/Block.hs:56:10: warning: [-Wredundant-constraints]
+    • Redundant constraint: BlockCipher c
+    • In the instance declaration for ‘ByteArrayAccess (IV c)’
+
+Crypto/Cipher/Types/Block.hs:167:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: BlockCipher c
+    • In the type signature for:
+           ivAdd :: BlockCipher c => IV c -> Int -> IV c
+
+Crypto/KDF/PBKDF2.hs:51:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: ByteArrayAccess password
+    • In the type signature for:
+           generate :: (ByteArrayAccess password, ByteArrayAccess salt,
+                        ByteArray ba) =>
+                       PRF password -> Parameters -> password -> salt -> ba
+Haddock coverage:
+ 100% (  4 /  4) in 'Crypto.Internal.Words'
+ 100% (  2 /  2) in 'Crypto.Internal.DeepSeq'
+Warning: Crypto.Internal.Imports: Could not find documentation for exported module: X
+ 100% (  1 /  1) in 'Crypto.Internal.Imports'
+ 100% (  6 /  6) in 'Crypto.Internal.CompatPrim'
+ 100% (  4 /  4) in 'Crypto.Internal.Compat'
+ 100% ( 17 / 17) in 'Crypto.Internal.WordArray'
+ 100% (  4 /  4) in 'Crypto.Internal.ByteArray'
+ 100% (  2 /  2) in 'Crypto.Internal.Proxy'
+ 100% (  3 /  3) in 'Crypto.PubKey.Internal'
+ 100% (  2 /  2) in 'Crypto.Random.Entropy.Source'
+ 100% (  2 /  2) in 'Crypto.Random.Entropy.RDRand'
+ 100% (  3 /  3) in 'Crypto.Random.Entropy.Unix'
+ 100% (  4 /  4) in 'Crypto.Random.Entropy.Backend'
+ 100% ( 14 / 14) in 'Crypto.Number.Compat'
+ 100% (  8 /  8) in 'Crypto.Error.Types'
+ 100% (  2 /  2) in 'Crypto.Cipher.Types.Utils'
+ 100% (  3 /  3) in 'Crypto.Cipher.Types.GF'
+ 100% (  4 /  4) in 'Crypto.Cipher.DES.Primitive'
+ 100% (  2 /  2) in 'Crypto.Cipher.Blowfish.Box'
+ 100% (  5 /  5) in 'Crypto.Random.Entropy.Unsafe'
+ 100% (  5 /  5) in 'Crypto.Random.EntropyPool'
+ 100% (  2 /  2) in 'Crypto.Random.Entropy'
+ 100% (  5 /  5) in 'Crypto.Random.Types'
+ 100% (  3 /  3) in 'Crypto.Random.SystemDRG'
+ 100% ( 11 / 11) in 'Crypto.PubKey.RSA.Types'
+ 100% (  7 /  7) in 'Crypto.Number.Basic'
+ 100% (  9 /  9) in 'Crypto.Number.F2m'
+ 100% (  7 /  7) in 'Crypto.Number.ModArithmetic'
+ 100% (  4 /  4) in 'Crypto.Number.Serialize.Internal'
+ 100% (  5 /  5) in 'Crypto.Number.Serialize'
+ 100% (  5 /  5) in 'Crypto.Number.Generate'
+ 100% (  5 /  5) in 'Crypto.PubKey.RSA.Prim'
+ 100% ( 15 / 15) in 'Crypto.PubKey.ECC.Types'
+  16% (  7 / 44) in 'Crypto.ECC.Simple.Types'
+  Missing documentation for:
+    Curve (Crypto/ECC/Simple/Types.hs:63)
+    CurveType (Crypto/ECC/Simple/Types.hs:94)
+    CurveBinaryParam (Crypto/ECC/Simple/Types.hs:88)
+    CurvePrimeParam (Crypto/ECC/Simple/Types.hs:91)
+    SEC_p112r1 (Crypto/ECC/Simple/Types.hs:113)
+    SEC_p112r2 (Crypto/ECC/Simple/Types.hs:114)
+    SEC_p128r1 (Crypto/ECC/Simple/Types.hs:115)
+    SEC_p128r2 (Crypto/ECC/Simple/Types.hs:116)
+    SEC_p160k1 (Crypto/ECC/Simple/Types.hs:117)
+    SEC_p160r1 (Crypto/ECC/Simple/Types.hs:118)
+    SEC_p160r2 (Crypto/ECC/Simple/Types.hs:119)
+    SEC_p192k1 (Crypto/ECC/Simple/Types.hs:120)
+    SEC_p192r1 (Crypto/ECC/Simple/Types.hs:121)
+    SEC_p224k1 (Crypto/ECC/Simple/Types.hs:122)
+    SEC_p224r1 (Crypto/ECC/Simple/Types.hs:123)
+    SEC_p256k1 (Crypto/ECC/Simple/Types.hs:124)
+    SEC_p256r1 (Crypto/ECC/Simple/Types.hs:125)
+    SEC_p384r1 (Crypto/ECC/Simple/Types.hs:126)
+    SEC_p521r1 (Crypto/ECC/Simple/Types.hs:127)
+    SEC_t113r1 (Crypto/ECC/Simple/Types.hs:128)
+    SEC_t113r2 (Crypto/ECC/Simple/Types.hs:129)
+    SEC_t131r1 (Crypto/ECC/Simple/Types.hs:130)
+    SEC_t131r2 (Crypto/ECC/Simple/Types.hs:131)
+    SEC_t163k1 (Crypto/ECC/Simple/Types.hs:132)
+    SEC_t163r1 (Crypto/ECC/Simple/Types.hs:133)
+    SEC_t163r2 (Crypto/ECC/Simple/Types.hs:134)
+    SEC_t193r1 (Crypto/ECC/Simple/Types.hs:135)
+    SEC_t193r2 (Crypto/ECC/Simple/Types.hs:136)
+    SEC_t233k1 (Crypto/ECC/Simple/Types.hs:137)
+    SEC_t233r1 (Crypto/ECC/Simple/Types.hs:138)
+    SEC_t239k1 (Crypto/ECC/Simple/Types.hs:139)
+    SEC_t283k1 (Crypto/ECC/Simple/Types.hs:140)
+    SEC_t283r1 (Crypto/ECC/Simple/Types.hs:141)
+    SEC_t409k1 (Crypto/ECC/Simple/Types.hs:142)
+    SEC_t409r1 (Crypto/ECC/Simple/Types.hs:143)
+    SEC_t571k1 (Crypto/ECC/Simple/Types.hs:144)
+    SEC_t571r1 (Crypto/ECC/Simple/Types.hs:145)
+ 100% (  8 /  8) in 'Crypto.Error'
+  92% ( 11 / 12) in 'Crypto.MAC.Poly1305'
+  Missing documentation for:
+    authTag (Crypto/MAC/Poly1305.hs:47)
+ 100% ( 12 / 12) in 'Crypto.PubKey.Ed25519'
+ 100% (  6 /  6) in 'Crypto.Cipher.Blowfish.Primitive'
+ 100% (  5 /  5) in 'Crypto.Cipher.Camellia.Primitive'
+ 100% (  6 /  6) in 'Crypto.Cipher.Types.Base'
+ 100% (  9 /  9) in 'Crypto.Cipher.Types.AEAD'
+ 100% (  2 /  2) in 'Crypto.Cipher.Types.Stream'
+ 100% ( 19 / 19) in 'Crypto.Cipher.Types.Block'
+ 100% (  4 /  4) in 'Crypto.Data.Padding'
+ 100% ( 25 / 25) in 'Crypto.Cipher.Types'
+  75% (  3 /  4) in 'Crypto.ConstructHash.MiyaguchiPreneel'
+  Missing documentation for:
+    MiyaguchiPreneel (Crypto/ConstructHash/MiyaguchiPreneel.hs:26)
+ 100% (  4 /  4) in 'Crypto.MAC.CMAC'
+ 100% (  1 /  1) in 'Crypto.Tutorial'
+ 100% ( 27 / 27) in 'Crypto.Cipher.AES.Primitive'
+ 100% (  5 /  5) in 'Crypto.Cipher.TripleDES'
+ 100% (  5 /  5) in 'Crypto.Cipher.Salsa'
+ 100% (  5 /  5) in 'Crypto.Cipher.XSalsa'
+ 100% (  5 /  5) in 'Crypto.Cipher.RC4'
+ 100% (  2 /  2) in 'Crypto.Cipher.DES'
+ 100% (  9 /  9) in 'Crypto.Cipher.ChaCha'
+ 100% ( 12 / 12) in 'Crypto.Cipher.ChaChaPoly1305'
+ 100% (  4 /  4) in 'Crypto.Random.ChaChaDRG'
+  95% ( 19 / 20) in 'Crypto.Random'
+  Missing documentation for:
+    Seed (Crypto/Random.hs:40)
+ 100% (  5 /  5) in 'Crypto.KDF.BCrypt'
+ 100% ( 12 / 12) in 'Crypto.PubKey.Curve25519'
+ 100% (  9 /  9) in 'Crypto.PubKey.ECC.Prim'
+ 100% ( 27 / 27) in 'Crypto.PubKey.ECC.P256'
+ 100% ( 12 / 12) in 'Crypto.PubKey.Ed448'
+ 100% (  2 /  2) in 'Crypto.Random.Probabilistic'
+ 100% ( 10 / 10) in 'Crypto.Number.Prime'
+ 100% ( 10 / 10) in 'Crypto.PubKey.DH'
+ 100% (  8 /  8) in 'Crypto.PubKey.ECC.DH'
+ 100% (  9 /  9) in 'Crypto.PubKey.RSA'
+  91% ( 10 / 11) in 'Crypto.ECC.Simple.Prim'
+  Missing documentation for:
+    scalarFromInteger (Crypto/ECC/Simple/Prim.hs:35)
+  27% (  3 / 11) in 'Crypto.ECC'
+  Missing documentation for:
+    Curve_P384R1 (Crypto/ECC.hs:127)
+    Curve_P521R1 (Crypto/ECC.hs:149)
+    Curve_X25519 (Crypto/ECC.hs:171)
+    Curve_X448 (Crypto/ECC.hs:188)
+    EllipticCurve (Crypto/ECC.hs:51)
+    EllipticCurveDH (Crypto/ECC.hs:74)
+    EllipticCurveArith (Crypto/ECC.hs:83)
+    SharedSecret (Crypto/ECC.hs:48)
+ 100% (  3 /  3) in 'Crypto.PubKey.ECIES'
+ 100% (  2 /  2) in 'Crypto.Cipher.Camellia'
+ 100% (  6 /  6) in 'Crypto.Cipher.Blowfish'
+ 100% (  4 /  4) in 'Crypto.Cipher.AES'
+ 100% (  4 /  4) in 'Crypto.Hash.Types'
+ 100% (  2 /  2) in 'Crypto.Hash.SHA1'
+ 100% (  2 /  2) in 'Crypto.Hash.SHA224'
+ 100% (  2 /  2) in 'Crypto.Hash.SHA256'
+ 100% (  2 /  2) in 'Crypto.Hash.SHA384'
+ 100% (  2 /  2) in 'Crypto.Hash.SHA512'
+ 100% (  3 /  3) in 'Crypto.Hash.SHA512t'
+ 100% (  5 /  5) in 'Crypto.Hash.SHA3'
+ 100% (  2 /  2) in 'Crypto.Hash.MD2'
+ 100% (  2 /  2) in 'Crypto.Hash.MD4'
+ 100% (  2 /  2) in 'Crypto.Hash.MD5'
+ 100% (  2 /  2) in 'Crypto.Hash.RIPEMD160'
+ 100% (  3 /  3) in 'Crypto.Hash.Skein256'
+ 100% (  5 /  5) in 'Crypto.Hash.Skein512'
+ 100% (  2 /  2) in 'Crypto.Hash.Tiger'
+ 100% (  2 /  2) in 'Crypto.Hash.Whirlpool'
+ 100% (  8 /  8) in 'Crypto.Hash.IO'
+ 100% (  3 /  3) in 'Crypto.Hash.Blake2s'
+ 100% (  3 /  3) in 'Crypto.Hash.Blake2sp'
+ 100% (  2 /  2) in 'Crypto.Hash.Blake2b'
+ 100% (  2 /  2) in 'Crypto.Hash.Blake2bp'
+ 100% (  5 /  5) in 'Crypto.Hash.Keccak'
+ 100% ( 36 / 36) in 'Crypto.Hash.Algorithms'
+ 100% ( 20 / 20) in 'Crypto.Hash'
+ 100% (  9 /  9) in 'Crypto.MAC.HMAC'
+ 100% (  3 /  3) in 'Crypto.Data.AFIS'
+ 100% (  5 /  5) in 'Crypto.KDF.PBKDF2'
+ 100% (  3 /  3) in 'Crypto.KDF.Scrypt'
+ 100% (  5 /  5) in 'Crypto.KDF.HKDF'
+ 100% (  3 /  3) in 'Crypto.PubKey.MaskGenFunction'
+ 100% ( 19 / 19) in 'Crypto.PubKey.DSA'
+ 100% ( 12 / 12) in 'Crypto.PubKey.ECC.ECDSA'
+ 100% (  3 /  3) in 'Crypto.PubKey.ECC.Generate'
+ 100% ( 15 / 15) in 'Crypto.PubKey.RSA.PKCS15'
+ 100% (  9 /  9) in 'Crypto.PubKey.RSA.PSS'
+ 100% (  9 /  9) in 'Crypto.PubKey.RSA.OAEP'
+ 100% ( 19 / 19) in 'Crypto.PubKey.ElGamal'
+Warning: Crypto.Hash.Algorithms: could not find link destinations for:
+    hashDigestASN1
+Warning: Crypto.PubKey.RSA.PKCS15: could not find link destinations for:
+    hashDigestASN1
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/cryptonite/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/cryptonite/cryptonite.txt
 Installing library in
 /home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/cryptonite-0.21-CjDlga2Xhiv5FtBiAIB19S
 Registering cryptonite-0.21...

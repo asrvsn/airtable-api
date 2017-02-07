@@ -1,0 +1,56 @@
+Configuring RSA-2.2.0...
+Building RSA-2.2.0...
+Preprocessing library RSA-2.2.0...
+[1 of 3] Compiling Codec.Crypto.RSA.Pure ( src/Codec/Crypto/RSA/Pure.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Codec/Crypto/RSA/Pure.o )
+[2 of 3] Compiling Codec.Crypto.RSA.Exceptions ( src/Codec/Crypto/RSA/Exceptions.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Codec/Crypto/RSA/Exceptions.o )
+[3 of 3] Compiling Codec.Crypto.RSA ( src/Codec/Crypto/RSA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Codec/Crypto/RSA.o )
+Running Haddock for RSA-2.2.0...
+Preprocessing library RSA-2.2.0...
+Haddock coverage:
+  65% ( 31 / 48) in 'Codec.Crypto.RSA.Pure'
+  Missing documentation for:
+    Module header
+    RSAError (src/Codec/Crypto/RSA/Pure.hs:64)
+    HashInfo (src/Codec/Crypto/RSA/Pure.hs:80)
+    hashMD5 (src/Codec/Crypto/RSA/Pure.hs:751)
+    hashSHA1 (src/Codec/Crypto/RSA/Pure.hs:758)
+    hashSHA224 (src/Codec/Crypto/RSA/Pure.hs:765)
+    hashSHA256 (src/Codec/Crypto/RSA/Pure.hs:773)
+    hashSHA384 (src/Codec/Crypto/RSA/Pure.hs:781)
+    hashSHA512 (src/Codec/Crypto/RSA/Pure.hs:789)
+    generatePQ (src/Codec/Crypto/RSA/Pure.hs:577)
+    chunkify (src/Codec/Crypto/RSA/Pure.hs:265)
+    os2ip (src/Codec/Crypto/RSA/Pure.hs:528)
+    i2osp (src/Codec/Crypto/RSA/Pure.hs:515)
+    rsa_dp (src/Codec/Crypto/RSA/Pure.hs:537)
+    rsa_ep (src/Codec/Crypto/RSA/Pure.hs:532)
+    rsa_vp1 (src/Codec/Crypto/RSA/Pure.hs:547)
+    rsa_sp1 (src/Codec/Crypto/RSA/Pure.hs:542)
+  65% ( 31 / 48) in 'Codec.Crypto.RSA.Exceptions'
+  Missing documentation for:
+    Module header
+    RSAError (src/Codec/Crypto/RSA/Pure.hs:64)
+    HashInfo (src/Codec/Crypto/RSA/Pure.hs:80)
+    hashMD5 (src/Codec/Crypto/RSA/Exceptions.hs:362)
+    hashSHA1 (src/Codec/Crypto/RSA/Exceptions.hs:365)
+    hashSHA224 (src/Codec/Crypto/RSA/Exceptions.hs:368)
+    hashSHA256 (src/Codec/Crypto/RSA/Exceptions.hs:371)
+    hashSHA384 (src/Codec/Crypto/RSA/Exceptions.hs:374)
+    hashSHA512 (src/Codec/Crypto/RSA/Exceptions.hs:377)
+    generatePQ (src/Codec/Crypto/RSA/Exceptions.hs:331)
+    chunkify (src/Codec/Crypto/RSA/Exceptions.hs:142)
+    os2ip (src/Codec/Crypto/RSA/Exceptions.hs:308)
+    i2osp (src/Codec/Crypto/RSA/Exceptions.hs:304)
+    rsa_dp (src/Codec/Crypto/RSA/Exceptions.hs:316)
+    rsa_ep (src/Codec/Crypto/RSA/Exceptions.hs:312)
+    rsa_vp1 (src/Codec/Crypto/RSA/Exceptions.hs:324)
+    rsa_sp1 (src/Codec/Crypto/RSA/Exceptions.hs:320)
+  50% (  1 /  2) in 'Codec.Crypto.RSA'
+  Missing documentation for:
+    Module header
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/RSA/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/RSA/RSA.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/RSA-2.2.0-EHQUhJZHM7hLOJkF4fZ4IR
+Registering RSA-2.2.0...

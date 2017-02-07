@@ -1,0 +1,68 @@
+Configuring unordered-containers-0.2.7.2...
+Building unordered-containers-0.2.7.2...
+Preprocessing library unordered-containers-0.2.7.2...
+[1 of 8] Compiling Data.HashMap.UnsafeShift ( Data/HashMap/UnsafeShift.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/UnsafeShift.o )
+[2 of 8] Compiling Data.HashMap.Unsafe ( Data/HashMap/Unsafe.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/Unsafe.o )
+[3 of 8] Compiling Data.HashMap.PopCount ( Data/HashMap/PopCount.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/PopCount.o )
+[4 of 8] Compiling Data.HashMap.Array ( Data/HashMap/Array.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/Array.o )
+[5 of 8] Compiling Data.HashMap.Base ( Data/HashMap/Base.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/Base.o )
+[6 of 8] Compiling Data.HashMap.Strict ( Data/HashMap/Strict.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/Strict.o )
+[7 of 8] Compiling Data.HashMap.Lazy ( Data/HashMap/Lazy.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashMap/Lazy.o )
+[8 of 8] Compiling Data.HashSet     ( Data/HashSet.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashSet.o )
+Running Haddock for unordered-containers-0.2.7.2...
+Preprocessing library unordered-containers-0.2.7.2...
+Haddock coverage:
+   0% (  0 /  3) in 'Data.HashMap.UnsafeShift'
+  Missing documentation for:
+    Module header
+    unsafeShiftL (Data/HashMap/UnsafeShift.hs:10)
+    unsafeShiftR (Data/HashMap/UnsafeShift.hs:14)
+ 100% (  2 /  2) in 'Data.HashMap.Unsafe'
+  50% (  1 /  2) in 'Data.HashMap.PopCount'
+  Missing documentation for:
+    Module header
+  38% ( 14 / 37) in 'Data.HashMap.Array'
+  Missing documentation for:
+    Array (Data/HashMap/Array.hs:101)
+    MArray (Data/HashMap/Array.hs:126)
+    new_ (Data/HashMap/Array.hs:173)
+    singleton (Data/HashMap/Array.hs:176)
+    singletonM (Data/HashMap/Array.hs:180)
+    pair (Data/HashMap/Array.hs:184)
+    length (Data/HashMap/Array.hs:112)
+    lengthM (Data/HashMap/Array.hs:134)
+    read (Data/HashMap/Array.hs:191)
+    write (Data/HashMap/Array.hs:197)
+    index (Data/HashMap/Array.hs:204)
+    indexM (Data/HashMap/Array.hs:210)
+    unsafeFreeze (Data/HashMap/Array.hs:216)
+    unsafeThaw (Data/HashMap/Array.hs:222)
+    run (Data/HashMap/Array.hs:228)
+    run2 (Data/HashMap/Array.hs:232)
+    foldl' (Data/HashMap/Array.hs:334)
+    foldr (Data/HashMap/Array.hs:342)
+    thaw (Data/HashMap/Array.hs:354)
+    map (Data/HashMap/Array.hs:387)
+    traverse (Data/HashMap/Array.hs:430)
+    filter (Data/HashMap/Array.hs:435)
+    toList (Data/HashMap/Array.hs:427)
+  87% ( 61 / 70) in 'Data.HashMap.Base'
+  Missing documentation for:
+    Module header
+    Leaf (Data/HashMap/Base.hs:135)
+    Hash (Data/HashMap/Base.hs:202)
+    Bitmap (Data/HashMap/Base.hs:203)
+    mask (Data/HashMap/Base.hs:1226)
+    bitsPerSubkey (Data/HashMap/Base.hs:1214)
+    sparseIndex (Data/HashMap/Base.hs:1223)
+    updateOrConcatWith (Data/HashMap/Base.hs:1131)
+    updateOrConcatWithKey (Data/HashMap/Base.hs:1135)
+ 100% ( 52 / 52) in 'Data.HashMap.Strict'
+ 100% ( 52 / 52) in 'Data.HashMap.Lazy'
+ 100% ( 31 / 31) in 'Data.HashSet'
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/unordered-containers/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/unordered-containers/unordered-containers.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/unordered-containers-0.2.7.2-2FShXByu6KdBz0M9aQqvS3
+Registering unordered-containers-0.2.7.2...

@@ -1,0 +1,97 @@
+Configuring socks-0.5.5...
+Building socks-0.5.5...
+Preprocessing library socks-0.5.5...
+[1 of 7] Compiling Network.Socks5.Parse ( Network/Socks5/Parse.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5/Parse.o )
+[2 of 7] Compiling Network.Socks5.Types ( Network/Socks5/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5/Types.o )
+[3 of 7] Compiling Network.Socks5.Wire ( Network/Socks5/Wire.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5/Wire.o )
+
+Network/Socks5/Wire.hs:15:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Network/Socks5/Wire.hs:23:1: warning: [-Wunused-imports]
+    The import of ‘Network.Socks5.Parse’ is redundant
+      except perhaps to import instances from ‘Network.Socks5.Parse’
+    To import instances alone, use: import Network.Socks5.Parse()
+[4 of 7] Compiling Network.Socks5.Conf ( Network/Socks5/Conf.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5/Conf.o )
+[5 of 7] Compiling Network.Socks5.Command ( Network/Socks5/Command.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5/Command.o )
+
+Network/Socks5/Command.hs:25:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[6 of 7] Compiling Network.Socks5.Lowlevel ( Network/Socks5/Lowlevel.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5/Lowlevel.o )
+[7 of 7] Compiling Network.Socks5   ( Network/Socks5.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Network/Socks5.o )
+
+Network/Socks5.hs:81:50: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+
+Network/Socks5.hs:117:50: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+Running Haddock for socks-0.5.5...
+Preprocessing library socks-0.5.5...
+
+Network/Socks5/Wire.hs:15:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Network/Socks5/Wire.hs:23:1: warning: [-Wunused-imports]
+    The import of ‘Network.Socks5.Parse’ is redundant
+      except perhaps to import instances from ‘Network.Socks5.Parse’
+    To import instances alone, use: import Network.Socks5.Parse()
+
+Network/Socks5/Command.hs:25:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Network/Socks5.hs:81:50: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+
+Network/Socks5.hs:117:50: warning: [-Wdeprecations]
+    In the use of ‘sClose’ (imported from Network.Socket):
+    Deprecated: "use 'close'"
+Haddock coverage:
+ 100% ( 17 / 17) in 'Network.Socks5.Parse'
+ 100% (  9 /  9) in 'Network.Socks5.Types'
+ 100% (  5 /  5) in 'Network.Socks5.Wire'
+ 100% (  6 /  6) in 'Network.Socks5.Conf'
+  17% (  2 / 12) in 'Network.Socks5.Command'
+  Missing documentation for:
+    establish (Network/Socks5/Command.hs:38)
+    Connect (Network/Socks5/Command.hs:43)
+    Command (Network/Socks5/Command.hs:45)
+    connectIPV4 (Network/Socks5/Command.hs:63)
+    connectIPV6 (Network/Socks5/Command.hs:68)
+    connectDomainName (Network/Socks5/Command.hs:75)
+    rpc (Network/Socks5/Command.hs:84)
+    rpc_ (Network/Socks5/Command.hs:93)
+    sendSerialized (Network/Socks5/Command.hs:78)
+    waitSerialized (Network/Socks5/Command.hs:81)
+  32% (  6 / 19) in 'Network.Socks5.Lowlevel'
+  Missing documentation for:
+    Module header
+    resolveToSockAddr (Network/Socks5/Lowlevel.hs:16)
+    socksListen (Network/Socks5/Lowlevel.hs:24)
+    establish (Network/Socks5/Command.hs:38)
+    Connect (Network/Socks5/Command.hs:43)
+    Command (Network/Socks5/Command.hs:45)
+    connectIPV4 (Network/Socks5/Command.hs:63)
+    connectIPV6 (Network/Socks5/Command.hs:68)
+    connectDomainName (Network/Socks5/Command.hs:75)
+    rpc (Network/Socks5/Command.hs:84)
+    rpc_ (Network/Socks5/Command.hs:93)
+    sendSerialized (Network/Socks5/Command.hs:78)
+    waitSerialized (Network/Socks5/Command.hs:81)
+ 100% ( 21 / 21) in 'Network.Socks5'
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/socks/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/socks/socks.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/socks-0.5.5-GieRokcgjQCIzUyRn9wVby
+Registering socks-0.5.5...

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE RankNTypes, TemplateHaskell #-}</span><span>
+</span><a name="line-2"></a><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-missing-signatures #-}</span><span>
+</span><a name="line-3"></a><span>
+</span><a name="line-4"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Internal</span><span class="hs-operator">.</span><span class="hs-identifier">Lens</span><span>
+</span><a name="line-5"></a><span>    </span><span class="hs-special">(</span><span>
+</span><a name="line-6"></a><span>      </span><span class="hs-identifier hs-type">HTTP</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Request</span><span>
+</span><a name="line-7"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#method"><span class="hs-identifier hs-var">method</span></a><span>
+</span><a name="line-8"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#secure"><span class="hs-identifier hs-var">secure</span></a><span>
+</span><a name="line-9"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#host"><span class="hs-identifier hs-var">host</span></a><span>
+</span><a name="line-10"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#port"><span class="hs-identifier hs-var">port</span></a><span>
+</span><a name="line-11"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#path"><span class="hs-identifier hs-var">path</span></a><span>
+</span><a name="line-12"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#queryString"><span class="hs-identifier hs-var">queryString</span></a><span>
+</span><a name="line-13"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#requestHeaders"><span class="hs-identifier hs-var">requestHeaders</span></a><span>
+</span><a name="line-14"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#requestBody"><span class="hs-identifier hs-var">requestBody</span></a><span>
+</span><a name="line-15"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#requestVersion"><span class="hs-identifier hs-var">requestVersion</span></a><span>
+</span><a name="line-16"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#onRequestBodyException"><span class="hs-identifier hs-var">onRequestBodyException</span></a><span>
+</span><a name="line-17"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#proxy"><span class="hs-identifier hs-var">proxy</span></a><span>
+</span><a name="line-18"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#hostAddress"><span class="hs-identifier hs-var">hostAddress</span></a><span>
+</span><a name="line-19"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#rawBody"><span class="hs-identifier hs-var">rawBody</span></a><span>
+</span><a name="line-20"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#decompress"><span class="hs-identifier hs-var">decompress</span></a><span>
+</span><a name="line-21"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#redirectCount"><span class="hs-identifier hs-var">redirectCount</span></a><span>
+</span><a name="line-22"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#responseTimeout"><span class="hs-identifier hs-var">responseTimeout</span></a><span>
+</span><a name="line-23"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#checkStatus"><span class="hs-identifier hs-var">checkStatus</span></a><span>
+</span><a name="line-24"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#getConnectionWrapper"><span class="hs-identifier hs-var">getConnectionWrapper</span></a><span>
+</span><a name="line-25"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#cookieJar"><span class="hs-identifier hs-var">cookieJar</span></a><span>
+</span><a name="line-26"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#seshCookies"><span class="hs-identifier hs-var">seshCookies</span></a><span>
+</span><a name="line-27"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#seshManager"><span class="hs-identifier hs-var">seshManager</span></a><span>
+</span><a name="line-28"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#seshRun"><span class="hs-identifier hs-var">seshRun</span></a><span>
+</span><a name="line-29"></a><span>    </span><span class="hs-comment">-- * Useful functions</span><span>
+</span><a name="line-30"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#assoc"><span class="hs-identifier hs-var">assoc</span></a><span>
+</span><a name="line-31"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#assoc2"><span class="hs-identifier hs-var">assoc2</span></a><span>
+</span><a name="line-32"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#setHeader"><span class="hs-identifier hs-var">setHeader</span></a><span>
+</span><a name="line-33"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#maybeSetHeader"><span class="hs-identifier hs-var">maybeSetHeader</span></a><span>
+</span><a name="line-34"></a><span>    </span><span class="hs-special">,</span><span> </span><a href="Network.Wreq.Internal.Lens.html#deleteKey"><span class="hs-identifier hs-var">deleteKey</span></a><span>
+</span><a name="line-35"></a><span>    </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-36"></a><span>
+</span><a name="line-37"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Control</span><span class="hs-operator">.</span><span class="hs-identifier">Lens</span><span> </span><span class="hs-keyword">hiding</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">makeLenses</span><span class="hs-special">)</span><span>
+</span><a name="line-38"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">List</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">partition</span><span class="hs-special">)</span><span>
+</span><a name="line-39"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">Client</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Request</span><span class="hs-special">)</span><span>
+</span><a name="line-40"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">HeaderName</span><span class="hs-special">)</span><span>
+</span><a name="line-41"></a><span class="hs-keyword">import</span><span> </span><a href="Network.Wreq.Lens.Machinery.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Lens</span><span class="hs-operator">.</span><span class="hs-identifier">Machinery</span></a><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Lens.Machinery.html#makeLenses"><span class="hs-identifier hs-var">makeLenses</span></a><span class="hs-special">)</span><span>
+</span><a name="line-42"></a><span class="hs-keyword">import</span><span> </span><a href="Network.Wreq.Internal.Types.html"><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">Wreq</span><span class="hs-operator">.</span><span class="hs-identifier">Internal</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span></a><span> </span><span class="hs-special">(</span><a href="Network.Wreq.Internal.Types.html#Session"><span class="hs-identifier hs-type">Session</span></a><span class="hs-special">)</span><span>
+</span><a name="line-43"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">ByteString</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">S</span><span>
+</span><a name="line-44"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Network</span><span class="hs-operator">.</span><span class="hs-identifier">HTTP</span><span class="hs-operator">.</span><span class="hs-identifier">Client</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">HTTP</span><span>
+</span><a name="line-45"></a><span>
+</span><a name="line-46"></a><span class="hs-identifier hs-var">makeLenses</span><span> </span><span class="hs-char">''HTTP.Request
+makeLenses ''Session
+
+assoc :: (Eq k) =&gt; k -&gt; IndexedTraversal' k [(k, a)] a
+assoc i = traverse . itraversed . index i
+
+assoc2 :: Eq k =&gt; k -&gt; Lens' [(k,a)] [a]
+-- This is only a lens up to the ordering of the list (which changes
+-- when we modify the list).
+-- assoc2 :: (Eq b, Functor f) =&gt; b -&gt; ([a] -&gt; f [a]) -&gt; [(b, a)] -&gt; f [(b, a)]
+assoc2 k f = fmap (uncurry ((++) . fmap ((,) k))) .
+             _1 (f . fmap snd) . partition ((==k) . fst)
+
+-- | Set a header to the given value, replacing any prior value.
+setHeader :: HeaderName -&gt; S.ByteString -&gt; Request -&gt; Request
+setHeader name value = requestHeaders %~ ((name,value) :) . deleteKey name
+
+-- | Set a header to the given value, but only if the header was not
+-- already set.
+maybeSetHeader :: HeaderName -&gt; S.ByteString -&gt; Request -&gt; Request
+maybeSetHeader name value = requestHeaders %~
+  \hdrs -&gt; case lookup name hdrs of
+             Just _  -&gt; hdrs
+             Nothing -&gt; (name,value) : hdrs
+
+deleteKey :: (Eq a) =&gt; a -&gt; [(a,b)] -&gt; [(a,b)]
+deleteKey key = filter ((/= key) . fst)
+</span></pre></body></html>

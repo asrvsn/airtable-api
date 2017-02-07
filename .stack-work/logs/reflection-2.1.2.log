@@ -1,0 +1,26 @@
+Configuring reflection-2.1.2...
+Building reflection-2.1.2...
+Preprocessing library reflection-2.1.2...
+[1 of 1] Compiling Data.Reflection  ( fast/Data/Reflection.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Reflection.o )
+Running Haddock for reflection-2.1.2...
+Preprocessing library reflection-2.1.2...
+Haddock coverage:
+  63% ( 19 / 30) in 'Data.Reflection'
+  Missing documentation for:
+    Reifies (fast/Data/Reflection.hs:161)
+    Z (fast/Data/Reflection.hs:248)
+    D (fast/Data/Reflection.hs:249)
+    SD (fast/Data/Reflection.hs:250)
+    PD (fast/Data/Reflection.hs:251)
+    ReifiedMonoid (fast/Data/Reflection.hs:554)
+    ReflectedMonoid (fast/Data/Reflection.hs:563)
+    reifyMonoid (fast/Data/Reflection.hs:568)
+    ReifiedApplicative (fast/Data/Reflection.hs:597)
+    ReflectedApplicative (fast/Data/Reflection.hs:599)
+    reifyApplicative (fast/Data/Reflection.hs:614)
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/reflection/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/reflection/reflection.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/reflection-2.1.2-J1ZzlxijzaHGRixYxgxlf9
+Registering reflection-2.1.2...

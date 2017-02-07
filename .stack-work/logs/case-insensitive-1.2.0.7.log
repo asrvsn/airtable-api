@@ -1,0 +1,30 @@
+Configuring case-insensitive-1.2.0.7...
+Building case-insensitive-1.2.0.7...
+Preprocessing library case-insensitive-1.2.0.7...
+[1 of 3] Compiling Data.CaseInsensitive.Internal ( Data/CaseInsensitive/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/CaseInsensitive/Internal.o )
+
+Data/CaseInsensitive/Internal.hs:103:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: FoldCase s
+    • In the type signature for:
+           unsafeMk :: FoldCase s => s -> CI s
+[2 of 3] Compiling Data.CaseInsensitive.Unsafe ( Data/CaseInsensitive/Unsafe.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/CaseInsensitive/Unsafe.o )
+[3 of 3] Compiling Data.CaseInsensitive ( Data/CaseInsensitive.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/CaseInsensitive.o )
+Running Haddock for case-insensitive-1.2.0.7...
+Preprocessing library case-insensitive-1.2.0.7...
+
+Data/CaseInsensitive/Internal.hs:103:1: warning: [-Wredundant-constraints]
+    • Redundant constraint: FoldCase s
+    • In the type signature for:
+           unsafeMk :: FoldCase s => s -> CI s
+Haddock coverage:
+ 100% (  8 /  8) in 'Data.CaseInsensitive.Internal'
+ 100% (  2 /  2) in 'Data.CaseInsensitive.Unsafe'
+ 100% (  7 /  7) in 'Data.CaseInsensitive'
+Warning: Data.CaseInsensitive: could not find link destinations for:
+    foldCaseList
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/case-insensitive/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/case-insensitive/case-insensitive.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/case-insensitive-1.2.0.7-FlqweN7AuKj9EdU2arVEt4
+Registering case-insensitive-1.2.0.7...

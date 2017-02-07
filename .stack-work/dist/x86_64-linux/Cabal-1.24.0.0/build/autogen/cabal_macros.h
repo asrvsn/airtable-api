@@ -7,12 +7,61 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
+/* package aeson-0.11.3.0 */
+#define VERSION_aeson "0.11.3.0"
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  11 || \
+  (major1) == 0 && (major2) == 11 && (minor) <= 3)
+
 /* package base-4.9.0.0 */
 #define VERSION_base "4.9.0.0"
 #define MIN_VERSION_base(major1,major2,minor) (\
   (major1) <  4 || \
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 0)
+
+/* package bytestring-0.10.8.1 */
+#define VERSION_bytestring "0.10.8.1"
+#define MIN_VERSION_bytestring(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  10 || \
+  (major1) == 0 && (major2) == 10 && (minor) <= 8)
+
+/* package hashable-1.2.4.0 */
+#define VERSION_hashable "1.2.4.0"
+#define MIN_VERSION_hashable(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 4)
+
+/* package lens-4.14 */
+#define VERSION_lens "4.14"
+#define MIN_VERSION_lens(major1,major2,minor) (\
+  (major1) <  4 || \
+  (major1) == 4 && (major2) <  14 || \
+  (major1) == 4 && (major2) == 14 && (minor) <= 0)
+
+/* package text-1.2.2.1 */
+#define VERSION_text "1.2.2.1"
+#define MIN_VERSION_text(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 2)
+
+/* package unordered-containers-0.2.7.2 */
+#define VERSION_unordered_containers "0.2.7.2"
+#define MIN_VERSION_unordered_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  2 || \
+  (major1) == 0 && (major2) == 2 && (minor) <= 7)
+
+/* package wreq-0.4.1.0 */
+#define VERSION_wreq "0.4.1.0"
+#define MIN_VERSION_wreq(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 1)
 
 /* tool alex-3.1.3 */
 #define TOOL_VERSION_alex "3.1.3"
@@ -98,7 +147,7 @@
   (major1) == 2 && (major2) <  25 || \
   (major1) == 2 && (major2) == 25 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "airtable-api-0.1.0.0-Kj2kZ5gQnWLJYb1VNpnNG3"
+#define CURRENT_COMPONENT_ID "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
 
-#define CURRENT_PACKAGE_KEY "airtable-api-0.1.0.0-Kj2kZ5gQnWLJYb1VNpnNG3"
+#define CURRENT_PACKAGE_KEY "airtable-api-0.1.0.0-GTyMrp3eLcoEbfhoWK8rCk"
 

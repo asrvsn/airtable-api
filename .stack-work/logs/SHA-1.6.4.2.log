@@ -1,0 +1,30 @@
+Configuring SHA-1.6.4.2...
+Building SHA-1.6.4.2...
+Preprocessing library SHA-1.6.4.2...
+[1 of 1] Compiling Data.Digest.Pure.SHA ( src/Data/Digest/Pure/SHA.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Digest/Pure/SHA.o )
+Running Haddock for SHA-1.6.4.2...
+Preprocessing library SHA-1.6.4.2...
+Haddock coverage:
+  62% ( 24 / 39) in 'Data.Digest.Pure.SHA'
+  Missing documentation for:
+    SHA1State (src/Data/Digest/Pure/SHA.hs:76)
+    SHA256State (src/Data/Digest/Pure/SHA.hs:81)
+    SHA512State (src/Data/Digest/Pure/SHA.hs:92)
+    completeSha1Incremental (src/Data/Digest/Pure/SHA.hs:1002)
+    completeSha224Incremental (src/Data/Digest/Pure/SHA.hs:1022)
+    completeSha256Incremental (src/Data/Digest/Pure/SHA.hs:1042)
+    completeSha384Incremental (src/Data/Digest/Pure/SHA.hs:1060)
+    completeSha512Incremental (src/Data/Digest/Pure/SHA.hs:1079)
+    toBigEndianSBS (src/Data/Digest/Pure/SHA.hs:259)
+    fromBigEndianSBS (src/Data/Digest/Pure/SHA.hs:264)
+    calc_k (src/Data/Digest/Pure/SHA.hs:251)
+    padSHA1 (src/Data/Digest/Pure/SHA.hs:215)
+    padSHA512 (src/Data/Digest/Pure/SHA.hs:221)
+    padSHA1Chunks (src/Data/Digest/Pure/SHA.hs:218)
+    padSHA512Chunks (src/Data/Digest/Pure/SHA.hs:224)
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/SHA/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/SHA/SHA.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/SHA-1.6.4.2-GSP9nhHyWNEAImBrL9QfXp
+Registering SHA-1.6.4.2...

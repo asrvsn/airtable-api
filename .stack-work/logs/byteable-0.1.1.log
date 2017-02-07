@@ -1,0 +1,19 @@
+Configuring byteable-0.1.1...
+Building byteable-0.1.1...
+Preprocessing library byteable-0.1.1...
+[1 of 1] Compiling Data.Byteable    ( Data/Byteable.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Byteable.o )
+
+Data/Byteable.hs:48:11: warning: [-Winline-rule-shadowing]
+    Rule "constEqBytes/ByteString" may never fire
+      because ‘constEqBytes’ might inline first
+    Probable fix: add an INLINE[n] or NOINLINE[n] pragma for ‘constEqBytes’
+Running Haddock for byteable-0.1.1...
+Preprocessing library byteable-0.1.1...
+Haddock coverage:
+ 100% (  3 /  3) in 'Data.Byteable'
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/byteable/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/byteable/byteable.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/byteable-0.1.1-15aIBCArSOBEnGxArzrDTM
+Registering byteable-0.1.1...

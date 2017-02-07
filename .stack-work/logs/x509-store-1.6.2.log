@@ -27,6 +27,46 @@ Data/X509/CertificateStore.hs:13:1: warning: [-Wunused-imports]
     The import of ‘Data.Monoid’ is redundant
       except perhaps to import instances from ‘Data.Monoid’
     To import instances alone, use: import Data.Monoid()
+Running Haddock for x509-store-1.6.2...
+Preprocessing library x509-store-1.6.2...
+
+Data/X509/File.hs:6:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+
+Data/X509/File.hs:8:1: warning: [-Wunused-imports]
+    The import of ‘Data.ASN1.BinaryEncoding’ is redundant
+      except perhaps to import instances from ‘Data.ASN1.BinaryEncoding’
+    To import instances alone, use: import Data.ASN1.BinaryEncoding()
+
+Data/X509/File.hs:9:1: warning: [-Wunused-imports]
+    The import of ‘Data.ASN1.Encoding’ is redundant
+      except perhaps to import instances from ‘Data.ASN1.Encoding’
+    To import instances alone, use: import Data.ASN1.Encoding()
+
+Data/X509/File.hs:13:1: warning: [-Wunused-imports]
+    The import of ‘PEM(pemName)’ from module ‘Data.PEM’ is redundant
+
+Data/X509/CertificateStore.hs:13:1: warning: [-Wunused-imports]
+    The import of ‘Data.Monoid’ is redundant
+      except perhaps to import instances from ‘Data.Monoid’
+    To import instances alone, use: import Data.Monoid()
+Haddock coverage:
+  25% (  1 /  4) in 'Data.X509.Memory'
+  Missing documentation for:
+    readKeyFileFromMemory (Data/X509/Memory.hs:25)
+    readSignedObjectFromMemory (Data/X509/Memory.hs:28)
+    pemToKey (Data/X509/Memory.hs:37)
+  67% (  2 /  3) in 'Data.X509.File'
+  Missing documentation for:
+    Module header
+  86% (  6 /  7) in 'Data.X509.CertificateStore'
+  Missing documentation for:
+    Module header
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/x509-store/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/x509-store/x509-store.txt
 Installing library in
 /home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/x509-store-1.6.2-CzpoPbi4fPBG9bvNZQaajN
 Registering x509-store-1.6.2...

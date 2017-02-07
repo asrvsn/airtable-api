@@ -1,0 +1,62 @@
+Configuring crypto-api-0.13.2...
+Building crypto-api-0.13.2...
+Preprocessing library crypto-api-0.13.2...
+[ 1 of 11] Compiling Crypto.CPoly     ( Crypto/CPoly.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/CPoly.o )
+[ 2 of 11] Compiling Crypto.Util      ( Crypto/Util.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Util.o )
+[ 3 of 11] Compiling Crypto.Types     ( Crypto/Types.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Types.o )
+[ 4 of 11] Compiling Crypto.Classes[boot] ( Crypto/Classes.hs-boot, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Classes.o-boot )
+[ 5 of 11] Compiling Crypto.Modes[boot] ( Crypto/Modes.hs-boot, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Modes.o-boot )
+[ 6 of 11] Compiling Crypto.Random    ( Crypto/Random.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Random.o )
+[ 7 of 11] Compiling Crypto.Classes   ( Crypto/Classes.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Classes.o )
+[ 8 of 11] Compiling Crypto.HMAC      ( Crypto/HMAC.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/HMAC.o )
+[ 9 of 11] Compiling Crypto.Padding   ( Crypto/Padding.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Padding.o )
+[10 of 11] Compiling Crypto.Modes     ( Crypto/Modes.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Modes.o )
+[11 of 11] Compiling Crypto.Classes.Exceptions ( Crypto/Classes/Exceptions.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Crypto/Classes/Exceptions.o )
+Running Haddock for crypto-api-0.13.2...
+Preprocessing library crypto-api-0.13.2...
+Haddock coverage:
+   0% (  0 /  4) in 'Crypto.CPoly'
+  Missing documentation for:
+    Module header
+    cpoly (Crypto/CPoly.hs:24)
+    cpoly2list (Crypto/CPoly.hs:30)
+    cpoly2revlist (Crypto/CPoly.hs:36)
+  85% ( 11 / 13) in 'Crypto.Util'
+  Missing documentation for:
+    c_constTimeEq (Crypto/Util.hs:74)
+    collect (Crypto/Util.hs:114)
+  67% (  4 /  6) in 'Crypto.Types'
+  Missing documentation for:
+    BlockCipherError (Crypto/Types.hs:29)
+     (Crypto/Types.hs:34)
+  90% (  9 / 10) in 'Crypto.Random'
+  Missing documentation for:
+    ReseedInfo (Crypto/Random.hs:81)
+  93% ( 28 / 30) in 'Crypto.Classes'
+  Missing documentation for:
+    chunkFor (Crypto/Classes.hs:685)
+    chunkFor' (Crypto/Classes.hs:695)
+ 100% (  4 /  4) in 'Crypto.HMAC'
+ 100% ( 13 / 13) in 'Crypto.Padding'
+  90% (  9 / 10) in 'Crypto.Modes'
+  Missing documentation for:
+    cMacStar (Crypto/Modes.hs:102)
+  83% ( 55 / 66) in 'Crypto.Classes.Exceptions'
+  Missing documentation for:
+    blockSize (Crypto/Classes.hs:152)
+    encryptBlock (Crypto/Classes.hs:153)
+    decryptBlock (Crypto/Classes.hs:154)
+    keyLength (Crypto/Classes.hs:156)
+    publicKeyLength (Crypto/Classes.hs:489)
+    privateKeyLength (Crypto/Classes.hs:490)
+    signingKeyLength (Crypto/Classes.hs:541)
+    verifyingKeyLength (Crypto/Classes.hs:542)
+    verify (Crypto/Classes.hs:539)
+    ReseedInfo (Crypto/Random.hs:81)
+    CipherError (Crypto/Classes/Exceptions.hs:38)
+Documentation created:
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/crypto-api/index.html,
+.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/doc/html/crypto-api/crypto-api.txt
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/crypto-api-0.13.2-LliNhOf849x8qng9ESkbgP
+Registering crypto-api-0.13.2...
