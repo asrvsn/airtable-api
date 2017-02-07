@@ -1,0 +1,46 @@
+[1 of 1] Compiling Main             ( /tmp/stack30001/lens-4.14/Setup.lhs, /tmp/stack30001/lens-4.14/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/Main.o )
+
+/tmp/stack30001/lens-4.14/Setup.lhs:55:69: warning: [-Wdeprecations]
+    In the use of type constructor or class ‘InstalledPackageId’
+    (imported from Distribution.Package):
+    Deprecated: "Use UnitId instead"
+Linking /tmp/stack30001/lens-4.14/.stack-work/dist/x86_64-linux/Cabal-1.24.0.0/setup/setup ...
+Configuring lens-4.14...
+Building lens-4.14...
+Preprocessing library lens-4.14...
+[ 1 of 81] Compiling Paths_lens       ( .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/autogen/Paths_lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Paths_lens.o )
+[ 2 of 81] Compiling Data.Map.Lens    ( src/Data/Map/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Map/Lens.o )
+[ 3 of 81] Compiling Control.Lens.Internal.List ( src/Control/Lens/Internal/List.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/List.o )
+[ 4 of 81] Compiling Control.Lens.Internal.TH ( src/Control/Lens/Internal/TH.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/TH.o )
+[ 5 of 81] Compiling Control.Lens.Internal.Coerce ( src/Control/Lens/Internal/Coerce.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Coerce.o )
+[ 6 of 81] Compiling Control.Lens.Internal.Instances ( src/Control/Lens/Internal/Instances.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Instances.o )
+[ 7 of 81] Compiling Control.Lens.Internal.Zoom ( src/Control/Lens/Internal/Zoom.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Zoom.o )
+[ 8 of 81] Compiling Control.Lens.Internal.Setter ( src/Control/Lens/Internal/Setter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Setter.o )
+[ 9 of 81] Compiling Control.Lens.Internal.Review ( src/Control/Lens/Internal/Review.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Review.o )
+[10 of 81] Compiling Control.Lens.Internal.Prism ( src/Control/Lens/Internal/Prism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Prism.o )
+[11 of 81] Compiling Control.Lens.Internal.Iso ( src/Control/Lens/Internal/Iso.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Iso.o )
+[12 of 81] Compiling Control.Lens.Internal.Level ( src/Control/Lens/Internal/Level.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Level.o )
+[13 of 81] Compiling Control.Lens.Internal.Indexed ( src/Control/Lens/Internal/Indexed.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Indexed.o )
+[14 of 81] Compiling Control.Lens.Internal.Context ( src/Control/Lens/Internal/Context.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Context.o )
+[15 of 81] Compiling Control.Lens.Internal.Bazaar ( src/Control/Lens/Internal/Bazaar.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Bazaar.o )
+[16 of 81] Compiling Control.Lens.Internal.Magma ( src/Control/Lens/Internal/Magma.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Magma.o )
+[17 of 81] Compiling Control.Lens.Internal.Getter ( src/Control/Lens/Internal/Getter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Getter.o )
+[18 of 81] Compiling Control.Lens.Internal.Fold ( src/Control/Lens/Internal/Fold.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/Fold.o )
+[19 of 81] Compiling Control.Lens.Type ( src/Control/Lens/Type.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Type.o )
+[20 of 81] Compiling Control.Lens.Setter ( src/Control/Lens/Setter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Setter.o )
+[21 of 81] Compiling Control.Lens.Lens ( src/Control/Lens/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Lens.o )
+[22 of 81] Compiling Control.Lens.Tuple ( src/Control/Lens/Tuple.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Tuple.o )
+[23 of 81] Compiling Control.Lens.Getter ( src/Control/Lens/Getter.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Getter.o )
+[24 of 81] Compiling Control.Lens.Review ( src/Control/Lens/Review.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Review.o )
+[25 of 81] Compiling Control.Lens.Prism ( src/Control/Lens/Prism.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Prism.o )
+[26 of 81] Compiling Control.Lens.Zoom ( src/Control/Lens/Zoom.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Zoom.o )
+[27 of 81] Compiling Data.Set.Lens    ( src/Data/Set/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Set/Lens.o )
+[28 of 81] Compiling Data.HashSet.Lens ( src/Data/HashSet/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/HashSet/Lens.o )
+[29 of 81] Compiling Control.Lens.Fold ( src/Control/Lens/Fold.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Fold.o )
+[30 of 81] Compiling Control.Lens.Traversal ( src/Control/Lens/Traversal.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Traversal.o )
+[31 of 81] Compiling Control.Lens.Indexed ( src/Control/Lens/Indexed.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Indexed.o )
+[32 of 81] Compiling Control.Lens.Level ( src/Control/Lens/Level.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Level.o )
+[33 of 81] Compiling Control.Lens.Reified ( src/Control/Lens/Reified.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Reified.o )
+[34 of 81] Compiling Data.Data.Lens   ( src/Data/Data/Lens.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Data/Data/Lens.o )
+[35 of 81] Compiling Control.Lens.Plated ( src/Control/Lens/Plated.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Plated.o )
+[36 of 81] Compiling Control.Lens.Internal.ByteString ( src/Control/Lens/Internal/ByteString.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/Control/Lens/Internal/ByteString.o )

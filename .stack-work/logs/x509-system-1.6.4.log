@@ -1,0 +1,22 @@
+Configuring x509-system-1.6.4...
+Building x509-system-1.6.4...
+Preprocessing library x509-system-1.6.4...
+[1 of 3] Compiling System.X509.MacOS ( System/X509/MacOS.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/System/X509/MacOS.o )
+
+System/X509/MacOS.hs:2:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+
+System/X509/MacOS.hs:8:1: warning: [-Wunused-imports]
+    The import of ‘Control.Applicative’ is redundant
+      except perhaps to import instances from ‘Control.Applicative’
+    To import instances alone, use: import Control.Applicative()
+[2 of 3] Compiling System.X509.Unix ( System/X509/Unix.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/System/X509/Unix.o )
+[3 of 3] Compiling System.X509      ( System/X509.hs, .stack-work/dist/x86_64-linux/Cabal-1.24.0.0/build/System/X509.o )
+
+System/X509.hs:10:1: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+Installing library in
+/home/anand/.stack/snapshots/x86_64-linux/lts-7.19/8.0.1/lib/x86_64-linux-ghc-8.0.1/x509-system-1.6.4-5TUbn7N9HL62SDMPcaDxLf
+Registering x509-system-1.6.4...
