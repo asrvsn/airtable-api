@@ -47,7 +47,6 @@ getTableFromUrl opts url = do
     getMore tbl = case tableOffset tbl of 
       Just offset -> do
         resp <- getWith (opts & param "offset" .~ [offset]) url
-        putStrLn $ "Part " <> show offset
         getMore $ fromResp resp <> tbl
       Nothing -> 
         pure tbl
