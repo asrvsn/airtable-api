@@ -2,7 +2,9 @@
 
 module Airtable.Query
     ( module Airtable.Table
+      -- * Configuration for Airtable requests.
     , AirtableOptions
+      -- * Main API
     , getTable
     ) where
 
@@ -17,27 +19,41 @@ import           Data.Aeson (FromJSON, ToJSON, eitherDecode)
 import           Data.Monoid
 import qualified Data.ByteString.Char8 as BC
 
--- * Configuration for Airtable requests.
-
+-- | Options
 data AirtableOptions = AirtableOptions {
+  -- | the API key for your project
     apiKey :: String
+  -- | the app ID for your project (http://api.airtable.com/v0/...)
   , appId :: String  
+  -- | api version (http://api.airtable.com/v../...)
+  , apiVersion :: Int
   }
 
--- * Constants
+-- | Airtable options defaulting to API version 0. Please change the 
+--   'apiKey' and 'appId' fields.
+defaultOptions :: AirtableOptions 
+defaultOptions = AirtableOptions {
+    apiKey = ""
+  , appId = ""
+  , apiVersion = 0
+  }
 
 -- | Base airtable API string. 
 base_url :: String
-base_url = "https://api.airtable.com/v0/"
-
--- * Main API
+base_url = "https://api.airtable.com/"
 
 -- | Retrieve a table from airtable.com given its name. 
 getTable :: (FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
 getTable opts tname = getTableFromUrl net_otps url 
   where
     net_otps = defaults & header "Authorization" .~ ["Bearer " <> BC.pack (apiKey opts)] 
-    url  = base_url <> appId opts <> "/" <> tname
+    url  =   base_url 
+          <> "v" 
+          <> show (apiVersion opts) 
+          <> "/" 
+          <> appId opts 
+          <> "/" 
+          <> tname
 
 getTableFromUrl :: (FromJSON a) => Options -> String -> IO (Table a)
 getTableFromUrl opts url = do

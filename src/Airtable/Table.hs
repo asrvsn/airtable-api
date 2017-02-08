@@ -5,11 +5,16 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Airtable.Table
-    ( RecordID(..)
+    ( 
+    -- * RecordID 
+      RecordID(..)
     , rec2str
+    -- * IsRecord class
     , IsRecord(..)
+    -- * Table 
     , Table(..)
     , TableName
+    -- * Table methods
     , toList
     , exists
     , select
