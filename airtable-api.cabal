@@ -38,4 +38,4 @@ test-suite airtable-api-test
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/airtable-api
+  location: https://github.com/ooblahman/airtable-api

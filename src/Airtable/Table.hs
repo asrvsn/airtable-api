@@ -46,7 +46,13 @@ import           Data.Foldable (foldlM)
 -- * RecordID 
 
 -- | Airtable's record ID for use in indexing records
-newtype RecordID = RecordID Text deriving (FromJSON, Show, Eq, Generic, Ord)
+newtype RecordID = RecordID Text deriving ( FromJSON
+                                          , Show
+                                          , Read
+                                          , Eq
+                                          , Generic
+                                          , Ord
+                                          )
 
 instance Hashable RecordID 
 
@@ -71,7 +77,11 @@ instance IsRecord String where
 data Table a = Table { tableRecords :: Map.HashMap RecordID a
                      , tableOffset :: Maybe Text
                      } deriving 
-                     ( Show )
+                     ( Show 
+                     , Read
+                     , Eq
+                     , Generic
+                     )
 
 -- | Synonym used in querying tables from the API.
 type TableName = String
