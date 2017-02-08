@@ -3,7 +3,7 @@
 module Airtable.Query
     ( module Airtable.Table
       -- * Configuration for Airtable requests.
-    , AirtableOptions
+    , AirtableOptions(..)
       -- * Main API
     , getTable
     ) where
