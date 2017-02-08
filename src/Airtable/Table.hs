@@ -113,7 +113,8 @@ toList = Map.toList . tableRecords
 exists :: (IsRecord r) => Table a -> r -> Bool
 exists tbl rec = Map.member (toRec rec) (tableRecords tbl)
 
--- | Unsafely lookup a record using its RecordID.
+-- | Unsafely lookup a record using its RecordID. Will throw a pretty-printed error
+--   if record does not exist.
 select :: (HasCallStack, IsRecord r, Show a) => Table a -> r -> a
 select tbl rec = tableRecords tbl `lookup` toRec rec
   where
@@ -122,7 +123,7 @@ select tbl rec = tableRecords tbl `lookup` toRec rec
       Nothing -> error $ "lookup failed in map: " <> show k
 
 -- | Safely lookup a record using its RecordID.
-selectMaybe :: (IsRecord r, Show a) => Table a -> r -> Maybe a
+selectMaybe :: (IsRecord r) => Table a -> r -> Maybe a
 selectMaybe tbl rec = toRec rec `Map.lookup` tableRecords tbl 
 
 -- | Read all records.

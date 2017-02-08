@@ -42,7 +42,7 @@ defaultOptions = AirtableOptions {
 base_url :: String
 base_url = "https://api.airtable.com/"
 
--- | Retrieve a table from airtable.com given its name. 
+-- | Retrieve a table from airtable.com given its name. Handles pagination correctly.
 getTable :: (FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
 getTable opts tname = getTableFromUrl net_otps url 
   where
