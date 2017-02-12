@@ -3,6 +3,7 @@
 {-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE DeriveFunctor #-}
 
 module Airtable.Table
     (
@@ -84,6 +85,7 @@ data Table a = Table { tableRecords :: Map.HashMap RecordID a
                      , Read
                      , Eq
                      , Generic
+                     , Functor
                      )
 
 -- | Synonym used in querying tables from the API.
