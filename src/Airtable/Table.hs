@@ -14,6 +14,8 @@ module Airtable.Table
     -- * Table
     , Table(..)
     , TableName
+    , parseFields
+    , parseFields_
     -- * Table methods
     , toList
     , exists
@@ -93,11 +95,25 @@ instance (FromJSON a) => FromJSON (Table a) where
     offset <- v .:? "offset"
     return $ Table parsedRecs offset
     where
-      parseRec tbl (Object v) =
+      parseRec tbl json@(Object v) =
             do  recId <- v .: "id"
-                obj <- v .: "fields"
+                obj <- parseJson json
                 return $ Map.insert recId obj tbl
       parseRec tbl invalid = typeMismatch "Table" invalid
+  parseJSON invalid = typeMismatch "Table" invalid
+
+
+parseFields :: (UTCTime -> RecordID -> Value -> Parser a) -> Value -> Parser a
+parseFields action (Object v) = do
+    created  <- v .: "createdTime"
+    recordId <- v .: "id"
+    fields   <- v .: "fields"
+    action created recordId fields
+parseFields _action invalid = typeMismatch "parseFields" invalid
+
+parseFields_ :: (Value -> Parser a) -> Value -> Parser a
+parseFields_ action (Object v) = v .: "fields" >>= action
+parseFields_ _action invalid = typeMismatch "parseFields_" invalid
 
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
