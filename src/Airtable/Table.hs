@@ -43,6 +43,7 @@ import qualified Data.Text as T
 import           Data.Monoid
 import           Data.Hashable
 import           Data.Foldable (foldlM)
+import           Data.Time (UTCTime)
 
 
 -- * RecordID
@@ -97,7 +98,7 @@ instance (FromJSON a) => FromJSON (Table a) where
     where
       parseRec tbl json@(Object v) =
             do  recId <- v .: "id"
-                obj <- parseJson json
+                obj <- parseJSON json
                 return $ Map.insert recId obj tbl
       parseRec tbl invalid = typeMismatch "Table" invalid
   parseJSON invalid = typeMismatch "Table" invalid
