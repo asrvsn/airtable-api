@@ -14,8 +14,8 @@ module Airtable.Table
     -- * Table
     , Table(..)
     , TableName
+    , parseRecord
     , parseFields
-    , parseFields_
     -- * Table methods
     , toList
     , exists
@@ -103,17 +103,17 @@ instance (FromJSON a) => FromJSON (Table a) where
   parseJSON invalid = typeMismatch "Table" invalid
 
 
-parseFields :: (UTCTime -> RecordID -> Value -> Parser a) -> Value -> Parser a
-parseFields action (Object v) = do
+parseRecord :: (UTCTime -> RecordID -> Value -> Parser a) -> Value -> Parser a
+parseRecord action (Object v) = do
     created  <- v .: "createdTime"
     recordId <- v .: "id"
     fields   <- v .: "fields"
     action created recordId fields
-parseFields _action invalid = typeMismatch "parseFields" invalid
+parseRecord _action invalid = typeMismatch "parseFields" invalid
 
-parseFields_ :: (Value -> Parser a) -> Value -> Parser a
-parseFields_ action (Object v) = v .: "fields" >>= action
-parseFields_ _action invalid = typeMismatch "parseFields_" invalid
+parseFields :: (Value -> Parser a) -> Value -> Parser a
+parseFields action (Object v) = v .: "fields" >>= action
+parseFields _action invalid = typeMismatch "parseFields_" invalid
 
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
