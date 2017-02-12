@@ -24,9 +24,9 @@ import qualified Data.ByteString.Char8 as BC
 data AirtableOptions = AirtableOptions {
   -- | the API key for your project
     apiKey :: String
-  -- | the app ID for your project (http://api.airtable.com/v0/...)
+  -- | the app ID for your project (http:\/\/api.airtable.com\/v0\/app...)
   , appId :: String
-  -- | api version (http://api.airtable.com/v../...)
+  -- | api version (http:\/\/api.airtable.com\/v..\/...)
   , apiVersion :: Int
   }
 
