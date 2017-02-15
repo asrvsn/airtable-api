@@ -3,17 +3,20 @@
 {-# LANGUAGE TypeSynonymInstances #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE DeriveFunctor #-}
 
 module Airtable.Table
-    ( 
-    -- * RecordID 
+    (
+    -- * RecordID
       RecordID(..)
     , rec2str
     -- * IsRecord class
     , IsRecord(..)
-    -- * Table 
+    -- * Table
     , Table(..)
     , TableName
+    , parseRecord
+    , parseFields
     -- * Table methods
     , toList
     , exists
@@ -41,9 +44,10 @@ import qualified Data.Text as T
 import           Data.Monoid
 import           Data.Hashable
 import           Data.Foldable (foldlM)
+import           Data.Time (UTCTime)
 
 
--- * RecordID 
+-- * RecordID
 
 -- | Airtable's record ID for use in indexing records
 newtype RecordID = RecordID Text deriving ( FromJSON
@@ -54,7 +58,7 @@ newtype RecordID = RecordID Text deriving ( FromJSON
                                           , Ord
                                           )
 
-instance Hashable RecordID 
+instance Hashable RecordID
 
 rec2str :: RecordID -> String
 rec2str (RecordID rec) = T.unpack rec
@@ -69,18 +73,19 @@ instance IsRecord RecordID where
   toRec = id
 
 instance IsRecord String where
-  toRec = RecordID . T.pack 
+  toRec = RecordID . T.pack
 
--- * Table 
+-- * Table
 
 -- | Airtable's table type
 data Table a = Table { tableRecords :: Map.HashMap RecordID a
                      , tableOffset :: Maybe Text
-                     } deriving 
-                     ( Show 
+                     } deriving
+                     ( Show
                      , Read
                      , Eq
                      , Generic
+                     , Functor
                      )
 
 -- | Synonym used in querying tables from the API.
@@ -93,11 +98,25 @@ instance (FromJSON a) => FromJSON (Table a) where
     offset <- v .:? "offset"
     return $ Table parsedRecs offset
     where
-      parseRec tbl (Object v) = 
+      parseRec tbl json@(Object v) =
             do  recId <- v .: "id"
-                obj <- v .: "fields" 
+                obj <- parseJSON json
                 return $ Map.insert recId obj tbl
-        <|> error ("could not decode: " <> show v)
+      parseRec tbl invalid = typeMismatch "Table" invalid
+  parseJSON invalid = typeMismatch "Table" invalid
+
+
+parseRecord :: (UTCTime -> RecordID -> Value -> Parser a) -> Value -> Parser a
+parseRecord action (Object v) = do
+    created  <- v .: "createdTime"
+    recordId <- v .: "id"
+    fields   <- v .: "fields"
+    action created recordId fields
+parseRecord _action invalid = typeMismatch "parseFields" invalid
+
+parseFields :: (Value -> Parser a) -> Value -> Parser a
+parseFields action (Object v) = v .: "fields" >>= action
+parseFields _action invalid = typeMismatch "parseFields_" invalid
 
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
@@ -118,13 +137,13 @@ exists tbl rec = Map.member (toRec rec) (tableRecords tbl)
 select :: (HasCallStack, IsRecord r, Show a) => Table a -> r -> a
 select tbl rec = tableRecords tbl `lookup` toRec rec
   where
-    lookup mp k = case Map.lookup k mp of 
+    lookup mp k = case Map.lookup k mp of
       Just v -> v
       Nothing -> error $ "lookup failed in map: " <> show k
 
 -- | Safely lookup a record using its RecordID.
 selectMaybe :: (IsRecord r) => Table a -> r -> Maybe a
-selectMaybe tbl rec = toRec rec `Map.lookup` tableRecords tbl 
+selectMaybe tbl rec = toRec rec `Map.lookup` tableRecords tbl
 
 -- | Read all records.
 selectAll :: Table a -> [a]
@@ -134,7 +153,7 @@ selectAll = map snd . toList
 selectAllKeys :: Table a -> [RecordID]
 selectAllKeys = map fst . toList
 
--- | Select all records satisfying a condition. 
+-- | Select all records satisfying a condition.
 selectWhere :: Table a -> (RecordID -> a -> Bool) -> [a]
 selectWhere tbl f = map snd $ filter (uncurry f) (toList tbl)
 
@@ -142,6 +161,6 @@ selectWhere tbl f = map snd $ filter (uncurry f) (toList tbl)
 selectKeyWhere :: Table a -> (RecordID -> a -> Bool) -> [RecordID]
 selectKeyWhere tbl f = map fst $ filter (uncurry f) (toList tbl)
 
--- | Delete all Records satisfying a condition. 
+-- | Delete all Records satisfying a condition.
 deleteWhere :: Table a -> (RecordID -> a -> Bool) -> Table a
 deleteWhere (Table recs off) f = Table (Map.filterWithKey (\k v -> not $ f k v) recs) off

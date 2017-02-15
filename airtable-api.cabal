@@ -1,6 +1,6 @@
 name:                airtable-api
-version:             0.1.0.4
-synopsis:            Requesting and introspecting Tables within an Airtable project. 
+version:             0.2.0.0
+synopsis:            Requesting and introspecting Tables within an Airtable project.
 -- description:
 homepage:            https://github.com/ooblahman/airtable-api
 license:             BSD3
@@ -25,6 +25,7 @@ library
                      , hashable
                      , lens
                      , unordered-containers
+                     , time
   default-language:    Haskell2010
 
 test-suite airtable-api-test
