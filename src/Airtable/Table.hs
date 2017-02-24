@@ -100,7 +100,8 @@ instance (FromJSON a) => FromJSON (Table a) where
     where
       parseRec tbl json@(Object v) =
             do  recId <- v .: "id"
-                obj <- parseJSON json
+                fields <- v .: "fields"
+                obj <- parseJSON fields
                 return $ Map.insert recId obj tbl
       parseRec tbl invalid = typeMismatch "Table" invalid
   parseJSON invalid = typeMismatch "Table" invalid
