@@ -31,6 +31,8 @@ module Airtable.Table
     , selectAllKeys
     , selectWhere
     , vSelectWhere
+    , selectKeyWhere
+    , vSelectKeyWhere
     , deleteWhere
     , vDeleteWhere
     ) where
@@ -194,9 +196,17 @@ selectAllKeys = map fst . toList
 selectWhere :: Table a -> (Record a -> Bool) -> [Record a]
 selectWhere tbl f = filter f (selectAll tbl)
 
--- | Same as 'selectAll', but returns the record object.
+-- | Same as 'selectWhere', but returns the record object.
 vSelectWhere :: Table a -> (a -> Bool) -> [a]
 vSelectWhere tbl f = filter f (vSelectAll tbl)
+
+-- | Select all records satisfying a condition.
+selectKeyWhere :: Table a -> (Record a -> Bool) -> [RecordID]
+selectKeyWhere tbl f = map recordId (selectWhere tbl f)
+
+-- | Same as 'selectKeyWhere', but returns the record object.
+vSelectKeyWhere :: Table a -> (a -> Bool) -> [RecordID]
+vSelectKeyWhere tbl f = selectKeyWhere tbl (f . recordObj) 
 
 -- | Delete all Records satisfying a condition.
 deleteWhere :: Table a -> (Record a -> Bool) -> Table a
