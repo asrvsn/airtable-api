@@ -18,6 +18,8 @@ module Airtable.Table
     , Table(..)
     , TableName
     -- * Table methods
+    , fromRecords
+    , fromList
     , toList
     , exists
     , select
@@ -110,33 +112,38 @@ instance HasRecordId (Record a) where
 data Table a = Table 
   { tableRecords :: Map.HashMap RecordID (Record a) -- ^ A mapping from RecordID to Record
   , tableOffset :: Maybe Text -- ^ The "offset" parameter for the table. Is used to deal with airtable's pagination.
-  } deriving
-  ( Show
-  , Read
-  , Eq
-  , Generic
-  , Functor
-  )
+  } deriving ( Show
+             , Read
+             , Eq
+             , Generic
+             , Functor
+             )
 
 -- | Synonym used in querying tables from the API.
 type TableName = String
 
 instance (FromJSON a) => FromJSON (Table a) where
   parseJSON = withObject "table object" $ \v -> do
-    recs <- v .: "records" :: Parser [Value]
-    parsedRecs <- foldlM parseRec Map.empty recs
+    recs <- v .: "records" 
     offset <- v .:? "offset"
-    return $ Table parsedRecs offset
-    where
-      parseRec tbl v = do  
-        rec <- parseJSON v
-        return $ Map.insert (recordId rec) rec tbl
+    return $ (fromRecords recs) { tableOffset = offset }
 
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
   mappend (Table t1 o) (Table t2 _) = Table (mappend t1 t2) o
 
 -- * Table methods
+
+-- | Create a `Table` from a list of `Record`s.
+fromRecords :: [Record a] -> Table a
+fromRecords recs = fromList $ zip (map recordId recs) recs
+
+-- | Create a table from a list of key-record pairs.
+fromList :: [(RecordID, Record a)] -> Table a
+fromList pairs = Table
+  { tableRecords = Map.fromList pairs 
+  , tableOffset = Nothing
+  }
 
 -- | Convert a 'Table' to a list of key-record pairs.
 toList :: Table a -> [(RecordID, Record a)]
