@@ -8,6 +8,6 @@ packages:
 ...
 - location:
     git: https://github.com/ooblahman/airtable-api.git
-    commit: 6895cbbc4f83069a8455fcc00f6e313d867ca296
+    commit: HEAD
   extra-dep: true
 ```
