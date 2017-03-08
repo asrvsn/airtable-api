@@ -5,13 +5,16 @@ module Airtable.Query
       -- * Configuration for Airtable requests.
     , AirtableOptions(..)
     , defaultAirtableOptions
-    , airtableOptionsToWreqOptions
+    , mkWreqOptions
     , tableNameToUrl
       -- * API
     , getRecords
+    , getRecordsFromUrl
     , createRecord
     , updateRecord
     , deleteRecord
+    -- * Low-level helpers
+    , respJsonBody
     ) where
 
 
@@ -54,8 +57,8 @@ base_url :: String
 base_url = "https://api.airtable.com/"
 
 -- | Produce Wreq options from 'AirtableOptions'
-airtableOptionsToWreqOptions :: AirtableOptions -> Options
-airtableOptionsToWreqOptions opts = 
+mkWreqOptions :: AirtableOptions -> Options
+mkWreqOptions opts = 
   defaults & header "Authorization" .~ ["Bearer " <> BC.pack (apiKey opts)]
 
 -- | Produce a request URL to a table.
@@ -71,28 +74,21 @@ tableNameToUrl opts tname =
 
 -- * API
 
-fromResp :: (HasCallStack, FromJSON a) => Response ByteString -> a
-fromResp r = decoder $ r ^. responseBody
-  where
-    decoder b = case eitherDecode b of
-      Left e  -> error e
-      Right r -> r
-
 -- | Retrieve the records for a table from airtable.com given its name. Handles pagination correctly.
 getRecords :: (HasCallStack, FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
 getRecords opts tname = 
-  getRecordsFromUrl (airtableOptionsToWreqOptions opts) (tableNameToUrl opts tname)
+  getRecordsFromUrl (mkWreqOptions opts) (tableNameToUrl opts tname)
 
--- | Retrieve the records for a table given a URL and network options.
+-- | Retrieve the records for a table given a URL and network (Wreq) options.
 getRecordsFromUrl :: (HasCallStack, FromJSON a) => Options -> String -> IO (Table a)
 getRecordsFromUrl opts url = do
   resp <- getWith opts url
-  getMore (fromResp resp)
+  getMore (respJsonBody resp)
   where
     getMore tbl = case tableOffset tbl of
       Just offset -> do
         resp <- getWith (opts & param "offset" .~ [offset]) url
-        getMore $ fromResp resp <> tbl
+        getMore $ respJsonBody resp <> tbl
       Nothing ->
         pure tbl
 
@@ -100,10 +96,10 @@ getRecordsFromUrl opts url = do
 createRecord :: (HasCallStack, ToJSON a, FromJSON a) => AirtableOptions -> TableName -> a -> IO (Record a)
 createRecord opts tname a = do
   resp <- postWith netOpts url payload
-  return $ fromResp resp
+  return $ respJsonBody resp
   where
     url = tableNameToUrl opts tname
-    netOpts = airtableOptionsToWreqOptions opts 
+    netOpts = mkWreqOptions opts 
     payload = toJSON a
 
 -- | Update a record on a given table, using the supplied fields ('a').
@@ -113,7 +109,7 @@ updateRecord opts tname recId a = do
     customPayloadMethodWith "PATCH" netOpts url payload
   where
     url = tableNameToUrl opts tname <> "/" <> rec2str recId
-    netOpts = airtableOptionsToWreqOptions opts
+    netOpts = mkWreqOptions opts
     payload = toJSON a
 
 -- | Delete a record on a table. 
@@ -121,6 +117,14 @@ deleteRecord :: AirtableOptions -> TableName -> RecordID -> IO ()
 deleteRecord opts tname recId = 
   void $ deleteWith netOpts url 
   where
-    netOpts = airtableOptionsToWreqOptions opts
+    netOpts = mkWreqOptions opts
     url = tableNameToUrl opts tname <> "/" <> rec2str recId
 
+-- * Low-level helpers
+
+respJsonBody :: (HasCallStack, FromJSON a) => Response ByteString -> a
+respJsonBody r = decoder $ r ^. responseBody
+  where
+    decoder b = case eitherDecode b of
+      Left e  -> error e
+      Right r -> r

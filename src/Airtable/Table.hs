@@ -17,8 +17,6 @@ module Airtable.Table
     -- * Table
     , Table(..)
     , TableName
-    , parseRecord
-    , parseFields
     -- * Table methods
     , toList
     , exists
@@ -108,16 +106,19 @@ instance (ToJSON a) => ToJSON (Record a) where
 instance HasRecordId (Record a) where
   toRecId = recordId
 
--- | Airtable's table type
-data Table a = Table { tableRecords :: Map.HashMap RecordID (Record a)
-                     , tableOffset :: Maybe Text
-                     } deriving
-                     ( Show
-                     , Read
-                     , Eq
-                     , Generic
-                     , Functor
-                     )
+-- | An airtable table. 
+data Table a = Table 
+  -- | A mapping from RecordID to Record
+  { tableRecords :: Map.HashMap RecordID (Record a)
+  -- | The "offset" parameter for the table. Is used to deal with airtable's pagination.
+  , tableOffset :: Maybe Text
+  } deriving
+  ( Show
+  , Read
+  , Eq
+  , Generic
+  , Functor
+  )
 
 -- | Synonym used in querying tables from the API.
 type TableName = String
@@ -129,22 +130,9 @@ instance (FromJSON a) => FromJSON (Table a) where
     offset <- v .:? "offset"
     return $ Table parsedRecs offset
     where
-      parseRec tbl = withObject "record object" $ \v -> 
-            do  recId <- v .: "id"
-                fields <- v .: "fields"
-                obj <- parseJSON fields
-                return $ Map.insert recId obj tbl
-
-parseRecord :: (UTCTime -> RecordID -> Value -> Parser a) -> Value -> Parser a
-parseRecord action = withObject "record object" $ \v -> do
-    created  <- v .: "createdTime"
-    recordId <- v .: "id"
-    fields   <- v .: "fields"
-    action created recordId fields
-
-parseFields :: (Value -> Parser a) -> Value -> Parser a
-parseFields action (Object v) = v .: "fields" >>= action
-parseFields _action invalid = typeMismatch "parseFields_" invalid
+      parseRec tbl v = do  
+        rec <- parseJSON v
+        return $ Map.insert (recordId rec) rec tbl
 
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
