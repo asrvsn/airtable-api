@@ -90,6 +90,7 @@ data Record a = Record
              , Generic
              , Eq
              , Ord
+             , Functor
              )
 
 instance (FromJSON a) => FromJSON (Record a) where
@@ -108,7 +109,7 @@ instance HasRecordId (Record a) where
   toRecId = recordId
 
 -- | Airtable's table type
-data Table a = Table { tableRecords :: Map.HashMap RecordID a
+data Table a = Table { tableRecords :: Map.HashMap RecordID (Record a)
                      , tableOffset :: Maybe Text
                      } deriving
                      ( Show
@@ -152,7 +153,7 @@ instance Monoid (Table a) where
 -- * Table methods
 
 -- | Convert a 'Table' to a list of key-record pairs.
-toList :: Table a -> [(RecordID, a)]
+toList :: Table a -> [(RecordID, Record a)]
 toList = Map.toList . tableRecords
 
 -- | Check if a record exists at the given key in a table.
@@ -161,7 +162,7 @@ exists tbl rec = Map.member (toRecId rec) (tableRecords tbl)
 
 -- | Unsafely lookup a record using its RecordID. Will throw a pretty-printed error
 --   if record does not exist.
-select :: (HasCallStack, HasRecordId r, Show a) => Table a -> r -> a
+select :: (HasCallStack, HasRecordId r, Show a) => Table a -> r -> Record a
 select tbl rec = tableRecords tbl `lookup` toRecId rec
   where
     lookup mp k = case Map.lookup k mp of
@@ -169,11 +170,11 @@ select tbl rec = tableRecords tbl `lookup` toRecId rec
       Nothing -> error $ "lookup failed in map: " <> show k
 
 -- | Safely lookup a record using its RecordID.
-selectMaybe :: (HasRecordId r) => Table a -> r -> Maybe a
+selectMaybe :: (HasRecordId r) => Table a -> r -> Maybe (Record a)
 selectMaybe tbl rec = toRecId rec `Map.lookup` tableRecords tbl
 
 -- | Read all records.
-selectAll :: Table a -> [a]
+selectAll :: Table a -> [Record a]
 selectAll = map snd . toList
 
 -- | Read all RecordID's.
@@ -181,13 +182,13 @@ selectAllKeys :: Table a -> [RecordID]
 selectAllKeys = map fst . toList
 
 -- | Select all records satisfying a condition.
-selectWhere :: Table a -> (RecordID -> a -> Bool) -> [a]
-selectWhere tbl f = map snd $ filter (uncurry f) (toList tbl)
+selectWhere :: Table a -> (Record a -> Bool) -> [Record a]
+selectWhere tbl f = filter f (selectAll tbl)
 
 -- | Select all RecordID's satisfying a condition.
-selectKeyWhere :: Table a -> (RecordID -> a -> Bool) -> [RecordID]
-selectKeyWhere tbl f = map fst $ filter (uncurry f) (toList tbl)
+selectKeyWhere :: Table a -> (Record a -> Bool) -> [RecordID]
+selectKeyWhere tbl f = map recordId $ filter f (selectAll tbl)
 
 -- | Delete all Records satisfying a condition.
-deleteWhere :: Table a -> (RecordID -> a -> Bool) -> Table a
-deleteWhere (Table recs off) f = Table (Map.filterWithKey (\k v -> not $ f k v) recs) off
+deleteWhere :: Table a -> (Record a -> Bool) -> Table a
+deleteWhere (Table recs off) f = Table (Map.filter (\v -> not $ f v) recs) off
