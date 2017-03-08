@@ -5,20 +5,30 @@ module Airtable.Query
       -- * Configuration for Airtable requests.
     , AirtableOptions(..)
     , defaultAirtableOptions
-      -- * Main API
-    , getTable
+    , airtableOptionsToWreqOptions
+    , tableNameToUrl
+      -- * API
+    , getRecords
+    , createRecord
+    , updateRecord
+    , deleteRecord
     ) where
 
 
 import           Airtable.Table
 
+import           GHC.Stack
 import           Network.Wreq
 
 import           Control.Lens ((^.), (.~), (&))
+import           Control.Monad (void)
 
-import           Data.Aeson (FromJSON, ToJSON, eitherDecode)
+import           Data.Aeson (FromJSON, ToJSON, eitherDecode, toJSON)
 import           Data.Monoid
+import           Data.ByteString.Lazy (ByteString)
 import qualified Data.ByteString.Char8 as BC
+
+-- * Configuration for Airtable requests.
 
 -- | Options
 data AirtableOptions = AirtableOptions {
@@ -43,21 +53,39 @@ defaultAirtableOptions = AirtableOptions {
 base_url :: String
 base_url = "https://api.airtable.com/"
 
--- | Retrieve a table from airtable.com given its name. Handles pagination correctly.
-getTable :: (FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
-getTable opts tname = getTableFromUrl net_otps url
-  where
-    net_otps = defaults & header "Authorization" .~ ["Bearer " <> BC.pack (apiKey opts)]
-    url  =   base_url
-          <> "v"
-          <> show (apiVersion opts)
-          <> "/"
-          <> appId opts
-          <> "/"
-          <> tname
+-- | Produce Wreq options from 'AirtableOptions'
+airtableOptionsToWreqOptions :: AirtableOptions -> Options
+airtableOptionsToWreqOptions opts = 
+  defaults & header "Authorization" .~ ["Bearer " <> BC.pack (apiKey opts)]
 
-getTableFromUrl :: (FromJSON a) => Options -> String -> IO (Table a)
-getTableFromUrl opts url = do
+-- | Produce a request URL to a table.
+tableNameToUrl :: AirtableOptions -> TableName -> String
+tableNameToUrl opts tname = 
+     base_url
+  <> "v"
+  <> show (apiVersion opts)
+  <> "/"
+  <> appId opts
+  <> "/"
+  <> tname
+
+-- * API
+
+fromResp :: (HasCallStack, FromJSON a) => Response ByteString -> a
+fromResp r = decoder $ r ^. responseBody
+  where
+    decoder b = case eitherDecode b of
+      Left e  -> error e
+      Right r -> r
+
+-- | Retrieve the records for a table from airtable.com given its name. Handles pagination correctly.
+getRecords :: (HasCallStack, FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
+getRecords opts tname = 
+  getRecordsFromUrl (airtableOptionsToWreqOptions opts) (tableNameToUrl opts tname)
+
+-- | Retrieve the records for a table given a URL and network options.
+getRecordsFromUrl :: (HasCallStack, FromJSON a) => Options -> String -> IO (Table a)
+getRecordsFromUrl opts url = do
   resp <- getWith opts url
   getMore (fromResp resp)
   where
@@ -68,8 +96,31 @@ getTableFromUrl opts url = do
       Nothing ->
         pure tbl
 
-    fromResp r = decoder $ r ^. responseBody
-      where
-        decoder b = case eitherDecode b of
-          Left e -> error $ e <> "\nSource string: " <> show b
-          Right r -> r
+-- | Upload a record to a given table. Returns the newly created `RecordID`.
+createRecord :: (HasCallStack, ToJSON a, FromJSON a) => AirtableOptions -> TableName -> a -> IO (Record a)
+createRecord opts tname a = do
+  resp <- postWith netOpts url payload
+  return $ fromResp resp
+  where
+    url = tableNameToUrl opts tname
+    netOpts = airtableOptionsToWreqOptions opts 
+    payload = toJSON a
+
+-- | Update a record on a given table, using the supplied fields ('a').
+updateRecord :: (ToJSON a) => AirtableOptions -> TableName -> RecordID -> a -> IO ()
+updateRecord opts tname recId a = do
+  void $ 
+    customPayloadMethodWith "PATCH" netOpts url payload
+  where
+    url = tableNameToUrl opts tname <> "/" <> rec2str recId
+    netOpts = airtableOptionsToWreqOptions opts
+    payload = toJSON a
+
+-- | Delete a record on a table. 
+deleteRecord :: AirtableOptions -> TableName -> RecordID -> IO ()
+deleteRecord opts tname recId = 
+  void $ deleteWith netOpts url 
+  where
+    netOpts = airtableOptionsToWreqOptions opts
+    url = tableNameToUrl opts tname <> "/" <> rec2str recId
+

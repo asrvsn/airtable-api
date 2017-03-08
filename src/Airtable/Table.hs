@@ -7,8 +7,10 @@
 
 module Airtable.Table
     (
+    -- * Record
+      Record(..)
     -- * RecordID
-      RecordID(..)
+    , RecordID(..)
     , rec2str
     -- * IsRecord class
     , IsRecord(..)
@@ -67,15 +69,27 @@ rec2str (RecordID rec) = T.unpack rec
 
 -- | A convenience typeclass for selecting records using RecordID-like keys.
 class IsRecord a where
-  toRec :: a -> RecordID
+  toRecId :: a -> RecordID
 
 instance IsRecord RecordID where
-  toRec = id
+  toRecId = id
 
 instance IsRecord String where
-  toRec = RecordID . T.pack
+  toRecId = RecordID . T.pack
 
 -- * Table
+
+-- | An airtable record.
+data Record a = Record { recordId :: RecordID, recordObj :: a, createdTime :: UTCTime }
+
+instance (FromJSON a) => FromJSON (Record a) where
+  parseJSON = withObject "record object" $ \v -> do
+    Record <$> v .: "id" 
+           <*> v .: "fields"
+           <*> v .: "createdTime"
+
+instance IsRecord (Record a) where
+  toRecId = recordId
 
 -- | Airtable's table type
 data Table a = Table { tableRecords :: Map.HashMap RecordID a
@@ -92,28 +106,24 @@ data Table a = Table { tableRecords :: Map.HashMap RecordID a
 type TableName = String
 
 instance (FromJSON a) => FromJSON (Table a) where
-  parseJSON (Object v) = do
+  parseJSON = withObject "table object" $ \v -> do
     recs <- v .: "records" :: Parser [Value]
     parsedRecs <- foldlM parseRec Map.empty recs
     offset <- v .:? "offset"
     return $ Table parsedRecs offset
     where
-      parseRec tbl json@(Object v) =
+      parseRec tbl = withObject "record object" $ \v -> 
             do  recId <- v .: "id"
                 fields <- v .: "fields"
                 obj <- parseJSON fields
                 return $ Map.insert recId obj tbl
-      parseRec tbl invalid = typeMismatch "Table" invalid
-  parseJSON invalid = typeMismatch "Table" invalid
-
 
 parseRecord :: (UTCTime -> RecordID -> Value -> Parser a) -> Value -> Parser a
-parseRecord action (Object v) = do
+parseRecord action = withObject "record object" $ \v -> do
     created  <- v .: "createdTime"
     recordId <- v .: "id"
     fields   <- v .: "fields"
     action created recordId fields
-parseRecord _action invalid = typeMismatch "parseFields" invalid
 
 parseFields :: (Value -> Parser a) -> Value -> Parser a
 parseFields action (Object v) = v .: "fields" >>= action
@@ -131,12 +141,12 @@ toList = Map.toList . tableRecords
 
 -- | Check if a record exists at the given key in a table.
 exists :: (IsRecord r) => Table a -> r -> Bool
-exists tbl rec = Map.member (toRec rec) (tableRecords tbl)
+exists tbl rec = Map.member (toRecId rec) (tableRecords tbl)
 
 -- | Unsafely lookup a record using its RecordID. Will throw a pretty-printed error
 --   if record does not exist.
 select :: (HasCallStack, IsRecord r, Show a) => Table a -> r -> a
-select tbl rec = tableRecords tbl `lookup` toRec rec
+select tbl rec = tableRecords tbl `lookup` toRecId rec
   where
     lookup mp k = case Map.lookup k mp of
       Just v -> v
@@ -144,7 +154,7 @@ select tbl rec = tableRecords tbl `lookup` toRec rec
 
 -- | Safely lookup a record using its RecordID.
 selectMaybe :: (IsRecord r) => Table a -> r -> Maybe a
-selectMaybe tbl rec = toRec rec `Map.lookup` tableRecords tbl
+selectMaybe tbl rec = toRecId rec `Map.lookup` tableRecords tbl
 
 -- | Read all records.
 selectAll :: Table a -> [a]
