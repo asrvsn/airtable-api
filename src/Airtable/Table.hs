@@ -23,12 +23,16 @@ module Airtable.Table
     , toList
     , exists
     , select
+    , vSelect
     , selectMaybe
+    , vSelectMaybe
     , selectAll
+    , vSelectAll
     , selectAllKeys
     , selectWhere
-    , selectKeyWhere
+    , vSelectWhere
     , deleteWhere
+    , vDeleteWhere
     ) where
 
 
@@ -162,13 +166,25 @@ select tbl rec = tableRecords tbl `lookup` toRecId rec
       Just v -> v
       Nothing -> error $ "lookup failed in map: " <> show k
 
+-- | Same as 'select', but returns the record object.
+vSelect :: (HasCallStack, HasRecordId r, Show a) => Table a -> r -> a
+vSelect tbl rec = recordObj (select tbl rec)
+
 -- | Safely lookup a record using its RecordID.
 selectMaybe :: (HasRecordId r) => Table a -> r -> Maybe (Record a)
 selectMaybe tbl rec = toRecId rec `Map.lookup` tableRecords tbl
 
+-- | Same as 'selectMaybe', but returns the record object.
+vSelectMaybe :: (HasRecordId r) => Table a -> r -> Maybe a
+vSelectMaybe tbl rec = recordObj <$> selectMaybe tbl rec
+
 -- | Read all records.
 selectAll :: Table a -> [Record a]
 selectAll = map snd . toList
+
+-- | Same as 'selectAll', but returns the record object.
+vSelectAll :: Table a -> [a]
+vSelectAll = map recordObj . selectAll
 
 -- | Read all RecordID's.
 selectAllKeys :: Table a -> [RecordID]
@@ -178,10 +194,14 @@ selectAllKeys = map fst . toList
 selectWhere :: Table a -> (Record a -> Bool) -> [Record a]
 selectWhere tbl f = filter f (selectAll tbl)
 
--- | Select all RecordID's satisfying a condition.
-selectKeyWhere :: Table a -> (Record a -> Bool) -> [RecordID]
-selectKeyWhere tbl f = map recordId $ filter f (selectAll tbl)
+-- | Same as 'selectAll', but returns the record object.
+vSelectWhere :: Table a -> (a -> Bool) -> [a]
+vSelectWhere tbl f = filter f (vSelectAll tbl)
 
 -- | Delete all Records satisfying a condition.
 deleteWhere :: Table a -> (Record a -> Bool) -> Table a
 deleteWhere (Table recs off) f = Table (Map.filter (\v -> not $ f v) recs) off
+
+-- | Same as 'deleteWhere', but returns the record object.
+vDeleteWhere :: Table a -> (a -> Bool) -> Table a
+vDeleteWhere tbl f = deleteWhere tbl (f . recordObj)
