@@ -108,10 +108,8 @@ instance HasRecordId (Record a) where
 
 -- | An airtable table. 
 data Table a = Table 
-  -- | A mapping from RecordID to Record
-  { tableRecords :: Map.HashMap RecordID (Record a)
-  -- | The "offset" parameter for the table. Is used to deal with airtable's pagination.
-  , tableOffset :: Maybe Text
+  { tableRecords :: Map.HashMap RecordID (Record a) -- ^ A mapping from RecordID to Record
+  , tableOffset :: Maybe Text -- ^ The "offset" parameter for the table. Is used to deal with airtable's pagination.
   } deriving
   ( Show
   , Read
