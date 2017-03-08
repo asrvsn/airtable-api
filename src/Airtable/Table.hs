@@ -12,8 +12,8 @@ module Airtable.Table
     -- * RecordID
     , RecordID(..)
     , rec2str
-    -- * IsRecord class
-    , IsRecord(..)
+    -- * HasRecordId class
+    , HasRecordId(..)
     -- * Table
     , Table(..)
     , TableName
@@ -53,6 +53,7 @@ import           Data.Time (UTCTime)
 
 -- | Airtable's record ID for use in indexing records
 newtype RecordID = RecordID Text deriving ( FromJSON
+                                          , ToJSON
                                           , Show
                                           , Read
                                           , Eq
@@ -65,22 +66,31 @@ instance Hashable RecordID
 rec2str :: RecordID -> String
 rec2str (RecordID rec) = T.unpack rec
 
--- * IsRecord class
+-- * HasRecordId class
 
 -- | A convenience typeclass for selecting records using RecordID-like keys.
-class IsRecord a where
+class HasRecordId a where
   toRecId :: a -> RecordID
 
-instance IsRecord RecordID where
+instance HasRecordId RecordID where
   toRecId = id
 
-instance IsRecord String where
+instance HasRecordId String where
   toRecId = RecordID . T.pack
 
 -- * Table
 
 -- | An airtable record.
-data Record a = Record { recordId :: RecordID, recordObj :: a, createdTime :: UTCTime }
+data Record a = Record 
+  { recordId :: RecordID
+  , recordObj :: a
+  , createdTime :: UTCTime 
+  } deriving ( Show
+             , Read
+             , Generic
+             , Eq
+             , Ord
+             )
 
 instance (FromJSON a) => FromJSON (Record a) where
   parseJSON = withObject "record object" $ \v -> do
@@ -88,7 +98,13 @@ instance (FromJSON a) => FromJSON (Record a) where
            <*> v .: "fields"
            <*> v .: "createdTime"
 
-instance IsRecord (Record a) where
+instance (ToJSON a) => ToJSON (Record a) where
+  toJSON rec = object [ "id" .= recordId rec
+                      , "fields" .= recordObj rec
+                      , "createdTime" .= createdTime rec
+                      ]
+
+instance HasRecordId (Record a) where
   toRecId = recordId
 
 -- | Airtable's table type
@@ -140,12 +156,12 @@ toList :: Table a -> [(RecordID, a)]
 toList = Map.toList . tableRecords
 
 -- | Check if a record exists at the given key in a table.
-exists :: (IsRecord r) => Table a -> r -> Bool
+exists :: (HasRecordId r) => Table a -> r -> Bool
 exists tbl rec = Map.member (toRecId rec) (tableRecords tbl)
 
 -- | Unsafely lookup a record using its RecordID. Will throw a pretty-printed error
 --   if record does not exist.
-select :: (HasCallStack, IsRecord r, Show a) => Table a -> r -> a
+select :: (HasCallStack, HasRecordId r, Show a) => Table a -> r -> a
 select tbl rec = tableRecords tbl `lookup` toRecId rec
   where
     lookup mp k = case Map.lookup k mp of
@@ -153,7 +169,7 @@ select tbl rec = tableRecords tbl `lookup` toRecId rec
       Nothing -> error $ "lookup failed in map: " <> show k
 
 -- | Safely lookup a record using its RecordID.
-selectMaybe :: (IsRecord r) => Table a -> r -> Maybe a
+selectMaybe :: (HasRecordId r) => Table a -> r -> Maybe a
 selectMaybe tbl rec = toRecId rec `Map.lookup` tableRecords tbl
 
 -- | Read all records.
