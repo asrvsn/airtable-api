@@ -134,6 +134,11 @@ instance (FromJSON a) => FromJSON (Table a) where
     offset <- v .:? "offset"
     return $ (fromRecords recs) { tableOffset = offset }
 
+instance (ToJSON a) => ToJSON (Table a) where
+  toJSON tbl = object [ "offset" .= tableOffset tbl
+                      , "records" .= selectAll tbl
+                      ]
+
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
   mappend (Table t1 o) (Table t2 _) = Table (mappend t1 t2) o
