@@ -26,7 +26,7 @@ import           Network.Wreq
 import           Control.Lens ((^.), (.~), (&))
 import           Control.Monad (void)
 
-import           Data.Aeson (FromJSON, ToJSON, eitherDecode, toJSON)
+import           Data.Aeson 
 import           Data.Monoid
 import           Data.ByteString.Lazy (ByteString)
 import qualified Data.ByteString.Char8 as BC
@@ -100,7 +100,7 @@ createRecord opts tname a = do
   where
     url = tableNameToUrl opts tname
     netOpts = mkWreqOptions opts 
-    payload = toJSON a
+    payload = object ["fields" .= a]
 
 -- | Update a record on a given table, using the supplied fields ('a').
 updateRecord :: (ToJSON a) => AirtableOptions -> TableName -> RecordID -> a -> IO ()
@@ -110,7 +110,7 @@ updateRecord opts tname recId a = do
   where
     url = tableNameToUrl opts tname <> "/" <> rec2str recId
     netOpts = mkWreqOptions opts
-    payload = toJSON a
+    payload = object ["fields" .= a]
 
 -- | Delete a record on a table. 
 deleteRecord :: AirtableOptions -> TableName -> RecordID -> IO ()
