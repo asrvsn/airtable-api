@@ -49,7 +49,8 @@ import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.Text (Text)
 import qualified Data.Text as T
-import           Data.Monoid
+import           Data.Semigroup ((<>), Semigroup)
+import           Data.Monoid hiding ((<>))
 import           Data.Hashable
 import           Data.Foldable (foldlM)
 import           Data.Time (UTCTime)
@@ -138,6 +139,9 @@ instance (ToJSON a) => ToJSON (Table a) where
   toJSON tbl = object [ "offset" .= tableOffset tbl
                       , "records" .= selectAll tbl
                       ]
+
+instance Semigroup (Table a) where
+  (Table t1 o) <> (Table t2 _) = Table (t1 <> t2) o
 
 instance Monoid (Table a) where
   mempty = Table mempty Nothing
