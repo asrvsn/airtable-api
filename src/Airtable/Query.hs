@@ -17,16 +17,26 @@ module Airtable.Query
     , respJsonBody
     ) where
 
-
 import           Airtable.Table
 
 import           GHC.Stack
 import           Network.Wreq
+  ( Options
+  , Response
+  , customPayloadMethodWith
+  , defaults
+  , deleteWith
+  , getWith
+  , header
+  , param
+  , postWith
+  , responseBody
+  )
 
 import           Control.Lens ((^.), (.~), (&))
 import           Control.Monad (void)
 
-import           Data.Aeson 
+import           Data.Aeson hiding (Options)
 import           Data.Monoid
 import           Data.ByteString.Lazy (ByteString)
 import qualified Data.ByteString.Char8 as BC
@@ -58,12 +68,12 @@ base_url = "https://api.airtable.com/"
 
 -- | Produce Wreq options from 'AirtableOptions'
 mkWreqOptions :: AirtableOptions -> Options
-mkWreqOptions opts = 
+mkWreqOptions opts =
   defaults & header "Authorization" .~ ["Bearer " <> BC.pack (apiKey opts)]
 
 -- | Produce a request URL to a table.
 tableNameToUrl :: AirtableOptions -> TableName -> String
-tableNameToUrl opts tname = 
+tableNameToUrl opts tname =
      base_url
   <> "v"
   <> show (apiVersion opts)
@@ -76,7 +86,7 @@ tableNameToUrl opts tname =
 
 -- | Retrieve the records for a table from airtable.com given its name. Handles pagination correctly.
 getRecords :: (HasCallStack, FromJSON a) => AirtableOptions -> TableName -> IO (Table a)
-getRecords opts tname = 
+getRecords opts tname =
   getRecordsFromUrl (mkWreqOptions opts) (tableNameToUrl opts tname)
 
 -- | Retrieve the records for a table given a URL and network (Wreq) options.
@@ -99,23 +109,23 @@ createRecord opts tname a = do
   return $ respJsonBody resp
   where
     url = tableNameToUrl opts tname
-    netOpts = mkWreqOptions opts 
+    netOpts = mkWreqOptions opts
     payload = object ["fields" .= a]
 
 -- | Update a record on a given table, using the supplied fields ('a').
 updateRecord :: (ToJSON a) => AirtableOptions -> TableName -> RecordID -> a -> IO ()
 updateRecord opts tname recId a = do
-  void $ 
+  void $
     customPayloadMethodWith "PATCH" netOpts url payload
   where
     url = tableNameToUrl opts tname <> "/" <> rec2str recId
     netOpts = mkWreqOptions opts
     payload = object ["fields" .= a]
 
--- | Delete a record on a table. 
+-- | Delete a record on a table.
 deleteRecord :: AirtableOptions -> TableName -> RecordID -> IO ()
-deleteRecord opts tname recId = 
-  void $ deleteWith netOpts url 
+deleteRecord opts tname recId =
+  void $ deleteWith netOpts url
   where
     netOpts = mkWreqOptions opts
     url = tableNameToUrl opts tname <> "/" <> rec2str recId
